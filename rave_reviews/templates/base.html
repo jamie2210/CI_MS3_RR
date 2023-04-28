@@ -9,8 +9,6 @@
     <meta name="keywords"
           content="raves, rave reviews, raving, drum and bass, jungle, dnb, clubbing">
     <meta name="author" content="Jamie Letts">
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/177beb570f.js" crossorigin="anonymous" type="text/css"></script>
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">   
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon.png') }}">
@@ -21,6 +19,39 @@
 </head>
 <body>
 
+    <header>
+        <!-- top navbar -->
+        <nav>
+            <div class="nav-wrapper rr-nav">
+                <a href="{{ url_for('index.home')}}"><img src="{{ url_for('static', filename='images/favicon.png') }}" class="rr-logo"></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fa-solid fa-bars burger"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('index.home')}}" class="nav-link">Home</a></li>
+                    <li><a href="#" class="nav-link">Profile</a></li>
+                    <li><a href="{{ url_for('raves.get_raves') }}" class="nav-link">Raves</a></li>
+                    <li><a href="#" class="nav-link">Add Rave</a></li>
+                    <li><a href="#" class="nav-link">Add Organisation</a></li>
+                    <li><a href="#" class="nav-link">Log Out</a></li>
+                    <li><a href="#" class="nav-link">Log In</a></li>
+                    <li><a href="#" class="nav-link">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- side navbar -->
+        <ul class="sidenav rr-nav" id="mobile-demo">
+            <li><h4 class="center-align collapse-title">Rave Reviews</h4></li>
+            <li><a href="{{ url_for('index.home')}}" class="nav-link">Home</a></li>
+            <li><a href="#" class="nav-link">Profile</a></li>
+            <li><a href="{{ url_for('raves.get_raves') }}" class="nav-link">Raves</a></li>
+            <li><a href="#" class="nav-link">Add Rave</a></li>
+            <li><a href="#" class="nav-link">Add Organisation</a></li>
+            <li><a href="#" class="nav-link">Log Out</a></li>
+            <li><a href="#" class="nav-link">Log In</a></li>
+            <li><a href="#" class="nav-link">Register</a></li>
+        </ul>
+        
+    </header>
+
     {% block content %}
     {% endblock %}
 
@@ -30,6 +61,8 @@
     </script>
     <!-- Materialize Js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/177beb570f.js" crossorigin="anonymous"></script>
     <!-- indexjs-->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block scripts %}
