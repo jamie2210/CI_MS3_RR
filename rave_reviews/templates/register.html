@@ -3,14 +3,36 @@
 
     <h1 class="title">REGISTER</h1>
     <div class="row">
-        <form class="col s12 m8 offset-m2">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('authentication.register') }}">
           <div class="card-panel">
+            <!-- username -->
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="fa-solid fa-user prefix fa-icon"></i>
-                    <input id="username" name="username" type="text" class="validate">
-                    <label for="username">Username</label>
-                </div>
+              <div class="input-field col s12">
+                  <i class="fa-solid fa-user prefix fa-icon"></i>
+                  <input id="username" name="username" type="text" class="validate" required>
+                  <label for="username">Username</label>
+              </div>
+            </div>
+            <!-- password -->
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="fa-solid fa-lock prefix fa-icon"></i>
+                <input id="password" name="password" type="password" class="validate" required>
+                <label for="password">Password</label>
+              </div>
+            </div>
+            <!-- confirm password -->
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="fa-solid fa-lock prefix fa-icon"></i>
+                <input id="confirm-password" name="confirm-password" type="password" class="validate" required>
+                <label for="confirm-password">Confirm Password</label>
+              </div>
+            </div>
+            <!-- register button -->
+            <div class="row">
+              <i class="fa-solid fa-arrow-up-from-square"></i>
+              <button type="submit" class="col m6 offset-m3 text-center btn-large"><strong>Register</button>
             </div>
           </div>
         </form>

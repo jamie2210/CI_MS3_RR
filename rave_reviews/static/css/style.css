@@ -18,6 +18,23 @@ body {
     color: white;
 }
 
+.fa-arrow-up-from-square {
+    color: black;
+}
+
+.fa-icon {
+    color: #f9b233;
+  }
+
+.btn {
+    background-color: #f9b233;
+}
+
+.btn-large:hover {
+    background-color: #e08e01;
+    transition: all 0.3s ease-in-out;
+}
+
 /* ---------------------------------- Nav Bar */
 
 .rr-nav {
@@ -60,4 +77,12 @@ body {
 .fa-icon {
     color: #f9b233;
   }
-  
+
+.btn-large {
+    background-color: #f9b233;
+}
+
+.btn-large:hover {
+    background-color: #e08e01;
+    transition: all 0.3s ease-in-out;
+}
