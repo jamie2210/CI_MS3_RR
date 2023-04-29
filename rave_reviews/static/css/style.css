@@ -93,3 +93,14 @@ body {
     background-color: #e08e01;
     transition: all 0.3s ease-in-out;
 }
+
+/* ---------------------------------- Log In */
+
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+.link:hover {
+    color:#f9b233;
+}

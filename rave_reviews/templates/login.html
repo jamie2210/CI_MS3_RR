@@ -2,12 +2,12 @@
 {% block content %}
 
     <div class="row">
-        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('authentication.register') }}">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('authentication.login') }}">
           <div class="card-panel">
             <!-- username -->
             <div class="row">
               <div class="input-field col s12">
-                  <i class="fa-solid fa-user prefix fa-icon"></i>
+                  <i class="fa-regular fa-face-smile prefix fa-icon"></i>
                   <input id="username" name="username" type="text" minlength="5"
                        maxlenght="15" pattern="^[a-zA-z0-9]{5,15}$" class="validate" required>
                   <label for="username">Username</label>
@@ -31,10 +31,10 @@
               </div>
             </div> -->
             
-            <!-- register button -->
+            <!-- log in button -->
             <div class="row">
               <i class="fa-solid fa-arrow-up-from-square"></i>
-              <button type="submit" class="col m6 offset-m3 text-center btn-large"><strong>Register</button>
+              <button type="submit" class="col m6 offset-m3 text-center btn-large"><strong>Log In</button>
             </div>
           </div>
         </form>
@@ -42,9 +42,8 @@
     <div class="row">
       <div class="col s12">
         <p class="center-align">
-          Already registered? Log in <a href="{{ url_for('authentication.login')}}" class="link">here</a>
+          Not regstiered yet? Register <a href="{{ url_for('authentication.register')}}" class="link">here</a>
         </p>
       </div>
     </div>
-
 {% endblock %}
