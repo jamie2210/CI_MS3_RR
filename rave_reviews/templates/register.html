@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h1 class="title">REGISTER</h1>
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('authentication.register') }}">
           <div class="card-panel">
@@ -9,7 +8,8 @@
             <div class="row">
               <div class="input-field col s12">
                   <i class="fa-solid fa-user prefix fa-icon"></i>
-                  <input id="username" name="username" type="text" class="validate" required>
+                  <input id="username" name="username" type="text" minlength="5"
+                       maxlenght="15" pattern="^[a-zA-z0-9]{5,15}$" class="validate" required>
                   <label for="username">Username</label>
               </div>
             </div>
@@ -17,18 +17,20 @@
             <div class="row">
               <div class="input-field col s12">
                 <i class="fa-solid fa-lock prefix fa-icon"></i>
-                <input id="password" name="password" type="password" class="validate" required>
+                <input id="password" name="password" type="password" minlength="5" 
+                      maxlength="15" pattern="^[a-zA-z0-9]{5,15}$" class="validate" required>
                 <label for="password">Password</label>
               </div>
             </div>
             <!-- confirm password -->
-            <div class="row">
+            <!-- <div class="row">
               <div class="input-field col s12">
                 <i class="fa-solid fa-lock prefix fa-icon"></i>
                 <input id="confirm-password" name="confirm-password" type="password" class="validate" required>
                 <label for="confirm-password">Confirm Password</label>
               </div>
-            </div>
+            </div> -->
+            
             <!-- register button -->
             <div class="row">
               <i class="fa-solid fa-arrow-up-from-square"></i>

@@ -10,4 +10,4 @@ raves = Blueprint('raves', __name__)
 @raves.route("/get_raves")
 def get_raves():
     raves = mongo.db.raves.find()
-    return render_template("raves.html", raves=raves)
+    return render_template("raves.html", title="RAVES", raves=raves)

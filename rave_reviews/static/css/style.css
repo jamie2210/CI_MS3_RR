@@ -35,6 +35,13 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
+/* ------------- Flashes */
+
+.flashes {
+    font-family: "PhillySans", sans-serif;
+    color:white;
+}
+
 /* ---------------------------------- Nav Bar */
 
 .rr-nav {
