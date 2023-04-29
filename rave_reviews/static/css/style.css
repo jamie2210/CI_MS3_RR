@@ -1,3 +1,23 @@
+/* ---------------------------------- Fonts */
+
+@font-face {
+    font-family: "PhillySans";
+    src: url(../font/PhillySans.otf)
+}
+
+.title {
+    font-family: "PhillySans", sans-serif;
+    color: #f9b233;
+    text-align: center;
+}
+
+/* ---------------------------------- Body */
+
+body {
+    background-color: black;
+    color: white;
+}
+
 /* ---------------------------------- Nav Bar */
 
 .rr-nav {
