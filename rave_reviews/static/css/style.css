@@ -1,5 +1,7 @@
 /* ---------------------------------- Fonts */
 
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500&display=swap');
+
 @font-face {
     font-family: "PhillySans";
     src: url(../font/PhillySans.otf)
@@ -16,6 +18,7 @@
 body {
     background-color: black;
     color: white;
+    font-family: 'Merriweather+Sans', sans-serif;
 }
 
 .fa-arrow-up-from-square {
@@ -129,9 +132,8 @@ body {
     background-color: #3b3b3b;
 }
 
-.card-title {
+.rave-title {
     text-align: center;
-    font-weight: 300;
     padding-top: 20px;
     padding-bottom: 20px;
     margin: 0;
