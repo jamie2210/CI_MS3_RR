@@ -47,7 +47,8 @@ def login():
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}!".format(request.form.get("username")))
                 return redirect(
-                    url_for("authentication.profile", username=session["user"]))
+                    url_for(
+                        "authentication.profile", username=session["user"]))
             else:
                 # invalid password
                 flash("Incorrect Username and/or Password")
