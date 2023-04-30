@@ -9,7 +9,7 @@
                 {% for rave in raves %}
                     <h4 class="rave-title">{{ rave.rave_name }}
                         {% if rave.banger == "on" %}
-                            <i class="fa-solid fa-bullhorn fa-icon"></i>
+                            <i class="fa-solid fa-bullhorn fa-icon tooltipped" data-position="right" data-tooltip="CERTIFIED BANGER!"></i>
                         {% endif %}
                     </h4>
                     <div class="card-image">
