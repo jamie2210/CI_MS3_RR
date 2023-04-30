@@ -1,14 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
 
-    
-    {% for rave in raves %}
-    {{ rave.organisation_name }}<br>
-    {{ rave.rave_image }}<br>
-    {{ rave.rave_name }}<br>
-    {{ rave.date }}<br>
-    {{ rave.venue }}<br>
-    {{ rave.rave_description }}<br>
-    {% endfor %}
+
+
+    <div class="row">
+        
+        <div class="col col s12 m6 offset-m3">
+            <div class="card">
+                {% for rave in raves %}
+                    <h4 class="card-title"><strong>{{ rave.rave_name }}</strong></h4>
+                    <div class="card-image">
+                        <img src="images/sample-1.jpg" {{ rave.rave_image }}>    
+                    </div>
+                    <div class="card-content">
+                        <h5>{{ rave.organisation_name }}</h5><br>
+                        <p>{{ rave.date }}</p>
+                        <P>{{ rave.venue }}</P><br>
+                        <p>{{ rave.rave_description }}</p>
+                    </div>
+                    <div class="card-action">
+                        <button class="btn">Add Comment</button>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

@@ -113,3 +113,26 @@ body {
 .link:hover {
     color:#f9b233;
 }
+
+/* ---------------------------------- Get Raves */
+
+.btn {
+    background-color: #f9b233;
+}
+
+.btn:hover {
+    background-color: #e08e01;
+    transition: all 0.3s ease-in-out;
+}
+
+.card {
+    background-color: #3b3b3b;
+}
+
+.card-title {
+    text-align: center;
+    font-weight: 300;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0;
+}
