@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+        <div class="row">
+            <form class="add_rave" method="Post" action="">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-people-group prefix fa-icon"></i>
+                        <select id="organisation_name" name="organisation_name" class="validate" required>
+                        <option value="" disabled selected>Select Organisation</option>
+                        {% for organisation in organisations %}
+                            <option value="{{ organisation.organisation_name }}">{{ organisation.organisation_name }}</option>
+                        {% endfor %}
+                        </select>
+                        <label for="organisation_name">Organisation</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-face-grin-wide prefix fa-icon"></i>
+                        <input id="rave_name" name="rave_name" type="text" class="validate" required>
+                        <label for="rave_name">Rave Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-calendar-days prefix fa-icon"></i>
+                        <input id="date" name="date" type="text" class="datepicker validate" required>
+                        <label for="date">Rave Date</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-file-pen prefix fa-icon"></i>
+                        <textarea id="rave_description" name="rave_description" class="materialize-textarea validate" required></textarea>
+                        <label for="rave_description">How was it?</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <div class="switch">
+                            <i class="fa-solid fa-bullhorn fa-icon prefix banger"></i>
+                            <label for="banger">
+                            <input type="checkbox" id="banger">
+                            <span class="lever"></span>
+                            Proper naughty rave?
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+{% endblock %}
