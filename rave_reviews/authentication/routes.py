@@ -3,7 +3,6 @@ from flask import (
     Flask, flash, render_template, Blueprint,
     redirect, request, session, url_for)
 from werkzeug.security import generate_password_hash, check_password_hash
-from bson.objectid import ObjectId
 from rave_reviews import mongo
 
 authentication = Blueprint('authentication', __name__)
@@ -24,7 +23,7 @@ def register():
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
-        mongo.db.user.insert_one(register)
+        mongo.db.users.insert_one(register)
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
@@ -44,7 +43,7 @@ def login():
             if check_password_hash(
                  existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username")))
+                flash("Welcome, {}!".format(request.form.get("username")))
             else:
                 # invalid password
                 flash("Incorrect Username and/or Password")
