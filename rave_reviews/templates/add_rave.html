@@ -2,8 +2,9 @@
 {% block content %}
 
         <div class="row">
-            <form class="add_rave" method="Post" action="">
+            <form class="add_rave" method="Post" action="{{ url_for('raves.add_rave') }}">
                 <div class="row">
+                    <!-- selecet organisation -->
                     <div class="input-field col s12">
                         <i class="fa-solid fa-people-group prefix fa-icon"></i>
                         <select id="organisation_name" name="organisation_name" class="validate" required>
@@ -15,6 +16,7 @@
                         <label for="organisation_name">Organisation</label>
                     </div>
                 </div>
+                <!-- rave name -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fa-solid fa-face-grin-wide prefix fa-icon"></i>
@@ -22,6 +24,7 @@
                         <label for="rave_name">Rave Name</label>
                     </div>
                 </div>
+                <!-- rave date picker -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fa-solid fa-calendar-days prefix fa-icon"></i>
@@ -29,6 +32,15 @@
                         <label for="date">Rave Date</label>
                     </div>
                 </div>
+                <!-- rave venue -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-warehouse prefix fa-icon"></i>
+                        <input id="venue" name="venue" type="text" class="validate" required>
+                        <label for="venue">Rave Venue</label>
+                    </div>
+                </div>
+                <!-- rave description -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fa-solid fa-file-pen prefix fa-icon"></i>
@@ -36,6 +48,7 @@
                         <label for="rave_description">How was it?</label>
                     </div>
                 </div>
+                <!-- banger checkbox -->
                 <div class="row">
                     <div class="input-field col s12">
                         <div class="switch">
@@ -46,6 +59,13 @@
                             Proper naughty rave?
                             </label>
                         </div>
+                    </div>
+                </div>
+                <!-- submit button -->
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <i class="fa-solid fa-arrow-up-from-square"></i>
+                        <button type="submit" class="btn"><strong>Add Reivew</button>
                     </div>
                 </div>
             </form>
