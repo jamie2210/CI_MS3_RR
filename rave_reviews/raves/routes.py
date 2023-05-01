@@ -42,6 +42,8 @@ def add_rave():
         }
         mongo.db.raves.insert_one(rave)
         flash("Rave Review Uploaded!")
+        return redirect(url_for("get_raves"))
+
     organisations = mongo.db.organisation.find().sort(
         "organisation_name", 1)
 
