@@ -31,6 +31,7 @@ body {
 
 .btn {
     background-color: #f9b233;
+    margin: 10px 10px 0 10px;
 }
 
 .btn-large:hover {
@@ -139,10 +140,10 @@ body {
 }
 
 .rave-title {
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
     margin: 0;
+    font-family: "PhillySans", sans-serif;
 }
 
 .collapsible {
@@ -152,6 +153,11 @@ body {
 
 .collapsible-header {
     background-color: #3b3b3b;
+}
+
+.fa-hand-point-down {
+    position: absolute;
+    right: 10px;
 }
 
 /* ---------------------------------- Add Rave */
@@ -174,3 +180,22 @@ body {
 .img-label {
     margin-left: 3rem;;
 }
+
+.fa-bullhorn {
+    margin-left: 5px;
+}
+
+/* ---------------------------------- Edit Rave */
+
+/* .edit-card-image {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    right: 10px;
+}
+
+.small-text {
+    position: absolute;
+    right: 20px;
+    pointer-events:none;
+} */

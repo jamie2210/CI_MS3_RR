@@ -3,6 +3,7 @@ from flask import (
     Flask, flash, render_template, Blueprint,
     redirect, request, session, url_for)
 from rave_reviews import mongo
+from bson.objectid import ObjectId
 import boto3
 from werkzeug.utils import secure_filename
 
@@ -30,6 +31,10 @@ def add_rave():
 
         image_url = upload("rave_image")
 
+        rave_set_link = request.form.get("rave_set")
+
+        modified_link = modify_youtube_link(rave_set_link)
+
         rave = {
             "organisation_name": request.form.get("organisation_name"),
             "rave_image": image_url,
@@ -37,12 +42,13 @@ def add_rave():
             "date": request.form.get("date"),
             "venue": request.form.get("venue"),
             "rave_description": request.form.get("rave_description"),
+            "rave_set": modified_link,
             "banger": banger,
             "created_by": session["user"]
         }
         mongo.db.raves.insert_one(rave)
         flash("Rave Review Uploaded!")
-        return redirect(url_for("get_raves"))
+        return redirect(url_for("raves.get_raves"))
 
     organisations = mongo.db.organisation.find().sort(
         "organisation_name", 1)
@@ -72,3 +78,24 @@ def upload(file_key):
     else:
         flash("Invalid file format. Use 'jpg', 'JPG', 'png', 'PNG'")
         return redirect(request.url)
+
+
+def modify_youtube_link(link):
+    if "youtube.com/watch?" not in link:
+        print("Invalid YouTube link")
+        return
+
+    modified_link = link.replace("watch?", "")
+    modified_link = modified_link.replace("youtube.com/", "youtube.com/embed/")
+
+    return modified_link
+
+
+@raves.route("/edit_rave/<rave_id>", methods=["GET", "POST"])
+def edit_rave(rave_id):
+    rave = mongo.db.raves.find_one({"_id": ObjectId(rave_id)})
+    organisations = mongo.db.organisation.find().sort(
+        "organisation_name", 1)
+    return render_template(
+        "edit_rave.html", rave=rave,
+        title="EDIT REVIEW", organisations=organisations)

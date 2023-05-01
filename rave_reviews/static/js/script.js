@@ -41,3 +41,16 @@ $(document).ready(function(){
         });
     }
   });
+
+//   Youtube embed
+
+// // function embedVideo() {
+// //     var youtubeLink = document.getElementById("rave_set").value;
+// //     var videoId = youtubeLink.split("v=")[1];
+// //     rave.rave_set = "https://www.youtube.com/embed/" + videoId;
+// // }
+
+// function embedVideo() {
+//     var youtubeLink = document.getElementById("rave_set").value;
+//     rave.rave_set = youtubeLink.split("v=")[1];
+// }
