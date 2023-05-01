@@ -1,3 +1,23 @@
+document.addEventListener('DOMContentLoaded', function() {
+});
+
+
+/**
+ * Select reuqired elements
+ */
+const reviewModal = document.querySelector('.review-modal');
+const modalBackground = document.querySelector('.modal-background');
+
+function deleteReviewModal() {
+    reviewModal.style.display = "block";
+    modalBackground.style.display = "block";
+}
+
+function closeModal() {
+    reviewModal.style.display = "none";
+    modalBackground.style.display = "none";
+}
+
 $(document).ready(function(){
     $('.sidenav').sidenav({edge: "right"});
     $('.carousel').carousel();

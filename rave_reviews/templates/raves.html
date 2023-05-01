@@ -2,48 +2,67 @@
 {% block content %}
 
 
-    <div class="center-align">
-        <div class="row">
-            <div>
-                <div class="card">
-                    {% for rave in raves %}
-                        <ul class="collapsible">
-                            <li>
-                                <div class="collapsible-header">
-                                    <h4 class="rave-title">{{ rave.rave_name }}
-                                        {% if rave.banger == "on" %}
-                                            <i class="fa-solid fa-bullhorn fa-icon tooltipped" data-position="right" data-tooltip="PROPER NAUGHTY!"></i>
-                                        {% endif %}
-                                        <i class="fa-solid fa-hand-point-down prefix fa-icon"></i>
-                                    </h4>
-                                </div>
-                                <div class="collapsible-body">
-                                    <div class="card-image">
-                                        <img src="{{ rave.rave_image }}" class="materialboxed">    
+        <div class="center-align">
+            <div class="row">
+                <div>
+                    <div class="card">
+                        {% for rave in raves %}
+                            <ul class="collapsible">
+                                <li>
+                                    <div class="collapsible-header">
+                                        <h4 class="rave-title">{{ rave.rave_name }}
+                                            {% if rave.banger == "on" %}
+                                                <i class="fa-solid fa-bullhorn fa-icon tooltipped" data-position="right" data-tooltip="PROPER NAUGHTY!"></i>
+                                            {% endif %}
+                                            <i class="fa-solid fa-hand-point-down prefix fa-icon"></i>
+                                        </h4>
                                     </div>
-                                    <div class="card-content">
-                                        <h5>{{ rave.organisation_name }}</h5><br>
-                                        <p>{{ rave.date }}</p>
-                                        <P>{{ rave.venue }}</P><br>
-                                        <p>{{ rave.rave_description }}</p>
-                                        {% if rave.rave_set %}
-                                            <iframe width="560" height="315" src="{{rave.rave_set}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                        {% endif %}
-                                        <p><em>raver: {{rave.created_by }}</em></p>
+                                    <div class="collapsible-body">
+                                        <div class="card-image">
+                                            <img src="{{ rave.rave_image }}" class="materialboxed">    
+                                        </div>
+                                        <div class="card-content">
+                                            <h5>{{ rave.organisation_name }}</h5><br>
+                                            <p>{{ rave.date }}</p>
+                                            <P>{{ rave.venue }}</P><br>
+                                            <p>{{ rave.rave_description }}</p>
+                                            {% if rave.rave_set %}
+                                                <iframe width="560" height="315" src="{{rave.rave_set}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                            {% endif %}
+                                            <p><em>raver: {{rave.created_by }}</em></p>
+                                        </div>
+                                        <div class="card-action">
+                                            {% if session.user|lower == rave.created_by|lower %}
+                                                <a href="{{ url_for('raves.edit_rave', rave_id=rave._id) }}" class="btn">Edit Review</a>
+                                                <button onClick="deleteReviewModal()" class="btn">Delete Review</button>
+                                            {% endif %}
+                                            <a href="#" class="btn edit">Comment</a>
+                                        </div>
                                     </div>
-                                    <div class="card-action">
-                                        {% if session.user|lower == rave.created_by|lower %}
-                                            <a href="{{ url_for('raves.edit_rave', rave_id=rave._id) }}" class="btn edit">Edit Review</a>
-                                            <a href="{{ url_for('raves.delete_rave', rave_id=rave._id) }}" class="btn edit">Delete Review</a>
-                                        {% endif %}
-                                        <a href="#" class="btn edit">Comment</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    {% endfor %}
+                                </li>
+                            </ul>
+                                 <!-- Delete Modal -->
+                                        <div class="modal-background"></div>
+                                            <div class="row">
+                                                <div class="center-align review-modal">
+                                                        <div class="col-12">
+                                                            <header class="modal-header">
+                                                                <h2>
+                                                                    Are you sure you want to delete you review!?
+                                                                </h2>
+                                                            </header>
+                                                            <div class="modal-body">
+                                                                <button onClick="closeModal()" class="btn">Cancel</button>
+                                                                <a href="{{ url_for('raves.delete_rave', rave_id=rave._id) }}" class="btn edit">Delete Review</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 {% endblock %}
