@@ -4,8 +4,14 @@ from flask import (
     redirect, request, session, url_for)
 from rave_reviews import mongo
 import boto3
+from werkzeug.utils import secure_filename
 
-s3 = boto3.client('s3')
+UPLOAD_FOLDER = "uploads"
+BUCKET = "rave-review-bucket"
+
+s3 = boto3.client('s3',
+                  aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+                  aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'])
 
 raves = Blueprint('raves', __name__)
 
@@ -22,7 +28,7 @@ def add_rave():
 
         banger = "on" if request.form.get("banger") else "off"
 
-        image_url = upload(request.files["rave_image"])
+        image_url = upload("rave_image")
 
         rave = {
             "organisation_name": request.form.get("organisation_name"),
@@ -43,18 +49,10 @@ def add_rave():
         "add_rave.html", title="REVIEW RAVE", organisations=organisations)
 
 
-def upload(file):
-    if request.method == "POST":
-
-        object_name = f'rave_images/{file.filename}'
-
-        # Get the uploaded file
-        file = mongo.db.raves.files.find["rave_image"]
-
-        # Upload the file to S3
-        bucket_name = "rave-reviews-bucket"
-        s3.upload_fileobj(file, bucket_name, object_name)
-
-        object_url = f'https://{bucket_name}.s3.amazonaws.com/{object_name}'
-
-    return object_url
+def upload(file_key):
+    f = request.files[file_key]
+    file_name = secure_filename(f.filename)
+    file_content = f.read()
+    s3.put_object(Bucket=BUCKET, Key=file_name, Body=file_content)
+    image_url = f"https://{BUCKET}.s3.amazonaws.com/{file_name}"
+    return image_url
