@@ -3,6 +3,8 @@ $(document).ready(function(){
     $('.carousel').carousel();
     $('.tooltipped').tooltip();
     $('select').formSelect();
+    $('.materialboxed').materialbox();
+    $('.collapsible').collapsible();
     $('.datepicker').datepicker({
       format: "dd mmmm, yyyy",
       showclearBtn: true,
