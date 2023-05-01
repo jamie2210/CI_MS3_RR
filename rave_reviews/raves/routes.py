@@ -49,10 +49,24 @@ def add_rave():
         "add_rave.html", title="REVIEW RAVE", organisations=organisations)
 
 
+ALLOWED_EXTENSIONS = {'jpg', 'JPG', 'png', 'PNG'}
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
 def upload(file_key):
     f = request.files[file_key]
-    file_name = secure_filename(f.filename)
-    file_content = f.read()
-    s3.put_object(Bucket=BUCKET, Key=file_name, Body=file_content)
-    image_url = f"https://{BUCKET}.s3.amazonaws.com/{file_name}"
-    return image_url
+    if f and allowed_file(f.filename):
+        file_name = secure_filename(f.filename)
+        file_content = f.read()
+        s3.put_object(
+            Bucket=BUCKET, Key=file_name, Body=file_content,
+            ContentType=f.content_type)
+        image_url = f"https://{BUCKET}.s3.amazonaws.com/{file_name}"
+        return image_url
+    else:
+        flash("Invalid file format. Use 'jpg', 'JPG', 'png', 'PNG'")
+        return redirect(request.url)
