@@ -105,3 +105,10 @@ def edit_rave(rave_id):
     return render_template(
         "edit_rave.html", rave=rave,
         title="EDIT REVIEW", organisations=organisations)
+
+
+@raves.route("/delete_rave/<rave_id>")
+def delete_rave(rave_id):
+    mongo.db.raves.delete_one({"_id": ObjectId(rave_id)})
+    flash("Review Gone!")
+    return redirect(url_for("raves.get_raves"))

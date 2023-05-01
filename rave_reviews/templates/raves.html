@@ -32,8 +32,10 @@
                                         <p><em>raver: {{rave.created_by }}</em></p>
                                     </div>
                                     <div class="card-action">
-                                        <a href="{{ url_for('raves.edit_rave', rave_id=rave._id) }}" class="btn edit">Edit</a>
-                                        <a href="#" class="btn edit">Delete</a>
+                                        {% if session.user|lower == rave.created_by|lower %}
+                                            <a href="{{ url_for('raves.edit_rave', rave_id=rave._id) }}" class="btn edit">Edit Review</a>
+                                            <a href="{{ url_for('raves.delete_rave', rave_id=rave._id) }}" class="btn edit">Delete Review</a>
+                                        {% endif %}
                                         <a href="#" class="btn edit">Comment</a>
                                     </div>
                                 </div>
