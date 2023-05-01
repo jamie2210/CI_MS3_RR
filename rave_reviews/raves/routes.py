@@ -31,10 +31,6 @@ def add_rave():
 
         image_url = upload("rave_image")
 
-        rave_set_link = request.form.get("rave_set")
-
-        modified_link = modify_youtube_link(rave_set_link)
-
         rave = {
             "organisation_name": request.form.get("organisation_name"),
             "rave_image": image_url,
@@ -42,7 +38,7 @@ def add_rave():
             "date": request.form.get("date"),
             "venue": request.form.get("venue"),
             "rave_description": request.form.get("rave_description"),
-            "rave_set": modified_link,
+            "rave_set": request.form.get("rave_set"),
             "banger": banger,
             "created_by": session["user"]
         }
@@ -80,19 +76,29 @@ def upload(file_key):
         return redirect(request.url)
 
 
-def modify_youtube_link(link):
-    if "youtube.com/watch?" not in link:
-        print("Invalid YouTube link")
-        return
-
-    modified_link = link.replace("watch?", "")
-    modified_link = modified_link.replace("youtube.com/", "youtube.com/embed/")
-
-    return modified_link
-
-
 @raves.route("/edit_rave/<rave_id>", methods=["GET", "POST"])
 def edit_rave(rave_id):
+    if request.method == "POST":
+
+        banger = "on" if request.form.get("banger") else "off"
+
+        image_url = upload("rave_image")
+
+        submit = {
+            "organisation_name": request.form.get("organisation_name"),
+            "rave_image": image_url,
+            "rave_name": request.form.get("rave_name"),
+            "date": request.form.get("date"),
+            "venue": request.form.get("venue"),
+            "rave_description": request.form.get("rave_description"),
+            "rave_set": request.form.get("rave_set"),
+            "banger": banger,
+            "created_by": session["user"]
+        }
+        mongo.db.raves.update_one({"_id": ObjectId(rave_id)}, {"$set": submit})
+        flash("Rave Review Uploaded!")
+        return redirect(url_for("raves.get_raves"))
+
     rave = mongo.db.raves.find_one({"_id": ObjectId(rave_id)})
     organisations = mongo.db.organisation.find().sort(
         "organisation_name", 1)
