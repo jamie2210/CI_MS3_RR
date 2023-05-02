@@ -1,13 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
 });
 
-
 /**
  * Select reuqired elements
  */
 const reviewModal = document.querySelector('.review-modal');
 const modalBackground = document.querySelector('.modal-background');
 
+/**
+ * Delete Review Modal functions
+ */
 function deleteReviewModal() {
     reviewModal.style.display = "block";
     modalBackground.style.display = "block";

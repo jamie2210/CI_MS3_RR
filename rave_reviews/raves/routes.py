@@ -109,6 +109,10 @@ def edit_rave(rave_id):
 
 @raves.route("/delete_rave/<rave_id>")
 def delete_rave(rave_id):
+    # finds the rave name before deleting it
+    rave = mongo.db.raves.find_one({"_id": ObjectId(rave_id)})
+    rave_name = rave['rave_name']
     mongo.db.raves.delete_one({"_id": ObjectId(rave_id)})
-    flash("Review Gone!")
+    # f string adds rave name to the flahs message once deleted 
+    flash(f"{rave_name} is Gone!")
     return redirect(url_for("raves.get_raves"))
