@@ -27,9 +27,12 @@ def get_raves():
 def add_rave():
     if request.method == "POST":
 
-        banger = "on" if request.form.get("banger") else "off"
-
         image_url = upload("rave_image")
+
+        rave_set_link = request.form.get("rave_set")
+        modified_link = modify_youtube_link(rave_set_link)
+
+        banger = "on" if request.form.get("banger") else "off"
 
         rave = {
             "organisation_name": request.form.get("organisation_name"),
@@ -38,7 +41,7 @@ def add_rave():
             "date": request.form.get("date"),
             "venue": request.form.get("venue"),
             "rave_description": request.form.get("rave_description"),
-            "rave_set": request.form.get("rave_set"),
+            "rave_set": modified_link,
             "banger": banger,
             "created_by": session["user"]
         }
@@ -74,6 +77,12 @@ def upload(file_key):
     else:
         flash("Invalid file format. Use 'jpg', 'JPG', 'png', 'PNG'")
         return redirect(request.url)
+
+
+def modify_youtube_link(link):
+    if "watch?v=" in link:
+        link = link.replace("watch?v=", "embed/")
+    return link
 
 
 @raves.route("/edit_rave/<rave_id>", methods=["GET", "POST"])
