@@ -113,6 +113,6 @@ def delete_rave(rave_id):
     rave = mongo.db.raves.find_one({"_id": ObjectId(rave_id)})
     rave_name = rave['rave_name']
     mongo.db.raves.delete_one({"_id": ObjectId(rave_id)})
-    # f string adds rave name to the flahs message once deleted 
+    # f string adds rave name to the flash message once deleted
     flash(f"{rave_name} is Gone!")
     return redirect(url_for("raves.get_raves"))
