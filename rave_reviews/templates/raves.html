@@ -1,12 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-        <div class="center-align">
-            <div class="row">
                 <div class="card-container">
                         {% for rave in raves %}
-                        <div class="card">
+                        <div class="card center-align">
                             <ul class="collapsible">
                                 <li>
                                     <div class="collapsible-header">
@@ -23,7 +20,7 @@
                                         </div>
                                         <div class="card-content">
                                             <h5>{{ rave.organisation_name }}</h5><br>
-                                            <p class="picker">{{ rave.date }}</p>
+                                            <p>{{ rave.date }}</p>
                                             <P>{{ rave.venue }}</P><br>
                                             <p>{{ rave.rave_description }}</p>
                                             {% if rave.rave_set %}
@@ -62,7 +59,6 @@
                             </div>
                         {% endfor %}
                     </div>
-            </div>
-        </div>
+  
        
 {% endblock %}
