@@ -43,25 +43,25 @@
                                 </li>
                             </ul>
                             </div>
-                             <!-- Delete Modal -->
-                                <div class="modal-background"></div>
-                                <div class="row">
-                                    <div class="center-align review-modal">
-                                        <div class="col-12">
-                                            <header class="modal-header">
-                                                <h2>
-                                                    Are you sure you want to delete your review!?
-                                                </h2>
-                                            </header>
-                                            <div class="modal-body">
-                                                <button onClick="closeModal()" class="btn">Cancel</button>
-                                                <a href="{{ url_for('raves.delete_rave', rave_id=rave._id) }}" class="btn edit">Delete Review</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         {% endfor %}
+                         <!-- Delete Modal -->
+                         <div class="modal-background"></div>
+                         <div class="row">
+                             <div class="center-align review-modal">
+                                 <div class="col-12">
+                                     <header class="modal-header">
+                                         <h2>
+                                             Are you sure you want to delete your review!?
+                                         </h2>
+                                     </header>
+                                     <div class="modal-body">
+                                         <button onClick="closeModal()" class="btn">Cancel</button>
+                                         
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
                     </div>
             </div>
         </div>

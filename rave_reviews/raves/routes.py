@@ -46,7 +46,9 @@ def add_rave():
             "created_by": session["user"]
         }
         mongo.db.raves.insert_one(rave)
-        flash("Rave Review Uploaded!")
+        rave = mongo.db.raves.find_one({"_id": ObjectId(rave_id)})
+        rave_name = rave['rave_name']
+        flash(f"{rave_name} Review Uploaded!")
         return redirect(url_for("raves.get_raves"))
 
     organisations = mongo.db.organisation.find().sort(
@@ -89,9 +91,12 @@ def modify_youtube_link(link):
 def edit_rave(rave_id):
     if request.method == "POST":
 
+        image_url = upload("rave_image")
+
         banger = "on" if request.form.get("banger") else "off"
 
-        image_url = upload("rave_image")
+        rave_set_link = request.form.get("rave_set")
+        modified_link = modify_youtube_link(rave_set_link)
 
         submit = {
             "organisation_name": request.form.get("organisation_name"),
@@ -100,12 +105,14 @@ def edit_rave(rave_id):
             "date": request.form.get("date"),
             "venue": request.form.get("venue"),
             "rave_description": request.form.get("rave_description"),
-            "rave_set": request.form.get("rave_set"),
+            "rave_set": modified_link,
             "banger": banger,
             "created_by": session["user"]
         }
         mongo.db.raves.update_one({"_id": ObjectId(rave_id)}, {"$set": submit})
-        flash("Rave Review Uploaded!")
+        rave = mongo.db.raves.find_one({"_id": ObjectId(rave_id)})
+        rave_name = rave['rave_name']
+        flash(f"{rave_name} Edit Uploaded!")
         return redirect(url_for("raves.get_raves"))
 
     rave = mongo.db.raves.find_one({"_id": ObjectId(rave_id)})
