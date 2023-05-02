@@ -46,9 +46,7 @@ def add_rave():
             "created_by": session["user"]
         }
         mongo.db.raves.insert_one(rave)
-        rave = mongo.db.raves.find_one({"_id": ObjectId(rave_id)})
-        rave_name = rave['rave_name']
-        flash(f"{rave_name} Review Uploaded!")
+        flash("Rave Review Uploaded!")
         return redirect(url_for("raves.get_raves"))
 
     organisations = mongo.db.organisation.find().sort(
