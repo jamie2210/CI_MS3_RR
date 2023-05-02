@@ -167,6 +167,18 @@ body {
     right: 10px;
 }
 
+.picker {
+    background-color: black;
+}
+
+.datepicker-date-display {
+    background-color: #3b3b3b;
+}
+
+.datepicker-table-wrapper {
+    background-color: #f9b233;
+}
+
 /* ---------------------------------- Add Rave */
 
 .add_rave {
