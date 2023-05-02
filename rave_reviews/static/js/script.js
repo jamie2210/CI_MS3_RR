@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Select reuqired elements
+ * Select required elements
  */
 const reviewModal = document.querySelector('.review-modal');
 const modalBackground = document.querySelector('.modal-background');
@@ -28,11 +28,12 @@ $(document).ready(function(){
     $('.materialboxed').materialbox();
     $('.collapsible').collapsible();
     $('.datepicker').datepicker({
-      format: "dd mmmm, yyyy",
-      showclearBtn: true,
-      i18n: {
-        done: "select"
-      }
+        dateFormat: "dd MM yy",
+        maxDate: null,
+        showClearBtn: true,
+        i18n: {
+          done: "select"
+        }
     });
 
     validateMaterializeSelect();
