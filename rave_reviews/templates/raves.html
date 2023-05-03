@@ -19,12 +19,14 @@
                                             <img src="{{ rave.rave_image }}" class="materialboxed">    
                                         </div>
                                         <div class="card-content">
-                                            <h5>{{ rave.organisation_name }}</h5><br>
-                                            <p>{{ rave.date }}</p>
-                                            <P>{{ rave.venue }}</P><br>
+                                            <h5>{{ rave.organisation_name }}</h5>
+                                            <p>{{ rave.date }}
+                                            <P>{{ rave.venue }}</P>
                                             <p>{{ rave.rave_description }}</p>
                                             {% if rave.rave_set %}
-                                                <iframe width="560" height="315" src="{{rave.rave_set}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                                
+                                                <iframe class="youtube-vid" width="560" height="315" src="{{rave.rave_set}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                                
                                             {% endif %}
                                             <p><em>raver: {{rave.created_by }}</em></p>
                                         </div>
