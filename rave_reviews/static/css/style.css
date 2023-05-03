@@ -151,6 +151,7 @@ body {
 }
 
 .rave-title {
+    position: relative;
     display: flex;
     align-items: center;
     margin: 0;
@@ -164,11 +165,12 @@ body {
 
 .collapsible-header {
     background-color: #3b3b3b;
+    padding-right: 0;
 }
 
 .fa-hand-point-down {
-    position: absolute;
-    right: 10px;
+    margin-left: auto;
+    align-self: center;
 }
 
 .picker {

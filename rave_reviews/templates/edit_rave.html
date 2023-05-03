@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fa-solid fa-face-grin-wide prefix fa-icon"></i>
-                        <input id="rave_name" name="rave_name" type="text" class="validate" value="{{ rave.rave_name }}" required>
+                        <input id="rave_name" name="rave_name" type="text" class="validate" value="{{ rave.rave_name }}" maxlegnth="20" required>
                         <label for="rave_name">Rave Name</label>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fa-solid fa-link prefix fa-icon"></i>
-                        <input id="rave_set" name="rave_set" type="text" class="validate" onchange="embedVideo()">
+                        <input id="rave_set" name="rave_set" type="text" class="validate">
                         <label for="rave_set">Add a youtube set?</label>
                     </div>
                 </div>
