@@ -20,6 +20,8 @@ mongo = PyMongo(app)
 from rave_reviews.index.routes import index  # noqa: E402
 from rave_reviews.raves.routes import raves  # noqa: E402
 from rave_reviews.authentication.routes import authentication  # noqa: E402
+from rave_reviews.organisations.routes import organisations  # noqa: E402
 app.register_blueprint(index)
 app.register_blueprint(raves)
 app.register_blueprint(authentication)
+app.register_blueprint(organisations)
