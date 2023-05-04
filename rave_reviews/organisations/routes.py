@@ -15,3 +15,8 @@ def get_organisations():
     return render_template(
         "organisations.html", title="ORGANISATIONS",
         organisations=organisations)
+
+
+@organisations.route("/add_organisation", methods=["GET", "POST"])
+def add_organisation():
+    return render_template("add_organisation.html", title="ADD ORGANISATION")

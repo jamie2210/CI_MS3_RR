@@ -2,6 +2,12 @@
 {% block content %}
 
     <div class="row">
+        <div class="center-align">
+            <a href="{{ url_for('organisations.add_organisation' )}}" class="btn">Add Organisation</a>
+        </div>
+    </div>
+
+    <div class="row">
         {% for organisation in organisations %}
         <div class="col s12 m4">
             <div class="card org-card center-align">
