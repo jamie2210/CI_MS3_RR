@@ -218,6 +218,10 @@ body {
     margin-left: 5px;
 }
 
+.select-wrapper ul li {
+    color:#3b3b3b !important;
+}
+
 /* ---------------------------------- Edit Rave */
 
 /* .edit-card-image {
