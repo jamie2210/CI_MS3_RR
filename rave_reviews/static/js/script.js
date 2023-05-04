@@ -5,20 +5,35 @@ document.addEventListener('DOMContentLoaded', function() {
  * Select required elements
  */
 const reviewModal = document.querySelector('.review-modal');
+const organisationModal = document.querySelector('.organisation-modal')
 const modalBackground = document.querySelector('.modal-background');
 
 /**
- * Delete Review Modal functions
+ * Delete Modal functions
  */
 function deleteReviewModal() {
     reviewModal.style.display = "block";
     modalBackground.style.display = "block";
 }
 
-function closeModal() {
+function closeReviewModal() {
     reviewModal.style.display = "none";
     modalBackground.style.display = "none";
 }
+
+function deleteOrganisationModal() {
+    organisationModal.style.display = "block";
+    modalBackground.style.display = "block";
+}
+
+function closeOrgModal() {
+    organisationModal.style.display = "none";
+    modalBackground.style.display = "none";
+}
+
+/**
+ * Jquery functions
+ */
 
 $(document).ready(function(){
     $('.sidenav').sidenav({edge: "right"});
