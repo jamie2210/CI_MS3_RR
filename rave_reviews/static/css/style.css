@@ -247,8 +247,9 @@ body {
     height: auto;
     background-color: #3b3b3b;
     border: 2px solid #e08e01;
-    margin: 20px;
     padding: 0;
+    max-width: 300px;
+    min-width: 300px;
 }
 
 /* ---------------------------------- Modals */
