@@ -32,7 +32,7 @@
                                 </header>
                                 <div class="modal-body">
                                     <button onClick="closeOrgModal()" class="btn">Cancel</button>
-                                    <a href="#" class="btn">Delete</a>
+                                    <a href="{{ url_for('organisations.delete_organisation', organisation_id=organisation._id) }}" class="btn">Delete</a>
                                 </div>
                             </div>
                         </div>

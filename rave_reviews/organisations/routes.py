@@ -19,4 +19,23 @@ def get_organisations():
 
 @organisations.route("/add_organisation", methods=["GET", "POST"])
 def add_organisation():
+    if request.method == "POST":
+        organisation = {
+            "organisation_name": request.form.get("organisation_name")
+        }
+        mongo.db.organisation.insert_one(organisation)
+        flash("New Organisation Added")
+        return redirect(url_for("organisations.get_organisations"))
     return render_template("add_organisation.html", title="ADD ORGANISATION")
+
+
+@organisations.route("/delete_organisation/<organisation_id>")
+def delete_organisation(organisation_id):
+    # finds the organisation name before deleting it
+    organisation = mongo.db.organisation.find_one(
+        {"_id": ObjectId(organisation_id)})
+    organisation_name = organisation['organisation_name']
+    mongo.db.organisation.delete_one({"_id": ObjectId(organisation_id)})
+    # f string adds organisation name to the flash message once deleted
+    flash(f"{organisation_name} is Gone!")
+    return redirect(url_for("organisations.get_organisations"))
