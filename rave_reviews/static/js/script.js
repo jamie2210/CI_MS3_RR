@@ -9,13 +9,17 @@ const reviewModal = document.querySelector('.review-modal');
 /**
  * Delete Modal functions
  */
-function deleteReviewModal() {
-    reviewModal.style.display = "block";
+function deleteReviewModal(rave_id) {
+    const modal = document.querySelector(`#rave-modal-${rave_id}`);
+    const modalBackground= document.querySelector(`#modal-background-${rave_id}`)
+    modal.style.display = "block";
     modalBackground.style.display = "block";
 }
 
-function closeReviewModal() {
-    reviewModal.style.display = "none";
+function closeRaveModal(rave_id) {
+    const modal = document.querySelector(`#rave-modal-${rave_id}`);
+    const modalBackground= document.querySelector(`#modal-background-${rave_id}`)
+    modal.style.display = "none";
     modalBackground.style.display = "none";
 }
 

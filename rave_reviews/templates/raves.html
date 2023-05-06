@@ -31,7 +31,7 @@
                                         <div class="card-action">
                                             {% if session.user|lower == rave.created_by|lower %}
                                                 <a href="{{ url_for('raves.edit_rave', rave_id=rave._id) }}" class="btn">Edit Review</a>
-                                                <button onClick="deleteReviewModal()" class="btn">Delete Review</button>
+                                                <button onClick="deleteReviewModal('{{ rave._id }}')" class="btn">Delete Review</button>
                                             {% endif %}
                                             <a href="#" class="btn edit">Comment</a>
                                         </div>
@@ -40,17 +40,17 @@
                             </ul>
                             </div>
                              <!-- Delete Modal -->
-                            <div class="modal-background"></div>
+                            <div class="modal-background" id="modal-background-{{ rave._id }}">
                                 <div class="row">
-                                    <div class="center-align review-modal">
+                                    <div class="center-align review-modal" id="rave-modal-{{ rave._id }}">
                                         <div class="col-12">
                                             <header class="modal-header">
                                                 <h2>
-                                                    Are you sure you want to delete your review!?
+                                                    Are you sure you want to delete your {{rave.rave_name }} review!?
                                                 </h2>
                                             </header>
                                             <div class="modal-body">
-                                                <button onClick="closeReviewModal()" class="btn">Cancel</button>
+                                                <button onClick="closeRaveModal('{{ rave._id }}')" class="btn">Cancel</button>
                                                 <a href="{{ url_for('raves.delete_rave', rave_id=rave._id) }}" class="btn">Delete</a>
                                             </div>
                                         </div>
