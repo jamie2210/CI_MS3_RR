@@ -250,6 +250,7 @@ body {
     padding: 0;
     max-width: 300px;
     min-width: 300px;
+    margin-bottom: 30px;
 }
 
 .org-btn {
