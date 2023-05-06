@@ -14,7 +14,7 @@
                     <div class="card-content white-text">
                         <span class="card-title">{{ organisation.organisation_name }}</span>
                         <div class="card-action">
-                            <a href="#" class="btn">Edit</a>
+                            <a href="{{ url_for('organisations.edit_organisation', organisation_id=organisation._id) }}" class="btn">Edit</a>
                             <button onClick="deleteOrganisationModal()" class="btn">Delete</button>
                         </div>
                     </div>

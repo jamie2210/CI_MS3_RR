@@ -26,6 +26,7 @@ def add_organisation():
         mongo.db.organisation.insert_one(organisation)
         flash("New Organisation Added")
         return redirect(url_for("organisations.get_organisations"))
+
     return render_template("add_organisation.html", title="ADD ORGANISATION")
 
 
@@ -39,3 +40,22 @@ def delete_organisation(organisation_id):
     # f string adds organisation name to the flash message once deleted
     flash(f"{organisation_name} is Gone!")
     return redirect(url_for("organisations.get_organisations"))
+
+
+@organisations.route(
+    "/edit_organisation/<organisation_id>", methods=["GET", "POST"])
+def edit_organisation(organisation_id):
+
+    organisation = mongo.db.organisation.find_one(
+        {"_id": ObjectId(organisation_id)})
+
+    # if request.method == "POST":
+    #     organisation = {
+    #         "organisation_name": request.form.get("organisation_name")
+    #     }
+    #     mongo.db.organisation.insert_one(organisation)
+    #     flash("Organisation Updated")
+    #     return redirect(url_for("organisations.edit_organisations"))
+
+    return render_template("edit_organisation.html", title="EDIT ORGANISATION",
+                           organisation=organisation)

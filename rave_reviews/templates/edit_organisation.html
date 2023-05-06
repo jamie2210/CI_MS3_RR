@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+        <div class="row">
+            <form class="add_rave" method="POST" action="{{ url_for('organisations.edit_organisation', organisation_id=organisation._id) }}">
+                <div class="row">
+                <!-- Organisation name -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-people-group prefix fa-icon"></i>
+                        <input id="organisation_name" name="organisation_name" type="text" maxlength="20" class="validate" value="{{ organisation.organisation_name }}" required>
+                        <label for="organisation_name">Organisation Name</label>
+                    </div>
+                </div>
+                <!-- submit button -->
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <i class="fa-solid fa-arrow-up-from-square"></i>
+                        <a href="{{ url_for('organisations.get_organisations' )}}" class="btn">Cancel</a>
+                        <button type="submit" value="Upload" class="btn"><strong>Edit Organisation</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+{% endblock %}
