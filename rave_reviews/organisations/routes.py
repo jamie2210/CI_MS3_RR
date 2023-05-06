@@ -25,6 +25,7 @@ def add_organisation():
         }
         mongo.db.organisation.insert_one(organisation)
         flash("New Organisation Added")
+
         return redirect(url_for("organisations.get_organisations"))
 
     return render_template("add_organisation.html", title="ADD ORGANISATION")

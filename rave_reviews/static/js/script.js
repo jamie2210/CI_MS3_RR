@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
  * Select required elements
  */
 const reviewModal = document.querySelector('.review-modal');
-const organisationModal = document.querySelector('.organisation-modal')
-const modalBackground = document.querySelector('.modal-background');
 
 /**
  * Delete Modal functions
@@ -21,15 +19,20 @@ function closeReviewModal() {
     modalBackground.style.display = "none";
 }
 
-function deleteOrganisationModal() {
-    organisationModal.style.display = "block";
+function deleteOrganisationModal(organisation_id) {
+    const modal = document.querySelector(`#organisation-modal-${organisation_id}`);
+    const modalBackground= document.querySelector(`#modal-background-${ organisation_id }`)
+    modal.style.display = "block";
     modalBackground.style.display = "block";
 }
 
-function closeOrgModal() {
-    organisationModal.style.display = "none";
+function closeOrgModal(organisation_id) {
+    const modal = document.querySelector(`#organisation-modal-${organisation_id}`);
+    const modalBackground= document.querySelector(`#modal-background-${ organisation_id }`)
+    modal.style.display = "none";
     modalBackground.style.display = "none";
 }
+
 
 /**
  * Jquery functions

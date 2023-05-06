@@ -15,29 +15,29 @@
                         <span class="card-title">{{ organisation.organisation_name }}</span>
                         <div class="card-action">
                             <a href="{{ url_for('organisations.edit_organisation', organisation_id=organisation._id) }}" class="btn">Edit</a>
-                            <button onClick="deleteOrganisationModal()" class="btn">Delete</button>
+                            <button onClick="deleteOrganisationModal('{{ organisation._id }}')" class="btn">Delete</button>
                         </div>
                     </div>
                 </div>
-            </div>
-               <!-- Delete Modal -->
-               <div class="modal-background">
+                <!-- Delete Modal -->
+                <div class="modal-background" id="modal-background-{{ organisation._id }}">
                     <div class="row">
-                        <div class="center-align organisation-modal">
+                        <div class="center-align organisation-modal" id="organisation-modal-{{ organisation._id }}">
                             <div class="col-12">
                                 <header class="modal-header">
                                     <h2>
-                                        Are you sure you want to delete this organisation!?
+                                        Are you sure you want to delete {{ organisation.organisation_name }}!?
                                     </h2>
                                 </header>
                                 <div class="modal-body">
-                                    <button onClick="closeOrgModal()" class="btn">Cancel</button>
-                                    <a href="{{ url_for('organisations.delete_organisation', organisation_id=organisation._id) }}" class="btn">Delete</a>
+                                    <button onClick="closeOrgModal('{{ organisation._id }}')" class="btn">Cancel</button>
+                                    <a href="{{ url_for('organisations.delete_organisation',organisation_id=organisation._id) }}" class="btn">Delete</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         {% endfor %}
     </div>
 
