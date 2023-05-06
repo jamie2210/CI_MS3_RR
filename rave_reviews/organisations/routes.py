@@ -40,7 +40,8 @@ def edit_organisation(organisation_id):
         }
         mongo.db.organisation.update_one(
             {"_id": ObjectId(organisation_id)}, {"$set": submit})
-        org = mongo.db.organisation.find_one({"_id": ObjectId(organisation_id)})
+        org = mongo.db.organisation.find_one(
+            {"_id": ObjectId(organisation_id)})
         org_name = org['organisation_name']
         flash(f"{org_name} Updated")
         return redirect(url_for("organisations.get_organisations"))
