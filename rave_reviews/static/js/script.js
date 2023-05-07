@@ -51,6 +51,10 @@ function closeUserModal(user_id) {
     modalBackground.style.display = "none";
 }
 
+// Updates the copyright year in footer with the current year
+const year = document.querySelector('#current-year');
+year.innerHTML = new Date().getFullYear();
+
 
 /**
  * Jquery functions

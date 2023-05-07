@@ -105,13 +105,29 @@ body {
     padding-top: 30px;
 }
 
+/* ---------------------------------- Footer */
+
+.page-footer {
+    background-color: black;
+}
+
 /* ---------------------------------- Index */
+
+.background-image {
+    height: auto;
+    min-height: 100vh;
+    background: url("../images/rave-pic-2.jpg") no-repeat center;
+    background-size: cover;
+    background-blend-mode: multiply;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
 
 .main-logo {
     width: 650px;
-    max-width: 75%;
+    /* max-width: 75%; */
     height: auto;
-    margin-top: -50px;
 }
 
 /* ---------------------------------- Profile */
@@ -380,6 +396,9 @@ body {
     }
     .title {
         font-size: xx-large;
+    }
+    .main-logo {
+        max-width: 80%;
     }
 }
 
