@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h1 class="title">{{ title }}</h1>
+
                 <div class="card-container">
                         {% for rave in raves %}
                         <div class="card">
@@ -29,7 +31,7 @@
                                             <p><em>raver: {{ rave.created_by }}</em></p>
                                         </div>
                                         <div class="card-action">
-                                            {% if session.user|lower == rave.created_by|lower %}
+                                            {% if session.user|lower == rave.created_by|lower or session.user|lower == 'admin' %}
                                                 <a href="{{ url_for('raves.edit_rave', rave_id=rave._id) }}" class="btn">Edit Review</a>
                                                 <button onClick="deleteReviewModal('{{ rave._id }}')" class="btn">Delete Review</button>
                                             {% endif %}

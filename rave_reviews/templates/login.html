@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h1 class="title">{{ title }}</h1>
+
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('authentication.login') }}">
           <div class="card-panel">

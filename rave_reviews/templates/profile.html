@@ -19,10 +19,10 @@
                     <iframe class="youtube-vid" width="560" height="315" src="{{user.fave_set}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 {% endif %}
             </div>
-                
-                  <a href="" class="btn">Edit Profile</a>
+                {% if session.user|lower == user.username|lower %}
+                  <a href="{{ url_for('authentication.edit_profile', user_id=user._id) }}" class="btn">Edit Profile</a>
                   <button onClick="deleteReviewModal( '{{user._id}}' )" class="btn">Delete Profile</button>
-                
+                {% endif %}
         </div>
     </div>
      <!-- Delete Modal -->

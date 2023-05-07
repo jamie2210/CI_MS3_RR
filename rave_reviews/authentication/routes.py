@@ -42,18 +42,62 @@ def register():
             "fave_dj": request.form.get("fave_dj"),
             "fave_mc": request.form.get("fave_mc"),
             "fave_venue": request.form.get("fave_venue"),
-            "fave_organisation": request.form.get("fave_organisation"),
+            "fave_organisation": request.form.get("organisation_name"),
             "fave_set": modified_link,
             "profile_image": image_url,
         }
         mongo.db.users.insert_one(register)
+
+        organisations = mongo.db.organisation.find().sort(
+         "organisation_name", 1)
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
         return redirect(
             url_for("authentication.profile", username=session["user"]))
-    return render_template("register.html", title="REGISTER")
+
+    organisations = mongo.db.organisation.find().sort(
+     "organisation_name", 1)
+
+    return render_template("register.html",
+                           title="REGISTER", organisations=organisations)
+
+
+@authentication.route("/edit_profile/<user_id>", methods=["GET", "POST"])
+def edit_profile(user_id):
+    if request.method == "POST":
+        image_url = upload("profile_image")
+
+        fave_set_link = request.form.get("fave_set")
+        modified_link = modify_youtube_link(fave_set_link)
+
+        update_profile = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password")),
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "fave_dj": request.form.get("fave_dj"),
+            "fave_mc": request.form.get("fave_mc"),
+            "fave_venue": request.form.get("fave_venue"),
+            "fave_organisation": request.form.get("organisation_name"),
+            "fave_set": modified_link,
+            "profile_image": image_url,
+        }
+        mongo.db.users.update_one(
+            {"_id": ObjectId(user_id)}, {"$set": update_profile})
+        user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+        user_name = user['username']
+        flash(f"{user_name} Profile Updated!")
+        return redirect(
+            url_for("authentication.profile", username=session["user"]))
+
+    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    organisations = mongo.db.organisation.find().sort(
+        "organisation_name", 1)
+    return render_template(
+        "edit_profile.html", user=user,
+        title="EDIT PROFILE", organisations=organisations)
 
 
 ALLOWED_EXTENSIONS = {'jpg', 'JPG', 'png', 'PNG'}

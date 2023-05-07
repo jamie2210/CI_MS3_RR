@@ -4,14 +4,13 @@
 <h1 class="title">{{ title }}</h1>
 
     <div class="row">
-        <form class="add_profile" method="POST" action="{{ url_for('authentication.register') }}" enctype="multipart/form-data">
-          <div class="">
+        <form class="add_profile" method="POST" action="{{ url_for('authentication.edit_profile', user_id=user._id) }}" enctype="multipart/form-data">
             <!-- username -->
             <div class="row">
               <div class="input-field col s12">
                   <i class="fa-solid fa-user prefix fa-icon"></i>
-                  <input id="username" name="username" type="text" minlength="5"
-                       maxlenght="15" pattern="^[a-zA-z0-9]{5,15}$" class="validate" required>
+                  <input id="username" name="username" type="text" minlength="5" value="{{ user.username }}"
+                       maxlenght="15" pattern="^[a-zA-z0-9]{5,15}$" class="validate" readonly required>
                   <label for="username">Username</label>
               </div>
             </div>
@@ -19,7 +18,7 @@
             <div class="row">
               <div class="input-field col s12">
                 <i class="fa-solid fa-lock prefix fa-icon"></i>
-                <input id="password" name="password" type="password" minlength="5" 
+                <input id="password" name="password" type="password" minlength="5"
                       maxlength="15" pattern="^[a-zA-z0-9]{5,15}$" class="validate" required>
                 <label for="password">Password</label>
               </div>
@@ -28,7 +27,8 @@
             <div class="row">
               <div class="input-field col s12">
                   <i class="fa-solid fa-pen prefix fa-icon"></i>
-                  <input id="first_name" name="first_name" type="text" maxlength="20" class="validate" required>
+                  <input id="first_name" name="first_name" type="text" value="{{ user.first_name }}"
+                      maxlength="20" class="validate" required>
                   <label for="first_name">First Name</label>
               </div>
             </div>
@@ -36,7 +36,8 @@
             <div class="row">
               <div class="input-field col s12">
                   <i class="fa-solid fa-pen prefix fa-icon"></i>
-                  <input id="last_name" name="last_name" type="text" maxlength="20" class="validate" required>
+                  <input id="last_name" name="last_name" type="text" value="{{ user.last_name }}"
+                      maxlength="20" class="validate" required>
                   <label for="last_name">Last Name</label>
               </div>
             </div>
@@ -44,7 +45,8 @@
             <div class="row">
               <div class="input-field col s12">
                   <i class="fa-solid fa-compact-disc prefix fa-icon"></i>
-                  <input id="fave_dj" name="fave_dj" type="text" maxlength="20" class="validate" required>
+                  <input id="fave_dj" name="fave_dj" type="text" value="{{ user.fave_dj }}"
+                    maxlength="20" class="validate" required>
                   <label for="fave_dj">Favourite DJ</label>
               </div>
             </div>
@@ -52,7 +54,8 @@
             <div class="row">
               <div class="input-field col s12">
                   <i class="fa-solid fa-microphone-lines prefix fa-icon"></i>
-                  <input id="fave_mc" name="fave_mc" type="text" maxlength="20" class="validate" required>
+                  <input id="fave_mc" name="fave_mc" type="text" value="{{ user.fave_mc }}"
+                      maxlength="20" class="validate" required>
                   <label for="fave_mc">Favourite MC</label>
               </div>
             </div>
@@ -60,7 +63,8 @@
             <div class="row">
               <div class="input-field col s12">
                   <i class="fa-solid fa-warehouse prefix fa-icon"></i>
-                  <input id="fave_venue" name="fave_venue" type="text" maxlength="20" class="validate" required>
+                  <input id="fave_venue" name="fave_venue" type="text" value="{{ user.fave_venue }}"
+                      maxlength="20" class="validate" required>
                   <label for="fave_venue">Favourite Venue</label>
               </div>
             </div>
@@ -68,9 +72,13 @@
             <div class="input-field col s12">
               <i class="fa-solid fa-people-group prefix fa-icon"></i>
               <select id="fave_organisation" name="fave_organisation" class="validate" required>
-                <option value="" disabled selected>Select Organisation</option>
+                <option value="" disabled>Select Organisation</option>
                 {% for organisation in organisations %}
+                  {% if organisation.organisation_name == user.organisation_name %}
+                    <option value="{{ organisation.organisation_name }}" selected>{{ organisation.organisation_name }}</option>
+                  {% else %}
                     <option value="{{ organisation.organisation_name }}">{{ organisation.organisation_name }}</option>
+                  {% endif %}
                 {% endfor %}
               </select>
               <label for="fave_organisation">Favourite Organisation</label>
@@ -103,19 +111,12 @@
             </div> -->
             
             <!-- register button -->
-            <div class="row">
+            <div class="row center-align">
               <i class="fa-solid fa-arrow-up-from-square"></i>
-              <button type="submit" class="col m6 offset-m3 text-center btn-large"><strong>Register</button>
+              <a href="{{url_for('authentication.profile', username=user.username, user_id=user._id)}}" class="btn">Cancel</a>
+              <button type="submit" class="btn"><strong>Update Profile</button>
             </div>
-          </div>
         </form>
-    </div>
-    <div class="row">
-      <div class="col s12">
-        <p class="center-align">
-          Already registered? Log in <a href="{{ url_for('authentication.login')}}" class="link">here</a>
-        </p>
-      </div>
     </div>
 
 {% endblock %}

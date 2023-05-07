@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h1 class="title">{{ title }}</h1>
+
         <div class="row">
-            <form class="add_rave" method="POST" action="{{ url_for('raves.edit_rave', rave_id=rave._id ) }}" enctype="multipart/form-data">
+            <form class="add_rave" method="POST" action="{{ url_for('raves.edit_rave', rave_id=rave._id) }}" enctype="multipart/form-data">
                 <div class="row">
                     <!-- selecet organisation -->
                     <div class="input-field col s12">
