@@ -108,6 +108,21 @@ body {
     margin-top: -50px;
 }
 
+/* ---------------------------------- Register */
+
+.profile-img {
+        margin-left: 3rem;
+}
+
+.pic-container {
+    height: 200px;
+    width: 200px;
+}
+
+.profile-pic {
+    object-fit: cover;
+}
+
 /* ---------------------------------- Log In */
 
 .link {
@@ -211,7 +226,7 @@ body {
 }
 
 .img-label {
-    margin-left: 3rem;;
+    margin-left: 3rem;
 }
 
 .fa-bullhorn {
