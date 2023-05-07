@@ -80,30 +80,30 @@
         {% endwith %}
     </section>
     <main>
+        
         {% block content %}
         {% endblock %}
+        
     </main>
     <footer class="page-footer">
         <div class="container">
           <div class="row">
             <div class="col l6 s12">
-              <h5 class="white-text">Footer Content</h5>
-              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              <span><img class="footer-logo" src="{{ url_for('static', filename='images/rr-logo-2.png') }}"></span>
+              <p></i> Created and designed by Jamie2210 <a href ="https://github.com/jamie2210/CI_MS3_RR" 
+                        target="_blank" aria-label="Go to Github site"><i class="fa-brands fa-github icons"></i></a> Please get in touch 
+                        <a href ="contact.html" aria-label="Go to contact form page"><i class="fa-solid fa-envelope icons"></i></a>
+              </p>
+              <p>Rave Reviews © <span id="current-year"> </span></p>
             </div>
             <div class="col l4 offset-l2 s12">
-              <h5 class="white-text">Links</h5>
+              <h5 class="white-text">Socials</h5>
               <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                <li><a href="https://www.facebook.com" aria-label="Go to facebook page (opens in new tab)" target="_blank"><i class="fa-brands fa-facebook icons"></i></li>
+                <li><a href="https://www.twitter.com" aria-label="Go to twitter page (opens in new tab)" target="_blank"><i class="fa-brands fa-twitter icons"></i></li>
+                <li><a href="https://www.instagram.com" aria-label="Go to instagram page (opens in new tab)" target="_blank"><i class="fa-brands fa-instagram icons"></i></a></li>
               </ul>
             </div>
-          </div>
-        </div>
-        <div class="footer-copyright">
-          <div class="container">
-            <p>Rave Reviews © <span id="current-year"> </span></p>
           </div>
         </div>
       </footer>

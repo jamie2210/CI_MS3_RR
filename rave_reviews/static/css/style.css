@@ -109,6 +109,22 @@ body {
 
 .page-footer {
     background-color: black;
+    color: white;
+}
+
+.footer-logo {
+    width: 200px;
+    height: auto;
+    margin-left: -10px;
+}
+
+.icons {
+    color: white;
+    font-size: 20px;
+}
+
+.icons:hover {
+    color:#f9b233;
 }
 
 /* ---------------------------------- Index */
@@ -120,13 +136,12 @@ body {
     background-size: cover;
     background-blend-mode: multiply;
     display: flex;
-    justify-content: center;
     position: relative;
 }
 
 .main-logo {
     width: 650px;
-    /* max-width: 75%; */
+    max-width: 75%;
     height: auto;
 }
 
