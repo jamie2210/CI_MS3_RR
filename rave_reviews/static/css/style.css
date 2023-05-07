@@ -99,6 +99,12 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
+.collapse-logo {
+    width: 200px;
+    height: auto;
+    padding-top: 30px;
+}
+
 /* ---------------------------------- Index */
 
 .main-logo {
@@ -383,5 +389,8 @@ body {
     }
     .rave-title {
         font-size: 25px;
+    }
+    .main-logo {
+        max-width: 100%;
     }
 }

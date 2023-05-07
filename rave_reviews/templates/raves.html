@@ -28,7 +28,7 @@
                                             {% if rave.rave_set %}
                                                 <iframe class="youtube-vid" width="560" height="315" src="{{rave.rave_set}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                             {% endif %}
-                                            <p><em>raver: {{ rave.created_by }}</em></p>
+                                            <p><em>raver: <a href="#">{{ rave.created_by }}</a></em></p>
                                         </div>
                                         <div class="card-action">
                                             {% if session.user|lower == rave.created_by|lower or session.user|lower == 'admin' %}

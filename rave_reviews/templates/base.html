@@ -44,7 +44,11 @@
         </nav>
         <!-- side navbar -->
         <ul class="sidenav rr-nav" id="mobile-demo">
-            <li><h4 class="center-align collapse-title">Rave Reviews</h4></li>
+            <li>
+                <div class="center-align">
+                    <img src="{{ url_for('static', filename='images/rr-logo-2.png') }}" class="collapse-title collapse-logo">
+                </div>
+            </li>
             <li><a href="{{ url_for('index.home')}}" class="nav-link">Home</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('authentication.profile', username=session['user']) }}" class="nav-link">Profile</a></li>
