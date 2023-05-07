@@ -114,17 +114,25 @@ def login():
     return render_template("login.html", title="LOGIN")
 
 
+# @authentication.route("/profile/<username>", methods=["GET", "POST"])
+# def profile(username):
+#     # grab session user's username form the db
+#     username = mongo.db.users.find_one(
+#         {"username": session["user"]})["username"]
+
+#     if session["user"]:
+#         return render_template(
+#             "profile.html", title="{}'s PROFILE".format(username))
+
+#     return redirect(url_for("authentication.login"))
+
+
 @authentication.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab session user's username form the db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
-    if session["user"]:
-        return render_template(
-            "profile.html", title="{}'s PROFILE".format(username))
-
-    return redirect(url_for("authentication.login"))
+    user = mongo.db.users.find_one({"username": username})
+    return render_template("profile.html",
+                           username=session['user'],
+                           user=user, title="{}'s PROFILE".format(username))
 
 
 @authentication.route("/logout")

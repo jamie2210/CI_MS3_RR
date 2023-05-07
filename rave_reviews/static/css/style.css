@@ -108,19 +108,44 @@ body {
     margin-top: -50px;
 }
 
-/* ---------------------------------- Register */
+/* ---------------------------------- Profile */
 
 .profile-img {
         margin-left: 3rem;
 }
 
-.pic-container {
-    height: 200px;
-    width: 200px;
+.profile-background {
+    height: auto;
+    background: url("../images/rave-pic-2.jpg") no-repeat center;
+    background-size: cover;
+    background-blend-mode: multiply;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.profile-container {
+    background-color: rgba(0,0,0,0.7);
+    padding: 30px;
 }
 
 .profile-pic {
     object-fit: cover;
+    height: 200px;
+    width: 200px;
+    background-color: #3b3b3b;
+    border: 3px solid #e08e01;
+    padding: 10px;
+}
+
+.profile-content h3 {
+    font-weight: bold;
+}
+
+.profile-content p {
+    font-size: large;
+    font-weight: bold;
 }
 
 /* ---------------------------------- Log In */

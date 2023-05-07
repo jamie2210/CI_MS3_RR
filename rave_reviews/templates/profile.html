@@ -1,26 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-
+    <div class="profile-background">
+      
     <div class="row">
-      {% for user in users %}
-        <div class="col s12 m8 offset-m2">
-          <div class="card-panel">
+      <h1 class="title">{{ title }}</h1>
+        <div class="center-align profile-container">
               <div class="pic-container">
                 <img class="profile-pic" src="{{ user.profile_image }}">
               </div>
               <div class="profile-content">
-                <h5>{{ user.first_name }} {{ user.surname_name }}</h5>
-                <p>{{ user.fave_dj }}
-                <P>{{ user.fave_mc }}</P>
-                <P>{{ user.fave_venue }}</P>
-                <P>{{ user.fave_organisation }}</P>
+                <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+                <p>Favourite DJ: {{ user.fave_dj }}</p>
+                <P>Favourite MC: {{ user.fave_mc }}</P>
+                <P>Favourite Venue: {{ user.fave_venue }}</P>
+                <P>Favourite Organisation: {{ user.fave_organisation }}</P>
                 {% if user.fave_set %}
-                    <iframe class="youtube-vid" width="560" height="315" src="{{authentication.fave_set}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <p>Favourite Set:</p>
+                    <iframe class="youtube-vid" width="560" height="315" src="{{user.fave_set}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 {% endif %}
             </div>
-          </div>
         </div>
-        {% endfor %}
     </div>
-
+  </div>
 {% endblock %}
