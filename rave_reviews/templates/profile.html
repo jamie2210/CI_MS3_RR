@@ -19,6 +19,28 @@
                     <iframe class="youtube-vid" width="560" height="315" src="{{user.fave_set}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 {% endif %}
             </div>
+                
+                  <a href="" class="btn">Edit Profile</a>
+                  <button onClick="deleteReviewModal( '{{user._id}}' )" class="btn">Delete Profile</button>
+                
+        </div>
+    </div>
+     <!-- Delete Modal -->
+     <div class="modal-background" id="modal-background-{{ user._id }}">
+        <div class="row">
+            <div class="center-align review-modal" id="rave-modal-{{ user._id }}">
+                <div class="col-12">
+                    <header class="modal-header">
+                        <h2>
+                            Are you sure you want to delete {{ user.username }}'s profile!?
+                        </h2>
+                    </header>
+                    <div class="modal-body">
+                        <button onClick="closeRaveModal('{{ user._id }}')" class="btn">Cancel</button>
+                        <a href="{{ url_for('authentication.delete_user', user_id=user._id) }}" class="btn">Delete</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
   </div>

@@ -25,14 +25,28 @@ function closeRaveModal(rave_id) {
 
 function deleteOrganisationModal(organisation_id) {
     const modal = document.querySelector(`#organisation-modal-${organisation_id}`);
-    const modalBackground= document.querySelector(`#modal-background-${ organisation_id }`)
+    const modalBackground= document.querySelector(`#modal-background-${organisation_id}`)
     modal.style.display = "block";
     modalBackground.style.display = "block";
 }
 
 function closeOrgModal(organisation_id) {
     const modal = document.querySelector(`#organisation-modal-${organisation_id}`);
-    const modalBackground= document.querySelector(`#modal-background-${ organisation_id }`)
+    const modalBackground= document.querySelector(`#modal-background-${organisation_id}`)
+    modal.style.display = "none";
+    modalBackground.style.display = "none";
+}
+
+function deleteUserModal(user_id) {
+    const modal = document.querySelector(`#organisation-modal-${user_id}`);
+    const modalBackground= document.querySelector(`#modal-background-${user_id}`)
+    modal.style.display = "block";
+    modalBackground.style.display = "block";
+}
+
+function closeUserModal(user_id) {
+    const modal = document.querySelector(`#organisation-modal-${user_id}`);
+    const modalBackground= document.querySelector(`#modal-background-${user_id}`)
     modal.style.display = "none";
     modalBackground.style.display = "none";
 }

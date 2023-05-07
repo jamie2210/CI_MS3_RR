@@ -114,25 +114,24 @@ def login():
     return render_template("login.html", title="LOGIN")
 
 
-# @authentication.route("/profile/<username>", methods=["GET", "POST"])
-# def profile(username):
-#     # grab session user's username form the db
-#     username = mongo.db.users.find_one(
-#         {"username": session["user"]})["username"]
-
-#     if session["user"]:
-#         return render_template(
-#             "profile.html", title="{}'s PROFILE".format(username))
-
-#     return redirect(url_for("authentication.login"))
-
-
 @authentication.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     user = mongo.db.users.find_one({"username": username})
     return render_template("profile.html",
                            username=session['user'],
                            user=user, title="{}'s PROFILE".format(username))
+
+
+@authentication.route("/delete_user/<user_id>")
+def delete_user(user_id):
+    # finds the rave name before deleting it
+    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    username = user['username']
+    mongo.db.users.delete_one({"_id": ObjectId(user_id)})
+    # f string adds rave name to the flash message once deleted
+    flash(f"{username} is Gone!")
+    session.pop("user")
+    return redirect(url_for("authentication.register"))
 
 
 @authentication.route("/logout")
