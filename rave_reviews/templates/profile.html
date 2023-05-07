@@ -2,23 +2,25 @@
 {% block content %}
 
     <div class="row">
+      {% for user in users %}
         <div class="col s12 m8 offset-m2">
           <div class="card-panel">
               <div class="pic-container">
-                <img class="profile-pic" src="{{ authentication.profile_image }}">
+                <img class="profile-pic" src="{{ user.profile_image }}">
               </div>
               <div class="profile-content">
-                <h5>{{ authentication.first_name }} {{ authentication.surname_name }}</h5>
-                <p>{{ authentication.fave_dj }}
-                <P>{{ authentication.fave_mc }}</P>
-                <P>{{ authentication.fave_venue }}</P>
-                <P>{{ authentication.fave_organisation }}</P>
-                {% if authentication.fave_set %}
+                <h5>{{ user.first_name }} {{ user.surname_name }}</h5>
+                <p>{{ user.fave_dj }}
+                <P>{{ user.fave_mc }}</P>
+                <P>{{ user.fave_venue }}</P>
+                <P>{{ user.fave_organisation }}</P>
+                {% if user.fave_set %}
                     <iframe class="youtube-vid" width="560" height="315" src="{{authentication.fave_set}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 {% endif %}
             </div>
           </div>
         </div>
+        {% endfor %}
     </div>
 
 {% endblock %}

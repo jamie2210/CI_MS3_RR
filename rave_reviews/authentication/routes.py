@@ -6,6 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from rave_reviews import mongo
 from bson.objectid import ObjectId
 import boto3
+from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = "uploads"
 BUCKET = "rave-review-bucket"
@@ -30,9 +31,19 @@ def register():
 
         image_url = upload("profile_image")
 
+        fave_set_link = request.form.get("fave_set")
+        modified_link = modify_youtube_link(fave_set_link)
+
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "fave_dj": request.form.get("fave_dj"),
+            "fave_mc": request.form.get("fave_mc"),
+            "fave_venue": request.form.get("fave_venue"),
+            "fave_organisation": request.form.get("fave_organisation"),
+            "fave_set": modified_link,
             "profile_image": image_url,
         }
         mongo.db.users.insert_one(register)
@@ -66,6 +77,12 @@ def upload(file_key):
     else:
         flash("Invalid file format. Use 'jpg', 'JPG', 'png', 'PNG'")
         return redirect(request.url)
+
+
+def modify_youtube_link(link):
+    if "watch?v=" in link:
+        link = link.replace("watch?v=", "embed/")
+    return link
 
 
 @authentication.route("/login", methods=["GET", "POST"])
