@@ -27,9 +27,13 @@ def register():
 
         if existing_user:
             flash("Username already exists")
-            return redirect(url_for("register"))
+            return redirect(url_for("authentication.register"))
 
+        # Check if the file type is an allowed image file type
         image_url = upload("profile_image")
+        if image_url == "invalid":
+            flash("Invalid file format. Please use 'JPG', 'jpeg', 'PNG'")
+            return redirect(url_for("authentication.register"))
 
         fave_set_link = request.form.get("fave_set")
         modified_link = modify_youtube_link(fave_set_link)
@@ -67,7 +71,13 @@ def register():
 @authentication.route("/edit_profile/<user_id>", methods=["GET", "POST"])
 def edit_profile(user_id):
     if request.method == "POST":
+
+        # Check if the file type is an allowed image file type
         image_url = upload("profile_image")
+        if image_url == "invalid":
+            flash("Invalid file format. Please use 'JPG', 'jpeg', 'PNG'")
+            return redirect(url_for(
+                "authentication.profile", username=session["user"]))
 
         fave_set_link = request.form.get("fave_set")
         modified_link = modify_youtube_link(fave_set_link)
@@ -100,7 +110,7 @@ def edit_profile(user_id):
         title="EDIT PROFILE", organisations=organisations)
 
 
-ALLOWED_EXTENSIONS = {'jpg', 'JPG', 'png', 'PNG'}
+ALLOWED_EXTENSIONS = {'jpg', 'JPG', 'jpeg', 'png', 'PNG'}
 
 
 def allowed_file(filename):
@@ -119,8 +129,7 @@ def upload(file_key):
         image_url = f"https://{BUCKET}.s3.amazonaws.com/{file_name}"
         return image_url
     else:
-        flash("Invalid file format. Use 'jpg', 'JPG', 'png', 'PNG'")
-        return redirect(request.url)
+        return "invalid"
 
 
 def modify_youtube_link(link):

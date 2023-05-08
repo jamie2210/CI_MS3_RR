@@ -27,14 +27,11 @@ def get_raves():
 def add_rave():
     if request.method == "POST":
 
-        review_img = "rave_image"
         # Check if the file type is an allowed image file type
-        if not allowed_file(review_img):
-            flash("Invalid file format. Please use \
-                'JPG', 'jpeg', 'png', 'PNG'")
-            return redirect(url_for("raves.get_raves"))
-
-        image_url = upload(review_img)
+        image_url = upload("rave_image")
+        if image_url == "invalid":
+            flash("Invalid file format. Please use 'JPG', 'jpeg', 'PNG'")
+            return redirect(url_for("raves.add_rave"))
 
         rave_set_link = request.form.get("rave_set")
         modified_link = modify_youtube_link(rave_set_link)
@@ -81,6 +78,8 @@ def upload(file_key):
             ContentType=f.content_type)
         image_url = f"https://{BUCKET}.s3.amazonaws.com/{file_name}"
         return image_url
+    else:
+        return "invalid"
 
 
 def modify_youtube_link(link):
@@ -93,7 +92,11 @@ def modify_youtube_link(link):
 def edit_rave(rave_id):
     if request.method == "POST":
 
+        # Check if the file type is an allowed image file type
         image_url = upload("rave_image")
+        if image_url == "invalid":
+            flash("Invalid file format. Please use 'JPG', 'jpeg', 'PNG'")
+            return redirect(url_for("raves.get_raves"))
 
         banger = "on" if request.form.get("banger") else "off"
 
