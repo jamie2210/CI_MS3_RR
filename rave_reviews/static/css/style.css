@@ -40,6 +40,12 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
+.blank-background {
+    min-height: 70vh;
+    justify-content: center;
+    
+}
+
 /* ------------- Flashes */
 
 .flashes {
