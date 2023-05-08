@@ -455,6 +455,32 @@ body {
     z-index: 1;
 }
 
+/* ---------------------------------- Errors */
+
+.error-background-image {
+    height: auto;
+    min-height: 100vh;
+    background: url("../images/rave-pic-3.jpg") no-repeat center;
+    background-size: cover;
+    background-blend-mode: multiply;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.error-container {
+    background-color: rgba(0,0,0,0.7);
+    padding: 30px;
+    margin: 10px;
+    max-width: 600px;
+}
+
+.error-container p {
+    font-size: x-large;
+    font-weight: bold;
+}
+
 /* ---------------------------------- Media Queries */
 
 @media only screen and (max-width: 740px) {
@@ -472,6 +498,12 @@ body {
         margin-left: 20px;
         margin-right: 20px;
     }
+    .error-container p {
+        font-size: large;
+    }
+    .error-container .title {
+        font-size: 60px;
+    }
 }
 
 @media only screen and (max-width: 400px) {
@@ -483,5 +515,8 @@ body {
     }
     .main-logo {
         max-width: 100%;
+    }
+    .error-container .title {
+        font-size: 50px;
     }
 }
