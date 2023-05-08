@@ -9,7 +9,7 @@ index = Blueprint('index', __name__)
 @index.route("/home")
 def home():
     """
-    HOME FUNCTION
+    HOME FUNCTION WHEN NO USER LOGGED IN
     Renders template for the home page
     """
     return render_template("index.html")
@@ -22,3 +22,12 @@ def logged_in_home():
     Renders template for the home page
     """
     return render_template("logged_in_index.html")
+
+
+@index.route("/contact")
+def contact():
+    """
+    CONTACT PAGE
+    Renders template for the contact page
+    """
+    return render_template("contact.html", title="PLEASE GET IN TOUCH")

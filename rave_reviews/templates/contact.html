@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="blank-background">
+
+<h1 class="title">{{ title }}</h1>
+
+        <div class="row">
+            <div class="col-12 form-container">
+            <form class="contact-form" onsubmit="return sendMail(this);">
+                <label for="name">Name</label><br>
+                    <input type="text" name="name" id="name" placeholder="Name" required><br>
+                    <label for="emailaddress">Email</label><br>
+                    <input type="email" name="email" id="emailaddress" placeholder="Email" required><br>
+                    <label for="message">Message</label><br>
+                    <textarea rows="5" name="message" id="message" placeholder="Please ask us a question..." required></textarea><br>
+                        <div id="form-btn">
+                            <button type="submit" class="btn" aria-label="submits form">Submit</button>
+                        </div>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+
+{% endblock %}
