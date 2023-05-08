@@ -23,7 +23,11 @@
         <!-- top navbar -->
         <nav>
             <div class="nav-wrapper rr-nav">
+                {% if session.user %}
+                <a href="{{ url_for('authentication.profile', username=session['user'])}}"><img src="{{ url_for('static', filename='images/favicon.png') }}" class="rr-logo"></a>
+                {% else %}
                 <a href="{{ url_for('index.home')}}"><img src="{{ url_for('static', filename='images/favicon.png') }}" class="rr-logo"></a>
+                {% endif %}
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fa-solid fa-bars burger"></i></a>
                 <ul class="right hide-on-med-and-down">
                     
