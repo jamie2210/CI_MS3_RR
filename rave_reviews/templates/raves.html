@@ -28,15 +28,29 @@
                                             {% if rave.rave_set %}
                                                 <iframe class="youtube-vid" width="560" height="315" src="{{rave.rave_set}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                             {% endif %}
-                                            <p><em>raver: >{{ rave.created_by }}</em></p>
+                                            <p><em>raver: {{ rave.created_by }}</em></p>
                                         </div>
                                         <div class="card-action">
                                             {% if session.user|lower == rave.created_by|lower or session.user|lower == 'admin' %}
                                                 <a href="{{ url_for('raves.edit_rave', rave_id=rave._id) }}" class="btn">Edit Review</a>
                                                 <button onClick="deleteReviewModal('{{ rave._id }}')" class="btn">Delete Review</button>
                                             {% endif %}
-                                            <a href="#" class="btn edit">Comment</a>
+                                            <div class="comments">
+                                                {% for comment in comments %}
+                                                    <p>{{comment_created_by}}: {{ comment.comment_text }}</p></br>
+                                                {% endfor %}
+                                            </div>
                                         </div>
+                                        <!-- Add comment form -->
+                                        <form method="POST" enctype="multipart/form-data" action="{{ url_for('raves.add_comment', rave_id=rave._id) }}" class="validate">
+                                            <div class="">
+                                                <div class="right">
+                                                    <label for="comment" hidden>Comment</label>
+                                                    <textarea class="comment-box textarea" name="comment" id="comment"></textarea>
+                                                </div>
+                                                    <button class="btn" type="submit">Post comment</button>
+                                            </div>    
+                                        </form>
                                     </div>
                                 </li>
                             </ul>

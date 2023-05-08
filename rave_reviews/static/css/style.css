@@ -295,6 +295,11 @@ body {
     color: #f9b233;
 }
 
+.comment-box {
+    color: white;
+    width: 200px; 
+}
+
 /* ---------------------------------- Add Rave */
 
 .add_rave {

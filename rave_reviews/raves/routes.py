@@ -137,3 +137,21 @@ def delete_rave(rave_id):
     # f string adds rave name to the flash message once deleted
     flash(f"{rave_name} is Gone!")
     return redirect(url_for("raves.get_raves"))
+
+
+@raves.route("/add_comment/<rave_id>")
+def add_comment(rave_id):
+    # check the user is logged in
+    if 'user' not in session:
+        return redirect(url_for("index.home"))
+
+    # create a comment object
+    comment = {
+        "comment_text": request.form.get("comment"),
+        "comment_created_by": sessions[user]
+    }
+
+    mongo.db.comments.inster_one(comment)
+    flash("Comment successfully added")
+
+    return redirect(url_for("raves.get_raves", rave_id=rave._id))
