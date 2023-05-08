@@ -6,7 +6,7 @@ from flask import (
 index = Blueprint('index', __name__)
 
 
-@index.route("/home")
+@index.route("/")
 def home():
     """
     HOME FUNCTION WHEN NO USER LOGGED IN
