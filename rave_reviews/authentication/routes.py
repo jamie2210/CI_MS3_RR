@@ -46,7 +46,7 @@ def register():
             "fave_dj": request.form.get("fave_dj"),
             "fave_mc": request.form.get("fave_mc"),
             "fave_venue": request.form.get("fave_venue"),
-            "fave_organisation": request.form.get("organisation_name"),
+            "fave_organisation": request.form.get("fave_organisation"),
             "fave_set": modified_link,
             "profile_image": image_url,
         }
@@ -90,7 +90,7 @@ def edit_profile(user_id):
             "fave_dj": request.form.get("fave_dj"),
             "fave_mc": request.form.get("fave_mc"),
             "fave_venue": request.form.get("fave_venue"),
-            "fave_organisation": request.form.get("organisation_name"),
+            "fave_organisation": request.form.get("fave_organisation"),
             "fave_set": modified_link,
             "profile_image": image_url,
         }
