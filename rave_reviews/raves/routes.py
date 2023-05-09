@@ -22,8 +22,7 @@ def get_raves():
     rave_id = request.args.get('rave_id')
     raves = mongo.db.raves.find()
     comments = list(
-        mongo.db.comments.find(
-            {"comment_id": ObjectId(rave_id)}).sort("comment_created_by", 1))
+        mongo.db.comments.find({"rave_id": rave_id}).sort("comment_id", 1))
     return render_template(
         "raves.html", title="RAVES", raves=raves, comments=comments)
 
@@ -154,7 +153,7 @@ def add_comment(rave_id):
     comment = {
         "comment_text": request.form.get("comment"),
         "comment_created_by": session["user"],
-        "comment_id": ObjectId(rave_id)
+        "comment_id": ObjectId(rave_id),
     }
 
     mongo.db.comments.insert_one(comment)

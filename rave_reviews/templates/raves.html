@@ -33,7 +33,7 @@
                                         <div class="comments">
                                             {% for comment in comments %}
                                                 {% if comment.comment_id == rave._id %}
-                                                    <p>{{ comment.comment_created_by}}: {{ comment.comment_text }}</p></br>
+                                                    <p>{{ comment.comment_created_by}}: {{ comment.comment_text }}</p>
                                                 {% endif %}
                                             {% endfor %}
                                         </div>
