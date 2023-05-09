@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="blank-background">
+<div class="blank-background center-align">
     <h1 class="title">{{ title }}</h1>
 
         <div class="card-container center-align">
@@ -78,7 +78,7 @@
             {% endfor %}
         </div>
         <!-- pagination -->
-            <nav class="pagination-keys">
+            <div class="pagination-keys">
                 {% if page > 1 %}
                     <a href="/get_raves/?page={{ page - 1 }}&per_page={{ per_page }}&offset={{ offset }}" class="page-link">&laquo; Prev</a>
                 {% endif %}
@@ -92,6 +92,6 @@
                 {% if page < num_pages %}
                     <a href="/get_raves/?page={{ page + 1 }}&per_page={{ per_page }}&offset={{ offset }}" class="page-link">Next &raquo;</a>
                 {% endif %}
-            </nav>
+            </div>
 </div>
 {% endblock %}

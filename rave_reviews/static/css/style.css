@@ -308,6 +308,19 @@ body {
     margin-bottom: 20px;
 }
 
+.pagination-keys {
+    background-color: black;
+    display: inline-block;
+}
+
+.pagination-keys a {
+    background-color: black;
+
+    color: white;
+    text-decoration: none;
+}
+
+
 /* ---------------------------------- Add Rave */
 
 .add_rave {
