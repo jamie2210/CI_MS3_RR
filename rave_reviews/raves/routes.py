@@ -20,7 +20,9 @@ raves = Blueprint('raves', __name__)
 @raves.route("/get_raves")
 def get_raves():
     raves = mongo.db.raves.find()
-    return render_template("raves.html", title="RAVES", raves=raves)
+    comments = list(mongo.db.comments.find().sort("comment_created_by", 1))
+    return render_template(
+        "raves.html", title="RAVES", raves=raves, comments=comments)
 
 
 @raves.route("/add_rave", methods=["GET", "POST"])
@@ -139,7 +141,7 @@ def delete_rave(rave_id):
     return redirect(url_for("raves.get_raves"))
 
 
-@raves.route("/add_comment/<rave_id>")
+@raves.route("/add_comment/<rave_id>", methods=["POST"])
 def add_comment(rave_id):
     # check the user is logged in
     if 'user' not in session:
@@ -148,10 +150,10 @@ def add_comment(rave_id):
     # create a comment object
     comment = {
         "comment_text": request.form.get("comment"),
-        "comment_created_by": sessions[user]
+        "comment_created_by": session["user"]
     }
 
-    mongo.db.comments.inster_one(comment)
+    mongo.db.comments.insert_one(comment)
     flash("Comment successfully added")
 
-    return redirect(url_for("raves.get_raves", rave_id=rave._id))
+    return redirect(url_for("raves.get_raves", rave_id=rave_id))
