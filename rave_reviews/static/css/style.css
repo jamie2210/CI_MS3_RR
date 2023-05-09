@@ -297,7 +297,11 @@ body {
 
 .comment-box {
     color: white;
-    width: 200px; 
+    width: 300px; 
+}
+
+.comment-btn {
+    margin-bottom: 20px;
 }
 
 /* ---------------------------------- Add Rave */
