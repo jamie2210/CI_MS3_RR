@@ -270,6 +270,10 @@ body {
     padding-right: 0;
 }
 
+.collapsible-header h4 {
+    text-align: left;
+}
+
 .fa-hand-point-down {
     margin-left: auto;
     align-self: center;
