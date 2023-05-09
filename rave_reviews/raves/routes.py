@@ -17,7 +17,7 @@ s3 = boto3.client('s3',
 raves = Blueprint('raves', __name__)
 
 
-@raves.route("/get_raves/")
+@raves.route("/get_raves/", methods=["GET"])
 def get_raves():
     rave_id = request.args.get('rave_id')
     raves = mongo.db.raves.find()
