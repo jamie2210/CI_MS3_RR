@@ -21,8 +21,8 @@ raves = Blueprint('raves', __name__)
 def get_raves():
     rave_id = request.args.get('rave_id')
     raves = mongo.db.raves.find()
-    comments = list(
-        mongo.db.comments.find({"rave_id": rave_id}).sort("comment_id", 1))
+    comments = list(mongo.db.comments.find(
+        {"rave_id": rave_id}).sort("comment_created_by", 1))
     return render_template(
         "raves.html", title="RAVES", raves=raves, comments=comments)
 
