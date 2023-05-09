@@ -192,4 +192,4 @@ def logout():
     # remove user from session cookies
     flash("CYA! You've been logged out")
     session.pop("user")
-    return redirect(url_for("authentication.login"))
+    return redirect(url_for("index.home"))
