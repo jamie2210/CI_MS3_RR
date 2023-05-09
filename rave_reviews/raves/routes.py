@@ -17,10 +17,13 @@ s3 = boto3.client('s3',
 raves = Blueprint('raves', __name__)
 
 
-@raves.route("/get_raves")
+@raves.route("/get_raves/")
 def get_raves():
+    rave_id = request.args.get('rave_id')
     raves = mongo.db.raves.find()
-    comments = list(mongo.db.comments.find().sort("comment_created_by", 1))
+    comments = list(
+        mongo.db.comments.find(
+            {"comment_id": ObjectId(rave_id)}).sort("comment_created_by", 1))
     return render_template(
         "raves.html", title="RAVES", raves=raves, comments=comments)
 
@@ -150,7 +153,8 @@ def add_comment(rave_id):
     # create a comment object
     comment = {
         "comment_text": request.form.get("comment"),
-        "comment_created_by": session["user"]
+        "comment_created_by": session["user"],
+        "comment_id": ObjectId(rave_id)
     }
 
     mongo.db.comments.insert_one(comment)
