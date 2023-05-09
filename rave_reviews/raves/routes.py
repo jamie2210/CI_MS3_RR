@@ -4,6 +4,9 @@ from flask import (
     redirect, request, session, url_for)
 from rave_reviews import mongo
 from bson.objectid import ObjectId
+from flask import request
+from flask_paginate import Pagination, get_page_args
+from math import ceil
 import boto3
 from werkzeug.utils import secure_filename
 
@@ -20,11 +23,20 @@ raves = Blueprint('raves', __name__)
 @raves.route("/get_raves/", methods=["GET"])
 def get_raves():
     rave_id = request.args.get('rave_id')
-    raves = mongo.db.raves.find()
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page',
+        offset_parameter='offset')
+    per_page = 4
+    offset = (page - 1) * per_page
+    raves = mongo.db.raves.find().skip(offset).limit(per_page)
+    num_raves = mongo.db.raves.count_documents({})  # get total number of raves
+    num_pages = (num_raves // per_page) + (
+        num_raves % per_page > 0)  # calculate number of pages
     comments = list(mongo.db.comments.find(
         {"rave_id": rave_id}).sort("comment_created_by", 1))
     return render_template(
-        "raves.html", title="RAVES", raves=raves, comments=comments)
+        "raves.html", title="RAVES",
+        raves=raves, comments=comments, num_pages=num_pages, page=page)
 
 
 @raves.route("/add_rave", methods=["GET", "POST"])

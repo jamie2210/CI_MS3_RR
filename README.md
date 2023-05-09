@@ -8,3 +8,4 @@ embed youtube
 
 https://stackoverflow.com/questions/25661182/embed-youtube-video-refused-to-display-in-a-frame-because-it-set-x-frame-opti
 
+https://www.w3schools.com/howto/howto_css_next_prev.asp
