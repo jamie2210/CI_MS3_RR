@@ -338,6 +338,18 @@ body {
     color: #f9b233
 }
 
+.search-form {
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    max-width: 90%;
+    margin-bottom: 30px;
+}
+
+.search-input {
+    color: white;
+}
 
 /* ---------------------------------- Add Rave */
 

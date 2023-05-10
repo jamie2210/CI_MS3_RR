@@ -3,6 +3,22 @@
 <div class="blank-background center-align">
     <h1 class="title">{{ title }}</h1>
 
+        <div class="row">
+            <form action="{{ url_for('raves.search', rave_id=rave_id )}}" method="post" class="search-form">
+                <div class="row center-align">
+                    <div class="input-field col s12 m8">
+                        <i class="fa-solid fa-magnifying-glass prefix fa-icon"></i>
+                        <input type="text" id="query" name="query" minlength="3" class="validate search-input" required>
+                        <label for="query">Search Raves</label>
+                    </div>
+                    <div class="search-btn">
+                        <a href="{{ url_for('raves.get_raves') }}" class="btn">Reset</a>
+                        <button type="submit" class="btn">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
         <div class="card-container center-align">
             {% for rave in raves %}
             <div class="card">
