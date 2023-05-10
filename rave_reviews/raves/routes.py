@@ -27,11 +27,7 @@ def get_raves():
         page_parameter='page', per_page_parameter='per_page',
         offset_parameter='offset')
     per_page = 4
-    offset = (page - 1) * per_page
-    raves = mongo.db.raves.find().skip(offset).limit(per_page)
-    num_raves = mongo.db.raves.count_documents({})  # get total number of raves
-    num_pages = (num_raves // per_page) + (
-        num_raves % per_page > 0)  # calculate number of pages
+    raves, num_pages = create_pagination(page, per_page)
     comments = list(mongo.db.comments.find(
         {"rave_id": rave_id}).sort("comment_created_by", 1))
     return render_template(
@@ -172,3 +168,12 @@ def add_comment(rave_id):
     flash("Comment successfully added")
 
     return redirect(url_for("raves.get_raves", rave_id=rave_id))
+
+
+def create_pagination(page, per_page):
+    offset = (page - 1) * per_page
+    raves = mongo.db.raves.find().skip(offset).limit(per_page)
+    num_raves = mongo.db.raves.count_documents({})  # get total number of raves
+    num_pages = (num_raves // per_page) + (
+        num_raves % per_page > 0)  # calculate number of pages
+    return raves, num_pages

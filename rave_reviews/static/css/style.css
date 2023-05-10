@@ -322,6 +322,11 @@ body {
 .page-link {
     font-family: "PhillySans", sans-serif;
     font-size: 25px;
+    color: white
+}
+
+.page-link:hover {
+    color: #f9b233
 }
 
 .page-num {

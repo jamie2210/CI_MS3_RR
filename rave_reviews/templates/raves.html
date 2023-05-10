@@ -80,7 +80,7 @@
         <!-- pagination -->
             <div class="pagination-keys">
                 {% if page > 1 %}
-                    <a href="/get_raves/?page={{ page - 1 }}&per_page={{ per_page }}&offset={{ offset }}" class="page-link"><i class="fa-solid fa-hand-point-left prefix fa-icon"></i></a>
+                    <a href="/get_raves/?page={{ page - 1 }}&per_page={{ per_page }}&offset={{ offset }}" class="page-link"><i class="fa-solid fa-hand-point-left prefix"></i></a>
                 {% endif %}
                 {% for p in range(1, num_pages + 1) %}
                     {% if p == page %}
@@ -90,7 +90,7 @@
                     {% endif %}
                 {% endfor %}
                 {% if page < num_pages %}
-                    <a href="/get_raves/?page={{ page + 1 }}&per_page={{ per_page }}&offset={{ offset }}" class="page-link"><i class="fa-solid fa-hand-point-right prefix fa-icon"></i></a>
+                    <a href="/get_raves/?page={{ page + 1 }}&per_page={{ per_page }}&offset={{ offset }}" class="page-link"><i class="fa-solid fa-hand-point-right prefix"></i></a>
                 {% endif %}
             </div>
 </div>
