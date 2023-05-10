@@ -315,9 +315,22 @@ body {
 
 .pagination-keys a {
     background-color: black;
-
     color: white;
     text-decoration: none;
+}
+
+.page-link {
+    font-family: "PhillySans", sans-serif;
+    font-size: 25px;
+}
+
+.page-num {
+    font-family: "PhillySans", sans-serif;
+    font-size: 35px;
+}
+
+.page-num:hover {
+    color: #f9b233
 }
 
 
