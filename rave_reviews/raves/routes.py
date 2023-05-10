@@ -194,15 +194,24 @@ def add_comment(rave_id):
 
 def create_pagination(page, per_page, query=None):
     offset = (page - 1) * per_page
+    """
+    This function sets up pagination for a collection of raves.
 
+    Args:
+        page: The current page number.
+        per_page: The number of items per page.
+        query: A search query for filtering raves. Defaults to None.
+    """
     if query:
-        raves = mongo.db.raves.find(
-            {"$text": {"$search": query}}).skip(offset).limit(per_page)
-        num_raves = mongo.db.raves.count_documents({})
+        search_raves = mongo.db.raves.find({"$text": {"$search": query}})
+        num_raves = mongo.db.raves.count_documents(
+            {"$text": {"$search": query}})
+        raves = search_raves.skip(offset).limit(per_page)
     else:
         raves = mongo.db.raves.find().skip(offset).limit(per_page)
         num_raves = mongo.db.raves.count_documents({})
 
     num_pages = (num_raves // per_page) + (
         num_raves % per_page > 0)  # calculate number of pages
+
     return raves, num_pages
