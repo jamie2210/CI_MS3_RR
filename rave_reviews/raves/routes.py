@@ -165,9 +165,13 @@ def add_comment(rave_id):
     }
 
     mongo.db.comments.insert_one(comment)
+    comments = list(
+        mongo.db.comments.find(
+            {"rave_id": rave_id}).sort("comment_created_by", 1))
     flash("Comment successfully added")
 
-    return redirect(url_for("raves.get_raves", rave_id=rave_id))
+    return redirect(
+        url_for("raves.get_raves", raves=raves, comments=comments))
 
 
 def create_pagination(page, per_page):
