@@ -195,7 +195,7 @@ def add_comment(rave_id):
 def create_pagination(page, per_page, query=None):
     offset = (page - 1) * per_page
     """
-    This function sets up pagination for the reviews
+    This function sets up pagination for the rave reviews.
 
     Args:
         page: The current page number.

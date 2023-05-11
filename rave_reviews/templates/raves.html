@@ -18,10 +18,12 @@
                 </div>
             </form>
         </div>
-
+        {% set rave_list = raves|list %}
+        {% if rave_list|length > 0 %}
         <div class="card-container center-align">
-            {% for rave in raves %}
+            {% for rave in rave_list %}
             <div class="card">
+                
                 <ul class="collapsible">
                     <li>
                         <div class="collapsible-header">
@@ -93,6 +95,9 @@
                 </div>
             {% endfor %}
         </div>
+        {% else %}
+        <h3 class="title">No Review Found!</h3>
+        {% endif %}
         <!-- pagination -->
             <div class="pagination-keys">
                 {% if page > 1 %}
