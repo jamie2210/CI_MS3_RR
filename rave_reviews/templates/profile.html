@@ -21,8 +21,9 @@
                 {% endif %}
             </div>
                 {% if session.user|lower == user.username|lower %}
-                  <a href="{{ url_for('authentication.edit_profile', user_id=user._id) }}" class="btn">Edit Profile</a>
-                  <button onClick="deleteReviewModal( '{{user._id}}' )" class="btn">Delete Profile</button>
+                    <a href= "{{ url_for('raves.get_user_raves', user_id=user._id) }}" class="btn">My Reviews</a>
+                    <a href= "{{ url_for('authentication.edit_profile', user_id=user._id) }}" class="btn">Edit Profile</a>
+                    <button onClick="deleteReviewModal( '{{user._id}}' )" class="btn">Delete Profile</button>
                 {% endif %}
         </div>
     </div>

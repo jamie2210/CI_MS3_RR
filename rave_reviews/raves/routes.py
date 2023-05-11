@@ -35,6 +35,30 @@ def get_raves():
         raves=raves, comments=comments, num_pages=num_pages, page=page)
 
 
+@raves.route("/get_user_raves/<user_id>", methods=["GET"])
+def get_user_raves(user_id):
+    rave_id = request.args.get('rave_id')
+    username = request.args.get('created_by')
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page',
+        offset_parameter='offset')
+    per_page = 4
+
+    if username:
+        raves, num_pages = create_pagination(
+            page, per_page, created_by=user_id)
+    else:
+        raves, num_pages = create_pagination(
+            page, per_page)
+
+    comments = list(mongo.db.comments.find(
+        {"rave_id": rave_id}).sort("comment_created_by", 1))
+    return render_template(
+        "raves.html", title="RAVES",
+        raves=raves, comments=comments,
+        num_pages=num_pages, page=page, created_by=username)
+
+
 @raves.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -192,7 +216,7 @@ def add_comment(rave_id):
         url_for("raves.get_raves", raves=raves, comments=comments))
 
 
-def create_pagination(page, per_page, query=None):
+def create_pagination(page, per_page, query=None, created_by=None):
     offset = (page - 1) * per_page
     """
     This function sets up pagination for the rave reviews.
@@ -207,6 +231,10 @@ def create_pagination(page, per_page, query=None):
         num_raves = mongo.db.raves.count_documents(
             {"$text": {"$search": query}})
         raves = search_raves.skip(offset).limit(per_page)
+    elif created_by:
+        user_raves = mongo.db.raves.find({"created_by": created_by})
+        num_raves = user_raves.count_documents({})
+        raves = user_raves.skip(offset).limit(per_page)
     else:
         raves = mongo.db.raves.find().skip(offset).limit(per_page)
         num_raves = mongo.db.raves.count_documents({})
