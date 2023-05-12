@@ -169,6 +169,10 @@ def login():
 
 @authentication.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+
+    # If the user is not logged in, redirect them to home/landing page
+    if 'user' not in session:
+        return redirect(url_for("index.home"))
     user = mongo.db.users.find_one({"username": username})
     return render_template("profile.html",
                            username=session['user'],

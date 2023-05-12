@@ -21,6 +21,9 @@ def logged_in_home():
     HOME FUNCTION WHEN USER LOGGED IN
     Renders template for the home page
     """
+    # If the user is not logged in, redirect them to home/landing page
+    if 'user' not in session:
+        return redirect(url_for("index.home"))
     return render_template("logged_in_index.html")
 
 
@@ -30,4 +33,7 @@ def contact():
     CONTACT PAGE
     Renders template for the contact page
     """
+    # If the user is not logged in, redirect them to home/landing page
+    if 'user' not in session:
+        return redirect(url_for("index.home"))
     return render_template("contact.html", title="PLEASE GET IN TOUCH")

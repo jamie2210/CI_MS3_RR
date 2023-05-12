@@ -22,6 +22,11 @@ raves = Blueprint('raves', __name__)
 
 @raves.route("/get_raves/", methods=["GET"])
 def get_raves():
+
+    # If the user is not logged in, redirect them to home/landing page
+    if 'user' not in session:
+        return redirect(url_for("index.home"))
+
     rave_id = request.args.get('rave_id')
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page',
@@ -37,6 +42,11 @@ def get_raves():
 
 @raves.route("/get_user_raves/", methods=["GET"])
 def get_user_raves():
+
+    # If the user is not logged in, redirect them to home/landing page
+    if 'user' not in session:
+        return redirect(url_for("index.home"))
+
     rave_id = request.args.get('rave_id')
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page',
@@ -80,8 +90,12 @@ def search():
 
 @raves.route("/add_rave", methods=["GET", "POST"])
 def add_rave():
-    if request.method == "POST":
 
+    # If the user is not logged in, redirect them to home/landing page
+    if 'user' not in session:
+        return redirect(url_for("index.home"))
+        
+    if request.method == "POST":
         # Check if the file type is an allowed image file type
         image_url = upload("rave_image")
         if image_url == "invalid":

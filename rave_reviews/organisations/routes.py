@@ -10,6 +10,10 @@ organisations = Blueprint('organisations', __name__)
 
 @organisations.route("/get_organisations")
 def get_organisations():
+    # If the user is not logged in, redirect them to home/landing page
+    if 'user' not in session:
+        return redirect(url_for("index.home"))
+
     organisations = list(
         mongo.db.organisation.find().sort("organisation_name", 1))
     return render_template(
@@ -19,6 +23,10 @@ def get_organisations():
 
 @organisations.route("/add_organisation", methods=["GET", "POST"])
 def add_organisation():
+    # If the user is not logged in, redirect them to home/landing page
+    if 'user' not in session:
+        return redirect(url_for("index.home"))
+
     if request.method == "POST":
         organisation = {
             "organisation_name": request.form.get("organisation_name")
@@ -34,6 +42,10 @@ def add_organisation():
 @organisations.route(
     "/edit_organisation/<organisation_id>", methods=["GET", "POST"])
 def edit_organisation(organisation_id):
+    # If the user is not logged in, redirect them to home/landing page
+    if 'user' not in session:
+        return redirect(url_for("index.home"))
+
     if request.method == "POST":
         submit = {
             "organisation_name": request.form.get("organisation_name")
