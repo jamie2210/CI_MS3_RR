@@ -35,18 +35,19 @@ def get_raves():
         raves=raves, comments=comments, num_pages=num_pages, page=page)
 
 
-@raves.route("/get_user_raves/<user_id>", methods=["GET"])
-def get_user_raves(user_id):
+@raves.route("/get_user_raves/", methods=["GET"])
+def get_user_raves():
     rave_id = request.args.get('rave_id')
-    username = request.args.get('created_by')
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page',
         offset_parameter='offset')
     per_page = 4
 
-    if username:
+    session_user = session["user"]
+
+    if session_user:
         raves, num_pages = create_pagination(
-            page, per_page, created_by=user_id)
+            page, per_page, session_user=session_user)
     else:
         raves, num_pages = create_pagination(
             page, per_page)
@@ -54,9 +55,9 @@ def get_user_raves(user_id):
     comments = list(mongo.db.comments.find(
         {"rave_id": rave_id}).sort("comment_created_by", 1))
     return render_template(
-        "raves.html", title="RAVES",
+        "raves.html", title=f"{session_user}'s RAVES",
         raves=raves, comments=comments,
-        num_pages=num_pages, page=page, created_by=username)
+        num_pages=num_pages, page=page, session_user=session_user)
 
 
 @raves.route("/search", methods=["GET", "POST"])
@@ -216,7 +217,8 @@ def add_comment(rave_id):
         url_for("raves.get_raves", raves=raves, comments=comments))
 
 
-def create_pagination(page, per_page, query=None, created_by=None):
+def create_pagination(page, per_page, query=None,
+                      session_user=None, rave_id=None):
     offset = (page - 1) * per_page
     """
     This function sets up pagination for the rave reviews.
@@ -231,9 +233,10 @@ def create_pagination(page, per_page, query=None, created_by=None):
         num_raves = mongo.db.raves.count_documents(
             {"$text": {"$search": query}})
         raves = search_raves.skip(offset).limit(per_page)
-    elif created_by:
-        user_raves = mongo.db.raves.find({"created_by": created_by})
-        num_raves = user_raves.count_documents({})
+    elif session_user:
+        user_raves = mongo.db.raves.find({"created_by": session_user})
+        num_raves = mongo.db.raves.count_documents(
+            {"created_by": session_user})
         raves = user_raves.skip(offset).limit(per_page)
     else:
         raves = mongo.db.raves.find().skip(offset).limit(per_page)
