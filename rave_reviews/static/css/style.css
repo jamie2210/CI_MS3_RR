@@ -28,7 +28,7 @@ body {
 
 .fa-icon {
     color: #f9b233;
-  }
+}
 
 .btn {
     background-color: #f9b233;
@@ -43,14 +43,14 @@ body {
 .blank-background {
     min-height: 70vh;
     justify-content: center;
-    
+
 }
 
 /* ------------- Flashes */
 
 .flashes {
     font-family: "PhillySans", sans-serif;
-    color:white;
+    color: white;
 }
 
 /* ---------------------------------- Nav Bar */
@@ -94,7 +94,7 @@ body {
 
 .fa-icon {
     color: #f9b233;
-  }
+}
 
 .btn-large {
     background-color: #f9b233;
@@ -130,7 +130,7 @@ body {
 }
 
 .icons:hover {
-    color:#f9b233;
+    color: #f9b233;
 }
 
 /* ---------------------------------- Index */
@@ -152,7 +152,7 @@ body {
 }
 
 .welcome-container {
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 30px;
     margin: 10px;
 }
@@ -174,7 +174,7 @@ body {
 
 /* #confirm-password .fa-icon {
     margin-right: 10px;
-} */ 
+} */
 
 .alert {
     font-size: large;
@@ -184,7 +184,7 @@ body {
 }
 
 .error-icon {
-    color: #d93025; 
+    color: #d93025;
 }
 
 .tick-icon {
@@ -195,9 +195,9 @@ body {
 }
 
 .fa-circle-check {
-    color:#2fbc1f;
+    color: #2fbc1f;
     font-size: x-large;
-    
+
 }
 
 
@@ -206,8 +206,8 @@ body {
 /* ---------------------------------- Profile */
 
 .profile-img {
-        margin-left: 3rem;
-        color:#3b3b3b;
+    margin-left: 3rem;
+    color: #3b3b3b;
 }
 
 .profile-background {
@@ -223,7 +223,7 @@ body {
 }
 
 .profile-container {
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 30px;
 }
 
@@ -246,7 +246,7 @@ body {
 }
 
 .add_profile {
-    background-color:#3b3b3b;
+    background-color: #3b3b3b;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -264,7 +264,7 @@ body {
 }
 
 .link:hover {
-    color:#f9b233;
+    color: #f9b233;
 }
 
 /* ---------------------------------- Raves */
@@ -347,7 +347,7 @@ body {
 
 .comment-box {
     color: white;
-    width: 300px; 
+    width: 300px;
 }
 
 .comment-btn {
@@ -400,7 +400,7 @@ body {
 /* ---------------------------------- Add Rave */
 
 .add_rave {
-    background-color:#3b3b3b;
+    background-color: #3b3b3b;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -423,23 +423,10 @@ body {
 }
 
 .select-wrapper ul li {
-    color:#3b3b3b !important;
+    color: #3b3b3b !important;
 }
 
 /* ---------------------------------- Edit Rave */
-
-/* .edit-card-image {
-    position: absolute;
-    width: 100px;
-    height: auto;
-    right: 10px;
-}
-
-.small-text {
-    position: absolute;
-    right: 20px;
-    pointer-events:none;
-} */
 
 /* ---------------------------------- Organisations */
 
@@ -472,7 +459,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
-    margin-top: 20px;;
+    margin-top: 20px;
+    ;
 }
 
 #name {
@@ -516,7 +504,7 @@ body {
     transform: translate(-50%, -50%);
     color: white;
     display: none;
-    animation:fadein 0.5s;
+    animation: fadein 0.5s;
     padding: 20px;
     z-index: 2;
 }
@@ -537,7 +525,7 @@ body {
     transform: translate(-50%, -50%);
     color: white;
     display: none;
-    animation:fadein 0.5s;
+    animation: fadein 0.5s;
     padding: 20px;
     z-index: 2;
 }
@@ -548,11 +536,11 @@ body {
 
 .modal-background {
     position: fixed;
-    top:0;
-    left:0;
-    width:100vw;
-    height:100vh;
-    background-color:rgba(0,0,0,0.7);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
     display: none;
     z-index: 1;
 }
@@ -572,7 +560,7 @@ body {
 }
 
 .error-container {
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 30px;
     margin: 10px;
     max-width: 600px;
@@ -590,19 +578,24 @@ body {
         width: 100%;
         height: 100%;
     }
+
     .title {
         font-size: xx-large;
     }
+
     .main-logo {
         max-width: 80%;
     }
+
     .form-container {
         margin-left: 20px;
         margin-right: 20px;
     }
+
     .error-container p {
         font-size: large;
     }
+
     .error-container .title {
         font-size: 60px;
     }
@@ -612,12 +605,15 @@ body {
     .title {
         font-size: 35px;
     }
+
     .rave-title {
         font-size: 25px;
     }
+
     .main-logo {
         max-width: 100%;
     }
+
     .error-container .title {
         font-size: 50px;
     }

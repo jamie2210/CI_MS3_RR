@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-});
+document.addEventListener('DOMContentLoaded', function () {});
 
 /**
  * Select required elements
@@ -11,42 +10,42 @@ const reviewModal = document.querySelector('.review-modal');
  */
 function deleteReviewModal(rave_id) {
     const modal = document.querySelector(`#rave-modal-${rave_id}`);
-    const modalBackground= document.querySelector(`#modal-background-${rave_id}`)
+    const modalBackground = document.querySelector(`#modal-background-${rave_id}`)
     modal.style.display = "block";
     modalBackground.style.display = "block";
 }
 
 function closeRaveModal(rave_id) {
     const modal = document.querySelector(`#rave-modal-${rave_id}`);
-    const modalBackground= document.querySelector(`#modal-background-${rave_id}`)
+    const modalBackground = document.querySelector(`#modal-background-${rave_id}`)
     modal.style.display = "none";
     modalBackground.style.display = "none";
 }
 
 function deleteOrganisationModal(organisation_id) {
     const modal = document.querySelector(`#organisation-modal-${organisation_id}`);
-    const modalBackground= document.querySelector(`#modal-background-${organisation_id}`)
+    const modalBackground = document.querySelector(`#modal-background-${organisation_id}`)
     modal.style.display = "block";
     modalBackground.style.display = "block";
 }
 
 function closeOrgModal(organisation_id) {
     const modal = document.querySelector(`#organisation-modal-${organisation_id}`);
-    const modalBackground= document.querySelector(`#modal-background-${organisation_id}`)
+    const modalBackground = document.querySelector(`#modal-background-${organisation_id}`)
     modal.style.display = "none";
     modalBackground.style.display = "none";
 }
 
 function deleteUserModal(user_id) {
     const modal = document.querySelector(`#organisation-modal-${user_id}`);
-    const modalBackground= document.querySelector(`#modal-background-${user_id}`)
+    const modalBackground = document.querySelector(`#modal-background-${user_id}`)
     modal.style.display = "block";
     modalBackground.style.display = "block";
 }
 
 function closeUserModal(user_id) {
     const modal = document.querySelector(`#organisation-modal-${user_id}`);
-    const modalBackground= document.querySelector(`#modal-background-${user_id}`)
+    const modalBackground = document.querySelector(`#modal-background-${user_id}`)
     modal.style.display = "none";
     modalBackground.style.display = "none";
 }
@@ -60,8 +59,10 @@ year.innerHTML = new Date().getFullYear();
  * Jquery functions
  */
 
-$(document).ready(function(){
-    $('.sidenav').sidenav({edge: "right"});
+$(document).ready(function () {
+    $('.sidenav').sidenav({
+        edge: "right"
+    });
     $('.carousel').carousel();
     $('.tooltipped').tooltip();
     $('select').formSelect();
@@ -72,20 +73,34 @@ $(document).ready(function(){
         maxDate: null,
         showClearBtn: true,
         i18n: {
-          done: "select"
+            done: "select"
         }
     });
 
     validateMaterializeSelect();
+
     function validateMaterializeSelect() {
-        let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
-        let classInvalid = { "border-bottom": "1px solid #f44336", "box-shadow": "0 1px 0 0 #f44336" };
+        let classValid = {
+            "border-bottom": "1px solid #4caf50",
+            "box-shadow": "0 1px 0 0 #4caf50"
+        };
+        let classInvalid = {
+            "border-bottom": "1px solid #f44336",
+            "box-shadow": "0 1px 0 0 #f44336"
+        };
         if ($("select.validate").prop("required")) {
-            $("select.validate").css({ "display": "block", "height": "0", "padding": "0", "width": "0", "position": "absolute", "opacity": "0" });
+            $("select.validate").css({
+                "display": "block",
+                "height": "0",
+                "padding": "0",
+                "width": "0",
+                "position": "absolute",
+                "opacity": "0"
+            });
         }
         $(".select-wrapper input.select-dropdown").on("focusin", function () {
             $(this).parent(".select-wrapper").on("change", function () {
-                if ($(this).children("ul").children("li.selected:not(.disabled)").on("click", function () { })) {
+                if ($(this).children("ul").children("li.selected:not(.disabled)").on("click", function () {})) {
                     $(this).children("input").css(classValid);
                 }
             });
@@ -103,7 +118,7 @@ $(document).ready(function(){
             }
         });
     }
-  });
+});
 
 
 /**
@@ -112,23 +127,23 @@ $(document).ready(function(){
  */
 
 function sendMail(contactForm) {
-    emailjs.send("service_xm3vl8h","rave_reviews", {
-        "from_name" : contactForm.name.value,
-        "message" : contactForm.message.value,
-        "from_email" : contactForm.email.value,
-        "reply_to" : contactForm.email.value
-    })
-    .then(
-        function(response) {
-            console.log("SUCCESS", response);
-            swal("Thank you!", "Your message has been sent", "success"); // Use sweet alert to provide stlyed alert box for successfully sent message.
-            contactForm.reset(); // Reset form after successful submission.
-        },
-        function(error) {
-            console.log("FAILED", error);
-            swal("Oh dear!", "Something went wrong, please try again", "error"); // Use sweet alert to provide stlyed alert box for unsuccessfully sent message.
-        });
-        return false; // Prevents form from submitting if there's an error.
+    emailjs.send("service_xm3vl8h", "rave_reviews", {
+            "from_name": contactForm.name.value,
+            "message": contactForm.message.value,
+            "from_email": contactForm.email.value,
+            "reply_to": contactForm.email.value
+        })
+        .then(
+            function (response) {
+                console.log("SUCCESS", response);
+                swal("Thank you!", "Your message has been sent", "success"); // Use sweet alert to provide stlyed alert box for successfully sent message.
+                contactForm.reset(); // Reset form after successful submission.
+            },
+            function (error) {
+                console.log("FAILED", error);
+                swal("Oh dear!", "Something went wrong, please try again", "error"); // Use sweet alert to provide stlyed alert box for unsuccessfully sent message.
+            });
+    return false; // Prevents form from submitting if there's an error.
 }
 
 const password = document.querySelector("#password")
@@ -142,13 +157,13 @@ confirmPassword.addEventListener("input", checkPasswordsMatch);
 function checkPasswordsMatch() {
     if (confirmPassword.value !== "") {
         if (password.value === confirmPassword.value) {
-        passwordTick.style.display = "block";
-        errorAlert.style.display = "none";
-        submitBtn.disabled = false;
+            passwordTick.style.display = "block";
+            errorAlert.style.display = "none";
+            submitBtn.disabled = false;
         } else {
-        passwordTick.style.display = "none";
-        errorAlert.style.display = "block";
-        submitBtn.disabled = true;
+            passwordTick.style.display = "none";
+            errorAlert.style.display = "block";
+            submitBtn.disabled = true;
         }
     }
-  };
+};

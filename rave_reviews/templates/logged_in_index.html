@@ -1,19 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="background-image center-align">
-        <h1 class="title">{{ title }}</h1>     
-        <div class="row">
-            <img src="{{ url_for('static', filename='images/rr-logo-main.png') }}" class="main-logo" alt="Raves Reviews logo">
-            <div class="welcome-container">
-                <h2 class="title">Welcome to Rave Reviews!</h2>
-                <p>This site is designed for Drum and Bass enthusiastics to share their experiences, favourite sets and raves.</p>
-                <p>Please be friendly, foul behaviour, comments or reviews will result in removal of the site.</p>
-                <p><i class="fa-regular fa-hand-peace prefix fa-icon"></i> Pleace and Love <i class="fa-regular fa-heart prefix fa-icon"></i></p>
-                <a href= "{{ url_for('raves.get_user_raves', rave_id=rave_id) }}" class="btn">My Reviews</a>
-                <a href="{{ url_for('raves.add_rave') }}" class="btn">Leave Review</a></li>
-                <a href="{{ url_for('raves.get_raves') }}" class="btn">Rave Reviews</a></li>
+<div class="background-image center-align">
+    <h1 class="title">{{ title }}</h1>
+    <div class="row">
+        <img src="{{ url_for('static', filename='images/rr-logo-main.png') }}" class="main-logo"
+            alt="Raves Reviews logo">
+        <div class="welcome-container">
+            <h2 class="title">Welcome to Rave Reviews!</h2>
+            <p>This site is designed for Drum and Bass enthusiastics to share their experiences, favourite sets and
+                raves.</p>
+            <p>Please be friendly, foul behaviour, comments or reviews will result in removal of the site.</p>
+            <p><i class="fa-regular fa-hand-peace prefix fa-icon"></i> Pleace and Love <i
+                    class="fa-regular fa-heart prefix fa-icon"></i></p>
+            <a href="{{ url_for('raves.get_user_raves', rave_id=rave_id) }}" class="btn">My Reviews</a>
+            <a href="{{ url_for('raves.add_rave') }}" class="btn">Leave Review</a></li>
+            <a href="{{ url_for('raves.get_raves') }}" class="btn">Rave Reviews</a></li>
 
-            </div>
         </div>
     </div>
+</div>
 {% endblock %}

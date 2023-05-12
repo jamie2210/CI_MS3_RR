@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-          content="Rave Reviews is sharing site for Drum and Bass enthusiastics to leave memories of raves they have attended">
-    <meta name="keywords"
-          content="raves, rave reviews, raving, drum and bass, jungle, dnb, clubbing">
+        content="Rave Reviews is sharing site for Drum and Bass enthusiastics to leave memories of raves they have attended">
+    <meta name="keywords" content="raves, rave reviews, raving, drum and bass, jungle, dnb, clubbing">
     <meta name="author" content="Jamie Letts">
     <!-- Materialize -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        type="text/css">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        (function(){
-      emailjs.init("EB84Lrh7DSNQt_eKb");
+        (function () {
+            emailjs.init("EB84Lrh7DSNQt_eKb");
         })();
     </script>
     {% block styles %}
     {% endblock %}
     <title>Rave Reviews</title>
 </head>
+
 <body>
 
     <header>
@@ -31,26 +33,31 @@
         <nav>
             <div class="nav-wrapper rr-nav">
                 {% if session.user %}
-                <a href="{{ url_for('index.logged_in_home', username=session['user'])}}"><img src="{{ url_for('static', filename='images/favicon.png') }}" class="rr-logo"></a>
+                <a href="{{ url_for('index.logged_in_home', username=session['user'])}}"><img
+                        src="{{ url_for('static', filename='images/favicon.png') }}" class="rr-logo"></a>
                 {% else %}
-                <a href="{{ url_for('index.home')}}"><img src="{{ url_for('static', filename='images/favicon.png') }}" class="rr-logo"></a>
+                <a href="{{ url_for('index.home')}}"><img src="{{ url_for('static', filename='images/favicon.png') }}"
+                        class="rr-logo"></a>
                 {% endif %}
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fa-solid fa-bars burger"></i></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i
+                        class="fa-solid fa-bars burger"></i></a>
                 <ul class="right hide-on-med-and-down">
-                    
+
                     {% if session.user %}
-                        <li><a href="{{ url_for('index.logged_in_home')}}" class="nav-link">Home</a></li>
-                        <li><a href="{{ url_for('authentication.profile', username=session['user']) }}" class="nav-link">Profile</a></li>
-                        <li><a href="{{ url_for('raves.get_raves') }}" class="nav-link">Rave Reviews</a></li>
-                        <li><a href="{{ url_for('raves.add_rave') }}" class="nav-link">Leave Review</a></li>
-                        {% if session.user|lower == "admin"|lower %}
-                            <li><a href="{{ url_for('organisations.get_organisations') }}" class="nav-link">Organisations</a></li>
-                        {% endif %}
-                        <li><a href="{{ url_for('authentication.logout') }}" class="nav-link">Log Out</a></li>
+                    <li><a href="{{ url_for('index.logged_in_home')}}" class="nav-link">Home</a></li>
+                    <li><a href="{{ url_for('authentication.profile', username=session['user']) }}"
+                            class="nav-link">Profile</a></li>
+                    <li><a href="{{ url_for('raves.get_raves') }}" class="nav-link">Rave Reviews</a></li>
+                    <li><a href="{{ url_for('raves.add_rave') }}" class="nav-link">Leave Review</a></li>
+                    {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('organisations.get_organisations') }}" class="nav-link">Organisations</a>
+                    </li>
+                    {% endif %}
+                    <li><a href="{{ url_for('authentication.logout') }}" class="nav-link">Log Out</a></li>
                     {% else %}
-                        <li><a href="{{ url_for('index.home')}}" class="nav-link">Home</a></li>
-                        <li><a href="{{ url_for('authentication.login') }}" class="nav-link">Log In</a></li>
-                        <li><a href="{{ url_for('authentication.register') }}" class="nav-link">Register</a></li>
+                    <li><a href="{{ url_for('index.home')}}" class="nav-link">Home</a></li>
+                    <li><a href="{{ url_for('authentication.login') }}" class="nav-link">Log In</a></li>
+                    <li><a href="{{ url_for('authentication.register') }}" class="nav-link">Register</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -59,70 +66,78 @@
         <ul class="sidenav rr-nav" id="mobile-demo">
             <li>
                 <div class="center-align">
-                    <img src="{{ url_for('static', filename='images/rr-logo-2.png') }}" class="collapse-title collapse-logo">
+                    <img src="{{ url_for('static', filename='images/rr-logo-2.png') }}"
+                        class="collapse-title collapse-logo">
                 </div>
             </li>
             <li><a href="{{ url_for('index.home')}}" class="nav-link">Home</a></li>
             {% if session.user %}
-                <li><a href="{{ url_for('authentication.profile', username=session['user']) }}" class="nav-link">Profile</a></li>
-                <li><a href="{{ url_for('raves.get_raves') }}" class="nav-link">Raves</a></li>
-                <li><a href="{{ url_for('raves.add_rave') }}" class="nav-link">Review Rave</a></li>
-                {% if session.user|lower == "admin"|lower %}
-                    <li><a href="{{ url_for('organisations.get_organisations') }}" class="nav-link">Add Organisation</a></li>
-                {% endif %}
-                <li><a href="{{ url_for('authentication.logout') }}" class="nav-link">Log Out</a></li>
+            <li><a href="{{ url_for('authentication.profile', username=session['user']) }}" class="nav-link">Profile</a>
+            </li>
+            <li><a href="{{ url_for('raves.get_raves') }}" class="nav-link">Raves</a></li>
+            <li><a href="{{ url_for('raves.add_rave') }}" class="nav-link">Review Rave</a></li>
+            {% if session.user|lower == "admin"|lower %}
+            <li><a href="{{ url_for('organisations.get_organisations') }}" class="nav-link">Add Organisation</a></li>
+            {% endif %}
+            <li><a href="{{ url_for('authentication.logout') }}" class="nav-link">Log Out</a></li>
             {% else %}
-                <li><a href="{{ url_for('authentication.login') }}" class="nav-link">Log In</a></li>
-                <li><a href="{{ url_for('authentication.register') }}" class="nav-link">Register</a></li>
+            <li><a href="{{ url_for('authentication.login') }}" class="nav-link">Log In</a></li>
+            <li><a href="{{ url_for('authentication.register') }}" class="nav-link">Register</a></li>
             {% endif %}
         </ul>
-        
+
     </header>
 
     <!-- <h1 class="title">{{ title }}</h1> -->
     <section>
         <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row">
-                        <h4 class="flashes center-align">{{ message }}</h4>
-                    </div>
-                {% endfor %}
-            {% endif %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row">
+            <h4 class="flashes center-align">{{ message }}</h4>
+        </div>
+        {% endfor %}
+        {% endif %}
         {% endwith %}
     </section>
     <main>
-        
+
         {% block content %}
         {% endblock %}
-        
+
     </main>
     <footer class="page-footer">
         <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <span><img class="footer-logo" src="{{ url_for('static', filename='images/rr-logo-2.png') }}"></span>
-              <p></i> Created and designed by Jamie2210 <a href ="https://github.com/jamie2210/CI_MS3_RR" 
-                        target="_blank" aria-label="Go to Github site"><i class="fa-brands fa-github icons"></i></a> Please get in touch 
-                        <a href ="{{ url_for('index.contact') }}" aria-label="Go to contact form page"><i class="fa-solid fa-envelope icons"></i></a>
-              </p>
-              <p>Rave Reviews © <span id="current-year"> </span></p>
+            <div class="row">
+                <div class="col l6 s12">
+                    <span><img class="footer-logo"
+                            src="{{ url_for('static', filename='images/rr-logo-2.png') }}"></span>
+                    <p></i> Created and designed by Jamie2210 <a href="https://github.com/jamie2210/CI_MS3_RR"
+                            target="_blank" aria-label="Go to Github site"><i class="fa-brands fa-github icons"></i></a>
+                        Please get in touch
+                        <a href="{{ url_for('index.contact') }}" aria-label="Go to contact form page"><i
+                                class="fa-solid fa-envelope icons"></i></a>
+                    </p>
+                    <p>Rave Reviews © <span id="current-year"> </span></p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Socials</h5>
+                    <ul>
+                        <li><a href="https://www.facebook.com" aria-label="Go to facebook page (opens in new tab)"
+                                target="_blank"><i class="fa-brands fa-facebook icons"></i></li>
+                        <li><a href="https://www.twitter.com" aria-label="Go to twitter page (opens in new tab)"
+                                target="_blank"><i class="fa-brands fa-twitter icons"></i></li>
+                        <li><a href="https://www.instagram.com" aria-label="Go to instagram page (opens in new tab)"
+                                target="_blank"><i class="fa-brands fa-instagram icons"></i></a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="col l4 offset-l2 s12">
-              <h5 class="white-text">Socials</h5>
-              <ul>
-                <li><a href="https://www.facebook.com" aria-label="Go to facebook page (opens in new tab)" target="_blank"><i class="fa-brands fa-facebook icons"></i></li>
-                <li><a href="https://www.twitter.com" aria-label="Go to twitter page (opens in new tab)" target="_blank"><i class="fa-brands fa-twitter icons"></i></li>
-                <li><a href="https://www.instagram.com" aria-label="Go to instagram page (opens in new tab)" target="_blank"><i class="fa-brands fa-instagram icons"></i></a></li>
-              </ul>
-            </div>
-          </div>
         </div>
-      </footer>
+    </footer>
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-            integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous">
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous">
     </script>
     <!-- Materialize Js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -133,4 +148,5 @@
     {% block scripts %}
     {% endblock %}
 </body>
+
 </html>

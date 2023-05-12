@@ -3,45 +3,46 @@
 
 <h1 class="title">{{ title }}</h1>
 
-    <div class="row">
-        <div class="center-align">
-            <a href="{{ url_for('organisations.add_organisation' )}}" class="btn org-btn">Add Organisation</a>
-        </div>
+<div class="row">
+    <div class="center-align">
+        <a href="{{ url_for('organisations.add_organisation' )}}" class="btn org-btn">Add Organisation</a>
     </div>
+</div>
 
-    <div class="row">
-        {% for organisation in organisations %}
-            <div class="col s12 m6 l4 xl3">
-                <div class="card org-card center-align">
-                    <div class="card-content white-text">
-                        <span class="card-title">{{ organisation.organisation_name }}</span>
-                        <div class="card-action">
-                            <a href="{{ url_for('organisations.edit_organisation', organisation_id=organisation._id) }}" class="btn">Edit</a>
-                            <button onClick="deleteOrganisationModal('{{ organisation._id }}')" class="btn">Delete</button>
-                        </div>
-                    </div>
+<div class="row">
+    {% for organisation in organisations %}
+    <div class="col s12 m6 l4 xl3">
+        <div class="card org-card center-align">
+            <div class="card-content white-text">
+                <span class="card-title">{{ organisation.organisation_name }}</span>
+                <div class="card-action">
+                    <a href="{{ url_for('organisations.edit_organisation', organisation_id=organisation._id) }}"
+                        class="btn">Edit</a>
+                    <button onClick="deleteOrganisationModal('{{ organisation._id }}')" class="btn">Delete</button>
                 </div>
-                <!-- Delete Modal -->
-                <div class="modal-background" id="modal-background-{{ organisation._id }}">
-                    <div class="row">
-                        <div class="center-align organisation-modal" id="organisation-modal-{{ organisation._id }}">
-                            <div class="col-12">
-                                <header class="modal-header">
-                                    <h2>
-                                        Are you sure you want to delete {{ organisation.organisation_name }}!?
-                                    </h2>
-                                </header>
-                                <div class="modal-body">
-                                    <button onClick="closeOrgModal('{{ organisation._id }}')" class="btn">Cancel</button>
-                                    <a href="{{ url_for('organisations.delete_organisation',organisation_id=organisation._id) }}" class="btn">Delete</a>
-                                </div>
-                            </div>
+            </div>
+        </div>
+        <!-- Delete Modal -->
+        <div class="modal-background" id="modal-background-{{ organisation._id }}">
+            <div class="row">
+                <div class="center-align organisation-modal" id="organisation-modal-{{ organisation._id }}">
+                    <div class="col-12">
+                        <header class="modal-header">
+                            <h2>
+                                Are you sure you want to delete {{ organisation.organisation_name }}!?
+                            </h2>
+                        </header>
+                        <div class="modal-body">
+                            <button onClick="closeOrgModal('{{ organisation._id }}')" class="btn">Cancel</button>
+                            <a href="{{ url_for('organisations.delete_organisation',organisation_id=organisation._id) }}"
+                                class="btn">Delete</a>
                         </div>
                     </div>
                 </div>
             </div>
-        {% endfor %}
+        </div>
     </div>
-
+    {% endfor %}
+</div>
 
 {% endblock %}

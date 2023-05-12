@@ -4,105 +4,107 @@
 
 <h1 class="title">{{ title }}</h1>
 
+<div class="row">
+    <form class="add_rave" method="POST" action="{{ url_for('raves.edit_rave', rave_id=rave._id) }}"
+        enctype="multipart/form-data">
         <div class="row">
-            <form class="add_rave" method="POST" action="{{ url_for('raves.edit_rave', rave_id=rave._id) }}" enctype="multipart/form-data">
-                <div class="row">
-                    <!-- selecet organisation -->
-                    <div class="input-field col s12">
-                        <i class="fa-solid fa-people-group prefix fa-icon"></i>
-                        <select id="organisation_name" name="organisation_name" class="validate" required>
-                        <option value="" disabled>Select Organisation</option>
-                        {% for organisation in organisations %}
-                            {% if organisation.organisation_name == rave.organisation_name %}
-                                <option value="{{ organisation.organisation_name }}" selected>{{ organisation.organisation_name }}</option>
-                            {% else %}
-                            <option value="{{ organisation.organisation_name }}">{{ organisation.organisation_name }}</option>
-                            {% endif %}
-                        {% endfor %}
-                        </select>
-                        <label for="organisation_name">Organisation</label>
-                    </div>
+            <!-- selecet organisation -->
+            <div class="input-field col s12">
+                <i class="fa-solid fa-people-group prefix fa-icon"></i>
+                <select id="organisation_name" name="organisation_name" class="validate" required>
+                    <option value="" disabled>Select Organisation</option>
+                    {% for organisation in organisations %}
+                    {% if organisation.organisation_name == rave.organisation_name %}
+                    <option value="{{ organisation.organisation_name }}" selected>{{ organisation.organisation_name }}
+                    </option>
+                    {% else %}
+                    <option value="{{ organisation.organisation_name }}">{{ organisation.organisation_name }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                <label for="organisation_name">Organisation</label>
+            </div>
+        </div>
+        <!-- image upload -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fa-solid fa-image prefix fa-icon"></i>
+                <input type="file" name="rave_image" id="rave_image" class="validate" required>
+                <div class="img-label">
+                    <label for="rave_image">Upload a new pic from the rave</label>
                 </div>
-                 <!-- image upload -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fa-solid fa-image prefix fa-icon"></i>
-                        <input type="file" name="rave_image" id="rave_image" class="validate" required>
-                        <div class="img-label">
-                            <label for="rave_image">Upload a new pic from the rave</label>
-                        </div>
-                    </div>
-                </div>
-                <!-- rave name -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fa-solid fa-face-grin-wide prefix fa-icon"></i>
-                        <input id="rave_name" name="rave_name" type="text" class="validate" value="{{ rave.rave_name }}" maxlength="20" required>
-                        <label for="rave_name">Rave Name</label>
-                    </div>
-                </div>
-                <!-- rave date picker -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fa-solid fa-calendar-days prefix fa-icon"></i>
-                        <input id="date" name="date" type="text" class="datepicker validate" value="{{ rave.date }}" required>
-                        <label for="date">Rave Date</label>
-                    </div>
-                </div>
-                <!-- rave venue -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fa-solid fa-warehouse prefix fa-icon"></i>
-                        <input id="venue" name="venue" type="text" class="validate" value="{{ rave.venue }}" required>
-                        <label for="venue">Rave Venue</label>
-                    </div>
-                </div>
-                <!-- rave description -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fa-solid fa-file-pen prefix fa-icon"></i>
-                        <textarea id="rave_description" name="rave_description" class="materialize-textarea validate" required>
+            </div>
+        </div>
+        <!-- rave name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fa-solid fa-face-grin-wide prefix fa-icon"></i>
+                <input id="rave_name" name="rave_name" type="text" class="validate" value="{{ rave.rave_name }}"
+                    maxlength="20" required>
+                <label for="rave_name">Rave Name</label>
+            </div>
+        </div>
+        <!-- rave date picker -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fa-solid fa-calendar-days prefix fa-icon"></i>
+                <input id="date" name="date" type="text" class="datepicker validate" value="{{ rave.date }}" required>
+                <label for="date">Rave Date</label>
+            </div>
+        </div>
+        <!-- rave venue -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fa-solid fa-warehouse prefix fa-icon"></i>
+                <input id="venue" name="venue" type="text" class="validate" value="{{ rave.venue }}" required>
+                <label for="venue">Rave Venue</label>
+            </div>
+        </div>
+        <!-- rave description -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fa-solid fa-file-pen prefix fa-icon"></i>
+                <textarea id="rave_description" name="rave_description" class="materialize-textarea validate" required>
                             {{- rave.rave_description -}}
                         </textarea>
-                        <label for="rave_description">How was it?</label>
-                    </div>
-                </div>
-                <!-- Youtube Upload -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fa-solid fa-link prefix fa-icon"></i>
-                        <input id="rave_set" name="rave_set" type="text" class="validate">
-                        <label for="rave_set">Add a youtube set?</label>
-                    </div>
-                </div>
-                <!-- banger checkbox -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <div class="switch">
-                            <i class="fa-solid fa-bullhorn fa-icon prefix banger"></i>
-                            <label for="banger">
-                                {% if rave.banger == "on" %}
-                                    <input type="checkbox" name="banger" id="banger" checked>
-                                {% else %}
-                                <input type="checkbox" name="banger" id="banger">
-                                {% endif %}
-                            <span class="lever"></span>
-                            Proper naughty rave?
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <!-- submit button -->
-                <div class="row">
-                    <div class="col s12 center-align">
-                        <!-- Cancel button -->
-                        <a href="{{url_for('raves.get_raves')}}" class="btn">Cancel</a>
-                        <i class="fa-solid fa-arrow-up-from-square"></i>
-                        <button type="submit" value="Upload" class="btn"><strong>Edit Review</button>
-                    </div>
-                </div>
-            </form>
+                <label for="rave_description">How was it?</label>
+            </div>
         </div>
-
+        <!-- Youtube Upload -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fa-solid fa-link prefix fa-icon"></i>
+                <input id="rave_set" name="rave_set" type="text" class="validate">
+                <label for="rave_set">Add a youtube set?</label>
+            </div>
+        </div>
+        <!-- banger checkbox -->
+        <div class="row">
+            <div class="input-field col s12">
+                <div class="switch">
+                    <i class="fa-solid fa-bullhorn fa-icon prefix banger"></i>
+                    <label for="banger">
+                        {% if rave.banger == "on" %}
+                        <input type="checkbox" name="banger" id="banger" checked>
+                        {% else %}
+                        <input type="checkbox" name="banger" id="banger">
+                        {% endif %}
+                        <span class="lever"></span>
+                        Proper naughty rave?
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- submit button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <!-- Cancel button -->
+                <a href="{{url_for('raves.get_raves')}}" class="btn">Cancel</a>
+                <i class="fa-solid fa-arrow-up-from-square"></i>
+                <button type="submit" value="Upload" class="btn"><strong>Edit Review</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 {% endblock %}

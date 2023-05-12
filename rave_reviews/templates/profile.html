@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="profile-background">
-      
+<div class="profile-background">
+
     <div class="row">
-      <h1 class="title">{{ title }}</h1>
+        <h1 class="title">{{ title }}</h1>
         <div class="center-align profile-container">
-              <div class="pic-container">
+            <div class="pic-container">
                 <img class="profile-pic" src="{{ user.profile_image }}">
-              </div>
-              <div class="profile-content">
+            </div>
+            <div class="profile-content">
                 <h3>{{ user.first_name }} {{ user.last_name }}</h3>
                 <p>Favourite DJ: {{ user.fave_dj }}</p>
                 <P>Favourite MC: {{ user.fave_mc }}</P>
@@ -17,18 +17,21 @@
                 <P>Favourite Organisation: {{ user.fave_organisation }}</P>
                 {% if user.fave_set %}
                 <p>Favourite Set:</p>
-                    <iframe class="youtube-vid" width="560" height="315" src="{{user.fave_set}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe class="youtube-vid" width="560" height="315" src="{{user.fave_set}}"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
                 {% endif %}
             </div>
-                {% if session.user|lower == user.username|lower %}
-                    <a href= "{{ url_for('raves.get_user_raves', rave_id=rave_id) }}" class="btn">My Reviews</a>
-                    <a href= "{{ url_for('authentication.edit_profile', user_id=user._id) }}" class="btn">Edit Profile</a>
-                    <button onClick="deleteReviewModal( '{{user._id}}' )" class="btn">Delete Profile</button>
-                {% endif %}
+            {% if session.user|lower == user.username|lower %}
+            <a href="{{ url_for('raves.get_user_raves', rave_id=rave_id) }}" class="btn">My Reviews</a>
+            <a href="{{ url_for('authentication.edit_profile', user_id=user._id) }}" class="btn">Edit Profile</a>
+            <button onClick="deleteReviewModal( '{{user._id}}' )" class="btn">Delete Profile</button>
+            {% endif %}
         </div>
     </div>
-     <!-- Delete Modal -->
-     <div class="modal-background" id="modal-background-{{ user._id }}">
+    <!-- Delete Modal -->
+    <div class="modal-background" id="modal-background-{{ user._id }}">
         <div class="row">
             <div class="center-align review-modal" id="rave-modal-{{ user._id }}">
                 <div class="col-12">
@@ -46,4 +49,4 @@
         </div>
     </div>
 
-{% endblock %}
+    {% endblock %}

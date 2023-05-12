@@ -3,117 +3,124 @@
 <div class="blank-background center-align">
     <h1 class="title">{{ title }}</h1>
 
-        <div class="row">
-            <form action="{{ url_for('raves.search', rave_id=rave_id )}}" method="post" class="search-form">
-                <div class="row center-align">
-                    <div class="input-field col s12 m8">
-                        <i class="fa-solid fa-magnifying-glass prefix fa-icon"></i>
-                        <input type="text" id="query" name="query" minlength="3" class="validate search-input" required>
-                        <label for="query">Search Raves</label>
-                    </div>
-                    <div class="search-btn">
-                        <a href="{{ url_for('raves.get_raves') }}" class="btn">Reset</a>
-                        <button type="submit" class="btn">Search</button>
-                    </div>
+    <div class="row">
+        <form action="{{ url_for('raves.search', rave_id=rave_id )}}" method="post" class="search-form">
+            <div class="row center-align">
+                <div class="input-field col s12 m8">
+                    <i class="fa-solid fa-magnifying-glass prefix fa-icon"></i>
+                    <input type="text" id="query" name="query" minlength="3" class="validate search-input" required>
+                    <label for="query">Search Raves</label>
                 </div>
-                <a href= "{{ url_for('raves.get_user_raves', rave_id=rave_id) }}" class="btn">My Reviews</a>
-            </form>
-        </div>
-        {% set rave_list = raves|list %}
-        {% if rave_list|length > 0 %}
-        <div class="card-container center-align">
-            {% for rave in rave_list %}
-            <div class="card">
-                
-                <ul class="collapsible">
-                    <li>
-                        <div class="collapsible-header">
-                            <h4 class="rave-title">{{ rave.rave_name }}
-                                {% if rave.banger == "on" %}
-                                    <i class="fa-solid fa-bullhorn fa-icon tooltipped" data-position="right" data-tooltip="PROPER NAUGHTY!"></i>
-                                {% endif %}
-                            </h4>
-                                <i class="fa-solid fa-hand-point-down fa-icon"></i>
+                <div class="search-btn">
+                    <a href="{{ url_for('raves.get_raves') }}" class="btn">Reset</a>
+                    <button type="submit" class="btn">Search</button>
+                </div>
+            </div>
+            <a href="{{ url_for('raves.get_user_raves', rave_id=rave_id) }}" class="btn">My Reviews</a>
+        </form>
+    </div>
+    {% set rave_list = raves|list %}
+    {% if rave_list|length > 0 %}
+    <div class="card-container center-align">
+        {% for rave in rave_list %}
+        <div class="card">
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        <h4 class="rave-title">{{ rave.rave_name }}
+                            {% if rave.banger == "on" %}
+                            <i class="fa-solid fa-bullhorn fa-icon tooltipped" data-position="right"
+                                data-tooltip="PROPER NAUGHTY!"></i>
+                            {% endif %}
+                        </h4>
+                        <i class="fa-solid fa-hand-point-down fa-icon"></i>
+                    </div>
+                    <div class="collapsible-body center-align">
+                        <div class="card-image">
+                            <img src="{{ rave.rave_image }}" class="materialboxed">
                         </div>
-                        <div class="collapsible-body center-align">
-                            <div class="card-image">
-                                <img src="{{ rave.rave_image }}" class="materialboxed">    
-                            </div>
-                            <div class="card-content">
-                                <h5>{{ rave.organisation_name }}</h5>
-                                <p>{{ rave.date }}
+                        <div class="card-content">
+                            <h5>{{ rave.organisation_name }}</h5>
+                            <p>{{ rave.date }}
                                 <P>{{ rave.venue }}</P>
                                 <p>{{ rave.rave_description }}</p>
                                 {% if rave.rave_set %}
-                                    <iframe class="youtube-vid" width="560" height="315" src="{{rave.rave_set}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe class="youtube-vid" width="560" height="315" src="{{rave.rave_set}}"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
                                 {% endif %}
                                 <p><em>raver: {{ rave.created_by }}</em></p>
-                            </div>
-                            <div class="comments">
-                                {% for comment in comments %}
-                                    {% if comment.comment_id == rave._id %}
-                                        <p>{{ comment.comment_created_by}}: {{ comment.comment_text }}</p>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                            <!-- Add comment form -->
-                            <form method="POST" enctype="multipart/form-data" action="{{ url_for('raves.add_comment', rave_id=rave._id) }}" class="validate">
-                                
-                                    <div class="comment-section">
-                                        <label for="comment" hidden>Comment</label>
-                                        <textarea class="comment-box textarea" name="comment" id="comment"></textarea>
-                                    </div>
-                                        <button class="btn comment-btn" type="submit">Post comment</button>
-                                
-                            </form>
-                            <div class="card-action">
-                                {% if session.user|lower == rave.created_by|lower or session.user|lower == 'admin' %}
-                                    <a href="{{ url_for('raves.edit_rave', rave_id=rave._id) }}" class="btn">Edit Review</a>
-                                    <button onClick="deleteReviewModal('{{ rave._id }}')" class="btn">Delete Review</button>
-                                {% endif %}
-                            </div>
                         </div>
-                    </li>
-                </ul>
-                </div>
-                <!-- Delete Modal -->
-                <div class="modal-background" id="modal-background-{{ rave._id }}">
-                    <div class="row">
-                        <div class="center-align review-modal" id="rave-modal-{{ rave._id }}">
-                            <div class="col-12">
-                                <header class="modal-header">
-                                    <h2>
-                                        Are you sure you want to delete your {{rave.rave_name }} review!?
-                                    </h2>
-                                </header>
-                                <div class="modal-body">
-                                    <button onClick="closeRaveModal('{{ rave._id }}')" class="btn">Cancel</button>
-                                    <a href="{{ url_for('raves.delete_rave', rave_id=rave._id) }}" class="btn">Delete</a>
-                                </div>
+                        <div class="comments">
+                            {% for comment in comments %}
+                            {% if comment.comment_id == rave._id %}
+                            <p>{{ comment.comment_created_by}}: {{ comment.comment_text }}</p>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <!-- Add comment form -->
+                        <form method="POST" enctype="multipart/form-data"
+                            action="{{ url_for('raves.add_comment', rave_id=rave._id) }}" class="validate">
+
+                            <div class="comment-section">
+                                <label for="comment" hidden>Comment</label>
+                                <textarea class="comment-box textarea" name="comment" id="comment"></textarea>
                             </div>
+                            <button class="btn comment-btn" type="submit">Post comment</button>
+
+                        </form>
+                        <div class="card-action">
+                            {% if session.user|lower == rave.created_by|lower or session.user|lower == 'admin' %}
+                            <a href="{{ url_for('raves.edit_rave', rave_id=rave._id) }}" class="btn">Edit Review</a>
+                            <button onClick="deleteReviewModal('{{ rave._id }}')" class="btn">Delete Review</button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Delete Modal -->
+        <div class="modal-background" id="modal-background-{{ rave._id }}">
+            <div class="row">
+                <div class="center-align review-modal" id="rave-modal-{{ rave._id }}">
+                    <div class="col-12">
+                        <header class="modal-header">
+                            <h2>
+                                Are you sure you want to delete your {{rave.rave_name }} review!?
+                            </h2>
+                        </header>
+                        <div class="modal-body">
+                            <button onClick="closeRaveModal('{{ rave._id }}')" class="btn">Cancel</button>
+                            <a href="{{ url_for('raves.delete_rave', rave_id=rave._id) }}" class="btn">Delete</a>
                         </div>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
-        {% else %}
-        <h3 class="title">No Review Found!</h3>
-        {% endif %}
-        <!-- pagination -->
-            <div class="pagination-keys">
-                {% if page > 1 %}
-                    <a href="/get_raves/?page={{ page - 1 }}&per_page={{ per_page }}&offset={{ offset }}" class="page-link"><i class="fa-solid fa-hand-point-left prefix"></i></a>
-                {% endif %}
-                {% for p in range(1, num_pages + 1) %}
-                    {% if p == page %}
-                        <a href="#" class="page-num active">{{ p }}</a>
-                    {% else %}
-                        <a href="/get_raves/?page={{ p }}&per_page={{ per_page }}&offset={{ offset }}" class="page-num">{{ p }}</a>
-                    {% endif %}
-                {% endfor %}
-                {% if page < num_pages %}
-                    <a href="/get_raves/?page={{ page + 1 }}&per_page={{ per_page }}&offset={{ offset }}" class="page-link"><i class="fa-solid fa-hand-point-right prefix"></i></a>
-                {% endif %}
             </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <h3 class="title">No Review Found!</h3>
+    {% endif %}
+    <!-- pagination -->
+    <div class="pagination-keys">
+        {% if page > 1 %}
+        <a href="/get_raves/?page={{ page - 1 }}&per_page={{ per_page }}&offset={{ offset }}" class="page-link"><i
+                class="fa-solid fa-hand-point-left prefix"></i></a>
+        {% endif %}
+        {% for p in range(1, num_pages + 1) %}
+        {% if p == page %}
+        <a href="#" class="page-num active">{{ p }}</a>
+        {% else %}
+        <a href="/get_raves/?page={{ p }}&per_page={{ per_page }}&offset={{ offset }}" class="page-num">{{ p }}</a>
+        {% endif %}
+        {% endfor %}
+        {% if page < num_pages %}
+        <a href="/get_raves/?page={{ page + 1 }}&per_page={{ per_page }}&offset={{ offset }}" class="page-link"><i
+                class="fa-solid fa-hand-point-right prefix"></i></a>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
