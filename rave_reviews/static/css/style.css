@@ -157,6 +157,52 @@ body {
     margin: 10px;
 }
 
+/* ---------------------------------- Register */
+
+.fa-eye-slash {
+    position: absolute;
+    width: 3rem;
+    font-size: 1.5rem;
+    -webkit-transition: color .2s;
+    transition: color .2s;
+    top: 0.5rem;
+}
+
+/* #confirm-password .label {
+    margin: 0px 0px 0px 32px
+}
+
+/* #confirm-password .fa-icon {
+    margin-right: 10px;
+} */ 
+
+.alert {
+    font-size: large;
+    padding-left: 10px;
+    padding-top: 20px;
+    display: none;
+}
+
+.error-icon {
+    color: #d93025; 
+}
+
+.tick-icon {
+    font-size: large;
+    padding-left: 10px;
+    padding-top: 20px;
+    display: none;
+}
+
+.fa-circle-check {
+    color:#2fbc1f;
+    font-size: x-large;
+    
+}
+
+
+
+
 /* ---------------------------------- Profile */
 
 .profile-img {

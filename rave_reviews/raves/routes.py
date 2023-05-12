@@ -94,7 +94,7 @@ def add_rave():
     # If the user is not logged in, redirect them to home/landing page
     if 'user' not in session:
         return redirect(url_for("index.home"))
-        
+
     if request.method == "POST":
         # Check if the file type is an allowed image file type
         image_url = upload("rave_image")

@@ -130,3 +130,25 @@ function sendMail(contactForm) {
         });
         return false; // Prevents form from submitting if there's an error.
 }
+
+const password = document.querySelector("#password")
+const confirmPassword = document.querySelector("#confirm-password")
+const errorAlert = document.querySelector(".alert")
+const passwordTick = document.querySelector(".tick-icon")
+const submitBtn = document.querySelector(".submit-btn")
+
+confirmPassword.addEventListener("input", checkPasswordsMatch);
+
+function checkPasswordsMatch() {
+    if (confirmPassword.value !== "") {
+        if (password.value === confirmPassword.value) {
+        passwordTick.style.display = "block";
+        errorAlert.style.display = "none";
+        submitBtn.disabled = false;
+        } else {
+        passwordTick.style.display = "none";
+        errorAlert.style.display = "block";
+        submitBtn.disabled = true;
+        }
+    }
+  };

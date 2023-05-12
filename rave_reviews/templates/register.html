@@ -24,6 +24,23 @@
                 <label for="password">Password</label>
               </div>
             </div>
+             <!-- confirm password -->
+             <div class="row">
+              <div class="input-field col s12 confirm">
+                <i class="fa-solid fa-lock prefix fa-icon"></i>
+                <input id="confirm-password" name="confirm-password" type="password" class="validate" required>
+                <label for="confirm-password">Confirm Password</label>
+                <div class="alert">
+                  <i class="fas fa-exclamation-circle error-icon"> </i>
+                  <span class="error-text">Passwords do not match</span>
+                </div>
+                <div class="tick-icon">
+                  <i class="fa-regular fa-circle-check"></i>
+                  <span class="error-text">Passwords match</span>
+                </div>
+              </div>
+             
+            </div>
             <!-- first name -->
             <div class="row">
               <div class="input-field col s12">
@@ -93,19 +110,10 @@
                   </div>
               </div>
           </div>
-            <!-- confirm password -->
-            <!-- <div class="row">
-              <div class="input-field col s12">
-                <i class="fa-solid fa-lock prefix fa-icon"></i>
-                <input id="confirm-password" name="confirm-password" type="password" class="validate" required>
-                <label for="confirm-password">Confirm Password</label>
-              </div>
-            </div> -->
-            
             <!-- register button -->
             <div class="row">
               <i class="fa-solid fa-arrow-up-from-square"></i>
-              <button type="submit" class="col m6 offset-m3 text-center btn-large"><strong>Register</button>
+              <button type="submit" class="col m6 offset-m3 text-center btn-large submit-btn"><strong>Register</button>
             </div>
           </div>
         </form>
