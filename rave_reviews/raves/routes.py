@@ -31,7 +31,7 @@ def get_raves():
     comments = list(mongo.db.comments.find(
         {"rave_id": rave_id}).sort("comment_created_by", 1))
     return render_template(
-        "raves.html", title="RAVES",
+        "raves.html", title="RAVE REVIEWS",
         raves=raves, comments=comments, num_pages=num_pages, page=page)
 
 

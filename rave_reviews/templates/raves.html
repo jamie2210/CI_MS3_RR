@@ -16,6 +16,7 @@
                         <button type="submit" class="btn">Search</button>
                     </div>
                 </div>
+                <a href= "{{ url_for('raves.get_user_raves', rave_id=rave_id) }}" class="btn">My Reviews</a>
             </form>
         </div>
         {% set rave_list = raves|list %}

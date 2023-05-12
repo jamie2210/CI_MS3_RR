@@ -342,9 +342,9 @@ body {
     width: 750px;
     margin-left: auto;
     margin-right: auto;
-    height: 50px;
+    height: auto;
     max-width: 90%;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .search-input {
