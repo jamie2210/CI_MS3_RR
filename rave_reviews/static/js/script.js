@@ -146,6 +146,12 @@ function sendMail(contactForm) {
     return false; // Prevents form from submitting if there's an error.
 }
 
+/**
+ * Password match function to ensure users passwords match
+ * Alerts used to display when passowrds do or don't match
+ * Register button disabled until passwords match
+ */
+
 const password = document.querySelector("#password")
 const confirmPassword = document.querySelector("#confirm-password")
 const errorAlert = document.querySelector(".alert")
