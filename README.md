@@ -1,4 +1,4 @@
-# Rave Reviews
+# __Rave Reviews__
 
 ![Mockup image](docs/device-display.jpg)
 
@@ -7,15 +7,22 @@
 Rave Reivews was created as my third milestone porject for the Code Insitute level 5 Diploma in Web Application Development,
 it has been designed with the focus of creating 'CRUD' functions. 
 
-## CONTENTS
+## __CONTENTS__
 
-* [User Experience](#user-experience)
+1. [User Experience](#user-experience)
   * [Project Goals](#project-goals)
   * [User Stories](#user-stories)
 
-## User Experience
+2. [Design](#design)
+  * [Colour Scheme](#colour-scheme)
+  * [Typography](#typography)
+  * [Imagery](#imagery)
+  * [Wireframes](#wireframes)
+  * [Database Schema & User Journey](#database-schema--user-journey)
 
-### Project Goals
+## __User Experience__
+
+### __Project Goals__
 
 The decided to create Rave Reivews based on my love for Drum and Bass as teenager and into my early 20's. Me and my friends are 
 always discussing raves we've been to and the sets from them. Sharing on tunea and sets so I thought it would be great to have a place 
@@ -24,7 +31,7 @@ all these recordings and memories could be stored.
 In a sense this would be like a facebook page but specifally for Drum and Base enthusiasts where they can review raves, 
 comment on others and share their favourtie sets.
 
-### User Stories
+### __User Stories__
 
 #### __Target Audience__
 
@@ -35,32 +42,32 @@ from fellow enthusiasts is any age so it would be restrictive to set a specific 
 
 As a first time user of the site I want to be able to:
 
-* Understand what the site is for and how to navigate through site.
-* Register for an account and create a profile.
-* Search for raves.
-* Create a rave review.
+1. Understand what the site is for and how to navigate through site.
+2. Register for an account and create a profile.
+3. Search for raves.
+4. Create a rave review.
 
 #### __Returning Visitor Goals__
 
 As a returning registered user of the site I want to be able to:
 
-* Log in to my account.
-* Create, edit, delete and view my my rave reviews.
-* Create, edit, delete and view my profile.
-* Search for other rave reviews from other members.
+1. Log in to my account.
+2. Create, edit, delete and view my my rave reviews.
+3. Create, edit, delete and view my profile.
+4. Search for other rave reviews from other members.
 
 #### __Admin User__
 
 As an administrator for the site I want to be able to:
 
-* Add or remove organisations.
-* Remove any content that could be offensive.
+1. Add or remove organisations.
+2. Remove any content that could be offensive.
 
 - - -
 
-## Design
+## __Design__
 
-### Appearance & Colour Scheme
+### __Appearance & Colour Scheme__
 
 My aim is to make the site feel urban / street as Drum and Bass (DnB) is raw music genre with it's roots firmly set in the poorer areas of UK cities.
 I designed my own logo in Illustrator and used oranges against dark grey and black as my colours reflecting the bright energy the music brings and the dark
@@ -71,7 +78,7 @@ light shows and lasers you get in a rave.
 
 ![Logos](documentation/images/logos.png)
 
-### Typography
+### __Typography__
 
 To continue the urban theme I chose a graphiti style font called 'PhillySans' and for main written text and a strong and easy-to-read 
 sans serif font from the Google Fonts Library called 'Merriweather Sans'.
@@ -80,16 +87,56 @@ sans serif font from the Google Fonts Library called 'Merriweather Sans'.
 
 ![Merriweather Sans](documentation/images/merriweathersans.png)
 
-### Imagery
+### __Imagery__
 
 As the members of Rave Reviews are able and encouraged to upload their own images have kept the site free from too many images. 
 The times that images are used they are of pictures I taken from raves I've attended.
 
-### Wireframes
+### __Wireframes__
 
 Wireframes have been designed for mobile, tablet and desktop.
 
-## Features
+<details><summary>Home</summary>
+<img src="documentation/wireframes/index.png">
+</details>
+<details><summary>Register / Edit Profile</summary>
+<img src="documentation/wireframes/register.png">
+</details>
+<details><summary>Login</summary>
+<img src="documentation/wireframes/login.png">
+</details>
+<details><summary>Profile</summary>
+<img src="documentation/wireframes/profile.png">
+</details>
+<details><summary>Rave Reviews</summary>
+<img src="documentation/wireframes/raves.png">
+</details>
+<details><summary>Add / Edit Review</summary>
+<img src="documentation/wireframes/add_edit_rave.png">
+</details>
+<details><summary>Organisations</summary>
+<img src="documentation/wireframes/organisations.png">
+</details>
+<details><summary>Add / Edit Organisations</summary>
+<img src="documentation/wireframes/add_edit_organisation.png">
+</details>
+<details><summary>Errors</summary>
+<img src="documentation/wireframes/errors.png">
+</details>
+<details><summary>Contact</summary>
+<img src="documentation/wireframes/contact.png">
+</details>
+<details><summary>Delete Modal</summary>
+<img src="documentation/wireframes/delete_modal.png">
+</details>
+
+### __Database Schema & User Journey__
+
+#### __User Journey__
+
+#### __Database Schema__
+
+## __Features__
 
 There are 14 pages which extend from a base template;
 
