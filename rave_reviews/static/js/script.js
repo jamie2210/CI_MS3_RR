@@ -56,7 +56,8 @@ year.innerHTML = new Date().getFullYear();
 
 
 /**
- * Jquery functions
+ * Jquery functions taken from materialize
+ * and code institue tutorials
  */
 
 $(document).ready(function () {
