@@ -34,25 +34,19 @@ def get_raves():
     # If the user is not logged in, redirect them to home/landing page
     if 'user' not in session:
         return redirect(url_for("index.home"))
-
     # Get the 'rave_id' from the request arguments
     rave_id = request.args.get('rave_id')
-
     # Get the page, per_page, and offset values from the request arguments
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page',
         offset_parameter='offset')
-
     # Set the number of items per page to 4
     per_page = 4
-
     # Create pagination for the raves by calling the pagination function
     raves, num_pages = create_pagination(page, per_page)
-
     # Find comments in the MongoDB collection
     comments = list(mongo.db.comments.find(
         {"rave_id": rave_id}).sort("comment_created_by", 1))
-
     # Render the 'raves.html' template with the provided variables
     return render_template(
         "raves.html", title="RAVE REVIEWS",
@@ -69,21 +63,16 @@ def get_user_raves():
     # If the user is not logged in, redirect them to home/landing page
     if 'user' not in session:
         return redirect(url_for("index.home"))
-
     # Get the 'rave_id' from the request arguments
     rave_id = request.args.get('rave_id')
-
     # Get the page, per_page, and offset values from the request arguments
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page',
         offset_parameter='offset')
-
     # Set the number of items per page to 4
     per_page = 4
-
     # Call the user in session
     session_user = session["user"]
-
     # Check if a user session exists and has a valid value
     if session_user:
         # Perform pagination with user-specific information
@@ -114,25 +103,19 @@ def search():
     """
     # Get the query from the form submission
     query = request.form.get("query")
-
     # Get the 'rave_id' from the request arguments
     rave_id = request.args.get('rave_id')
-
     # Get the page, per_page, and offset values from the request arguments
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page',
         offset_parameter='offset')
-
     # Set the number of items per page to 4
     per_page = 4
-
     # Create pagination for the raves by calling the pagination function
     raves, num_pages = create_pagination(page, per_page, query)
-
     # Find comments in the MongoDB collection
     comments = list(mongo.db.comments.find(
         {"rave_id": rave_id}).sort("comment_created_by", 1))
-
     # Render the 'raves.html' template with the provided variables
     return render_template(
         "raves.html", title="RAVES",
@@ -159,7 +142,6 @@ def add_rave():
         rave_set_link = request.form.get("rave_set")
         # Call fucntion to modify youtube link
         modified_link = modify_youtube_link(rave_set_link)
-
         # Check ifbanger is checked and set value
         banger = "on" if request.form.get("banger") else "off"
 
@@ -175,22 +157,21 @@ def add_rave():
             "banger": banger,
             "created_by": session["user"]
         }
-        # Insert dictionjary into mongoDB collection
+        # Insert dictionary into mongoDB collection
         mongo.db.raves.insert_one(rave)
         flash("Rave Review Uploaded!")
         # Redirect the user to the page displaying all raves
         return redirect(url_for("raves.get_raves"))
-
     # Retrieve the list of organisations from the database and sort them
     organisations = mongo.db.organisation.find().sort(
         "organisation_name", 1)
-
     # Render the "add_rave.html" template
     return render_template(
         "add_rave.html", title="REVIEW RAVE", organisations=organisations)
 
 
 # S3 Bucket functions
+# Allowed image types for uploads
 ALLOWED_EXTENSIONS = {'jpg', 'JPG', 'png', 'PNG', 'jpeg'}
 
 
