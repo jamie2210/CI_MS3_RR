@@ -80,7 +80,33 @@ sans serif font from the Google Fonts Library called 'Merriweather Sans'.
 
 ![Merriweather Sans](documentation/images/merriweathersans.png)
 
+### Imagery
 
+As the members of Rave Reviews are able and encouraged to upload their own images have kept the site free from too many images. 
+The times that images are used they are of pictures I taken from raves I've attended.
+
+### Wireframes
+
+Wireframes have been designed for mobile, tablet and desktop.
+
+## Features
+
+There are 14 pages which extend from a base template;
+
+* Logged Out Home
+* Logged In Home
+* Login
+* Register
+* Profile
+* Edit Profile
+* Rave Reviews
+* Add Rave Review
+* Edit Rave Review
+* Organisations
+* Add Organisations
+* Edit Organisations
+* Contact
+* Errors
 
 
 S3 Buckets
