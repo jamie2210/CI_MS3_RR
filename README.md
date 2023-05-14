@@ -187,26 +187,177 @@ While mongodb stores the majority of the users' data in the database, images are
 
 ### __Main Content Features__
 
-
-
 There are 14 pages which extend from a base template;
 
-* Logged Out Home
-* Logged In Home
-* Login
-* Register
-* Profile
-* Edit Profile
-* Rave Reviews
-* Add Rave Review
-* Edit Rave Review
-* Organisations
-* Add Organisations
-* Edit Organisations
-* Contact
-* Errors
+* __Logged Out Home__
+* __Logged In Home__
+* __Login__
+* __Register__
+* __Profile__
+* __Edit Profile__
+* __Rave Reviews__
+* __Add Rave Review__
+* __Edit Rave Review__
+* __Organisations__
+* __Add Organisations__
+* __Edit Organisations__
+* __Contact__
+* __Errors__
+
+### Logged Out Home
+
+![Logged Out Home](documentation/images/features/logged-out-home.png)
+
+### Logged In Home
+
+![Logged In Home](documentation/images/features/logged-in-home.png)
+
+### Login
+
+![Login](documentation/images/features/login.png)
+
+### Register
+
+![Register](documentation/images/features/register.png)
+
+### Profile
+
+![Profile](documentation/images/features/profile.png)
+
+### Edit Profile
+
+![Edit Profile](documentation/images/features/edit-profile.png)
+
+### Rave Reviews
+
+![Rave Reviews](documentation/images/features/rave-reviews.png)
+
+### Add Rave Review
+
+![Add Rave Review](documentation/images/features/add-rave-review.png)
+
+### Edit Rave Review
+
+![Edit Rave Review](documentation/images/features/edit-rave-review.png)
+
+### Organisations
+
+![Organisations](documentation/images/features/organisations.png)
+
+### Add Organisation
+
+![Add Organisation](documentation/images/features/add-organisations.png)
+
+### Edit Organisation
+
+![Edit Organisation](documentation/images/features/edit-organisations.png)
+
+### Contact
+
+![Contact](documentation/images/features/contact.png)
+
+### Errors
+
+![Errors](documentation/images/features/errors.png)
 
 ### __Extra Features__
+
+* __Delete Modals__ - Defenisve programming has been used to avoid accidental deletions. Anything with a delete option will have a modal pop up confirming the the delte is intended.
+
+![Delete](documentation/images/features/delete.png)
+
+### Future Implementations
+
+I am content with what was implemented but if I had more time there are a few bonus features I think could be added;
+
+* Add site users with different privelages to avoid using jinja templating and one 'Admin' log in that has superior roles.
+* Add change and reset password functionality to the profile section.
+* Allow users to see other users profiles by clicking on their name under the review.
+* Email verification to enhance user protection when logging in.
+* Extend the css with an scss file allowing a cleaner css file and a more customisable Materialize-based site. I did attempt this and had it the files working on my site but ran out of time to troubleshoot why the Materialize secondary colours were not changing.
+* Delete images from the S3 bucket when profiles or reviews are deleted. Sadly I ha dno time to look in to this but as there is so much space in the bucket I don't see it as a problem. 
+
+
+## __Technologies Used__
+
+## Languages
+- [HTML](https://en.wikipedia.org/wiki/HTML)
+- [CSS](https://en.wikipedia.org/wiki/CSS)
+- [Javascript](https://www.javascript.com/)
+- [Python](https://www.python.org/)
+- [Jinja]((https://jinja.palletsprojects.com/en/3.0.x/))
+
+### Databases Used
+
+- [MongoDB](https://www.mongodb.com/) - Non-relational database used to store the book information.
+
+### Frameworks Used
+
+- [Flask](https://pypi.org/project/Flask/) - A micro framework.
+- [Materialize 1.0.0.](https://getbootstrap.com/) - Responsive CSS Framework. 
+
+### Libraries & Packages Used
+
+- [PyMongo](https://pypi.org/project/pymongo/) - Python Driver for MongoDB.
+
+### Programs Used
+
+- [Pip](https://pypi.org/project/pip/) - Tool for installing python packages.
+- [Balsamiq](https://balsamiq.com/) - Used to create wireframes.
+- [Git](https://git-scm.com/) - For version control.
+- [Github](https://github.com/) - To save and store the files for the website.
+- [GitPod](https://www.gitpod.io/) - A cloud development environment.
+- [Google Fonts](https://fonts.google.com/) - To import the fonts used on the website.
+- [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - To troubleshoot and test features, solve issues with responsiveness and styling.
+- [Tiny PNG](https://tinypng.com/) To compress images for use in the readme.
+- [Visual Studio Code](https://code.visualstudio.com/) - An integrated development environment from Microsoft.
+- [Adobe Suite (Illustrator, Photoshop & InDesign)](https://www.adobe.com/uk/) - Graphic design software.
+- [Font Awesome](https://fontawesome.com/search) - The icons used on the site from font awesome.
+- [Diagrams.net](https://app.diagrams.net/) - Flow chart maker used for database models.
+- [W3C validator](https://validator.w3.org/) - HTML validation testing.
+- [Jigsaw CSS validator](https://jigsaw.w3.org/css-validator/) - CSS validation testing.
+- [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) - Accessibility testing.
+- [jshint](https://jshint.com/) - Javascript validation testing.
+- [pep8](http://ww7.pep8online.com/) - Python validation testing.
+- [Chrome Lighthouse](https://developers.google.com/web/tools/lighthouse) - For performance, accessibility, progressive web apps, SEO analysis of the project code
+
+## __Testing__
+The testing information and results for this project are documented in [TESTING.md](TESTING.md)
+
+## __APIs__
+
+### Email JS
+1. Create an account at emailjs.com 
+2. In the integration screen in the emailjs dashboard, note your userid
+3. Create an email service in the Email Services section and note the id
+4. Create an email template in the Email templates section and note the id
+5. Update the script sendEmail.js, method sendMail with your user id, email service id and email template id.
+
+## __Deployment__
+There are a number of applications that need to be configured to run this application locally or on a cloud based service, for example Heroku
+
+### Amazon WebServices
+1. Create an account at https://aws.amazon.com
+2. Open the IAM application and create a new user
+3. Set the AmazonS3FullAccess for the user and note the users AWS ACCESS and SECRET keys
+4. Open the S3 application and create a new bucket. For the purpose of this application the bucket name is rave-reviews-bucket but this can be updated.
+5. With security best practices update the public access and policy bucket to enable the user created and the application access to read/write to the S3 bucket. Consult the AWS documentation if required: https://aws.amazon.com/s3/
+6. The s3 bucket is now updated to be accessed by your application
+7. In necessary route files update the variables s3_bucket_name and s3_bucket_url with the correct information that you have set up, for example:
+<br>
+<code>s3_bucket_name = "rave-reviews-bucket"</code><br>
+<code>s3_bucket_url = "https://rave-reviews-bucket.s3.eu-west-1.amazonaws.com/" </code>
+
+
+### Mongo Database
+Mongodb is the database used in the application
+1. Create an account at mongodb
+2. Create a database cluster
+3. Select the cluster, and in the collections section create a database and create 5 collections under the database: memories, comments, ratings, tournaments, users
+4. In the database access, create a user and allow the user read/write access. Note the username
+5. In the network access tab, allow network access from the ip-address of the application connecting to the database
+6. In the Databases section click Connect, and select connect your application
+7. Note the MONGO_URI, MONGO_DBNAME and user, these parameters are used when deploying locally(env.py file) and deploying on the likes of heroku(config vars)
 
 S3 Buckets
 
