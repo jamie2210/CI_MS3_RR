@@ -140,7 +140,9 @@ Wireframes have been designed for mobile, tablet and desktop.
 <img src="documentation/wireframes/delete_modal.png">
 </details>
 
-### __Database__
+- - -
+
+## __Database__
 
 * The website is a data-centric one with html, css, javascript and the Materialize framework as a frontend.
 * The back end consists of Python and flask, jinja templates with a database of mongoDB open-source document-orientated database.
@@ -157,7 +159,9 @@ Wireframes have been designed for mobile, tablet and desktop.
 
 While mongodb stores the majority of the users' data in the database, images are stored in an Amazon Web services(AWS) S3(storage) bucket. I made this choice for performance purposes and so I could learn how to integrate the site AWS, encouraging me to learn new skills while building the website.
 
-![S£ Bucket](documentation/images/rave_review_bucket.png)
+![S3 Bucket](documentation/images/rave_review_bucket.png)
+
+- - -
 
 ## __Features__
 
@@ -277,6 +281,7 @@ I am content with what was implemented but if I had more time there are a few bo
 * Extend the css with an scss file allowing a cleaner css file and a more customisable Materialize-based site. I did attempt this and had it the files working on my site but ran out of time to troubleshoot why the Materialize secondary colours were not changing.
 * Delete images from the S3 bucket when profiles or reviews are deleted. Sadly I ha dno time to look in to this but as there is so much space in the bucket I don't see it as a problem. 
 
+_ _ _
 
 ## __Technologies Used__
 
@@ -324,6 +329,8 @@ I am content with what was implemented but if I had more time there are a few bo
 ## __Testing__
 The testing information and results for this project are documented in [TESTING.md](TESTING.md)
 
+_ _ _
+
 ## __APIs__
 
 ### Email JS
@@ -332,6 +339,8 @@ The testing information and results for this project are documented in [TESTING.
 3. Create an email service in the Email Services section and note the id
 4. Create an email template in the Email templates section and note the id
 5. Update the script sendEmail.js, method sendMail with your user id, email service id and email template id.
+
+_ _ _
 
 ## __Deployment__
 There are a number of applications that need to be configured to run this application locally or on a cloud based service, for example Heroku
@@ -402,6 +411,12 @@ To deploy this application to Heroku, run the following steps.
 ![Deploy](documentation/images/deploy.png)
 13. This will trigger a deployment, once the deployment has been successful click on the "Open App" link to open the app.
 14. If you encounter any issues accessing the build logs is a good way to troubleshoot the issue.
+
+_ _ _
+
+## __Credits__
+
+* Materialize is used throughout for for CSS styling and some javascript / jquery
 
 S3 Buckets
 
