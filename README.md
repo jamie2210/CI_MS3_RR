@@ -25,6 +25,33 @@ it has been designed with the focus of creating 'CRUD' functions.
   * [Main Content Features](#main-content-features)
   * [Extra Features](#extra-feautres)
 
+4. [Future Implementations](#future-implementations)
+
+5. [Technologies Used](#technologies-used)
+  * [Languages](#languages)
+  * [Databases](#databases)
+  * [Frameworks](#frameworks)
+  * [Libraries & Packages](#libraries-&-packages)
+  * [Programs](#programs)
+
+6. [Testing](#testing)
+
+7. [APIs](#apis)
+
+8. [Deployment](#deployment)
+  * [Amazon Webservices](#amazon-webservices)
+  * [Mongo Database](#mongo-database)
+  * [Local Deployment](#local-deployment)
+  * [Heroku](#heroku)
+
+9. [Credits](#credits)
+
+10. [Content](#content)
+
+11. [Media](#media)
+
+12. [Acknowledgements](#acknowledgements)
+
 ## __User Experience__
 
 ### __Project Goals__
@@ -292,20 +319,21 @@ _ _ _
 - [Python](https://www.python.org/)
 - [Jinja]((https://jinja.palletsprojects.com/en/3.0.x/))
 
-### Databases Used
+### Databases
 
-- [MongoDB](https://www.mongodb.com/) - Non-relational database used to store the book information.
+- [MongoDB](https://www.mongodb.com/) - Non-relational database used to store the Rave Reviews information.
+- [AWS S3](https://aws.amazon.com/s3/) - Services that provides object storage through a web service interface.
 
-### Frameworks Used
+### Frameworks
 
 - [Flask](https://pypi.org/project/Flask/) - A micro framework.
 - [Materialize 1.0.0.](https://getbootstrap.com/) - Responsive CSS Framework. 
 
-### Libraries & Packages Used
+### Libraries & Packages
 
 - [PyMongo](https://pypi.org/project/pymongo/) - Python Driver for MongoDB.
 
-### Programs Used
+### Programs
 
 - [Pip](https://pypi.org/project/pip/) - Tool for installing python packages.
 - [Balsamiq](https://balsamiq.com/) - Used to create wireframes.
@@ -326,7 +354,10 @@ _ _ _
 - [pep8](http://ww7.pep8online.com/) - Python validation testing.
 - [Chrome Lighthouse](https://developers.google.com/web/tools/lighthouse) - For performance, accessibility, progressive web apps, SEO analysis of the project code
 
+_ _ _
+
 ## __Testing__
+
 The testing information and results for this project are documented in [TESTING.md](TESTING.md)
 
 _ _ _
@@ -416,20 +447,67 @@ _ _ _
 
 ## __Credits__
 
-* Materialize is used throughout for for CSS styling and some javascript / jquery
+* [Materialize](https://materializecss.com/) is used throughout for for CSS styling and some javascript / jquery
 
-S3 Buckets
+* For Help with using AWS S3 buckets and python these were all very useful;
 
-https://towardsdatascience.com/how-to-upload-and-download-files-from-aws-s3-using-python-2022-4c9b787b15f2
+    https://towardsdatascience.com/how-to-upload-and-download-files-from-aws-s3-using-python-2022-4c9b787b15f2
 
-https://www.twilio.com/blog/media-file-storage-python-flask-amazon-s3-buckets
+    https://www.twilio.com/blog/media-file-storage-python-flask-amazon-s3-buckets
 
-embed youtube
+    https://blog.filestack.com/tutorials/upload-files-amazon-s3-bucket-using-python/
 
-https://stackoverflow.com/questions/25661182/embed-youtube-video-refused-to-display-in-a-frame-because-it-set-x-frame-opti
+    https://www.youtube.com/watch?v=QSvw50mMQaQ
+    https://www.youtube.com/watch?v=7gqvV4tUxmY
 
-https://www.w3schools.com/howto/howto_css_next_prev.asp
+*   When adding a password confirmation javascript feature that only enables the register button once both password entries are the same, this tutorial was very helpful;
 
-check password
+    https://www.youtube.com/watch?v=n5E_gxkLo6A
 
-https://www.youtube.com/watch?v=n5E_gxkLo6A
+*  For the pagination of the reviews these articles were of great help;
+
+    https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
+    https://pythonhosted.org/Flask-paginate/
+
+    and these tutorials;<br>
+    https://www.youtube.com/watch?v=CnBYLXA9zXY
+    https://www.youtube.com/watch?v=PSWf2TjTGNY&t=61s
+
+* For the send-email functionality I used some code from the code institute module from the 
+
+* I used this stack overflow page to better undertsand exception handling;
+
+  https://stackoverflow.com/questions/33239308/how-to-get-exception-message-in-python-properly
+
+_ _ _
+
+## __Content__
+
+- [Font Awesome](#http://fontawesome.com)    
+    - The icons used on the site from font awesome.
+    
+- Fonts<br>
+    [Merriweather-sans](#https://fonts.google.com/specimen/Merriweather+Sans)    
+    - The text font Merriweather Sans is from Google fonts
+    [PhillySans](#https://www.dafont.com/philly-sans.font)
+    - PhillySans was taken as a free font for personal use from dafont.
+
+_ _ _ 
+
+## __Media__
+
+All images are either photos taken by me or uploaded by users of the site
+
+All logos are designed by myself
+
+_ _ _
+
+## __Acknowledgements__
+
+I would like to take the opportunity to thank;
+
+- My mentor, Mo Shami, for his excellent feedback, advice support and guidance throughout.
+- Tutor support from Code Institute for their swift response.
+- The slack community of coders for immediate and helpful response.
+- WAES College and my Tutor Michael for their support and help throughout.
+- My friends and family who have created accounts and tested our the site and given valid feedbackl helping me fix bugs I was otherwise unaware of.
