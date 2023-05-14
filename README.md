@@ -130,11 +130,24 @@ Wireframes have been designed for mobile, tablet and desktop.
 <img src="documentation/wireframes/delete_modal.png">
 </details>
 
-### __Database Schema & User Journey__
+### __Database__
+
+* The website is a data-centric one with html, css, javascript and the Materialize framework as a frontend.
+* The back end consists of Python and flask, jinja templates with a database of mongoDB open-source document-orientated database.
 
 #### __User Journey__
 
+![User Journey](documentation/images/rr_database_model.png)
+
 #### __Database Schema__
+
+![Database Schema](documentation/images/schema.png)
+
+#### __Amazon Web Services S3 Bucket__
+
+While mongodb stores the majority of the users' data in the database, images are stored in an Amazon Web services(AWS) S3(storage) bucket. I made this choice for performance purposes and so I could learn how to integrate the site AWS, encouraging me to learn new skills while building the website.
+
+![S£ Bucket](documentation/images/rave_review_bucket.png)
 
 ## __Features__
 
