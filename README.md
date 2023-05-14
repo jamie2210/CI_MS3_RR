@@ -181,6 +181,10 @@ While mongodb stores the majority of the users' data in the database, images are
 
   ![Admin Logged In NavBar](documentation/images/features/admin-logged-in.png)
 
+* __Footer__ - The footer is displayed on all pages and includes social links, my GitHub link to this repository, a link to the contact page, the copyright year and the logo.
+
+  ![Footer](documentation/images/features/footer.png)
+
 ### __Main Content Features__
 
 
