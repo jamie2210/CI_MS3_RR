@@ -18,7 +18,12 @@ it has been designed with the focus of creating 'CRUD' functions.
   * [Typography](#typography)
   * [Imagery](#imagery)
   * [Wireframes](#wireframes)
-  * [Database Schema & User Journey](#database-schema--user-journey)
+  * [Database](#database)
+
+3. [Features](#features)
+  * [Base template Features](#base-template-features)
+  * [Main Content Features](#main-content-features)
+  * [Extra Features](#extra-feautres)
 
 ## __User Experience__
 
@@ -62,6 +67,11 @@ As an administrator for the site I want to be able to:
 
 1. Add or remove organisations.
 2. Remove any content that could be offensive.
+
+#### __Site Owner__
+
+1. Automatically return a logged out user to the logged out home page.
+2. Relevant error page displayed should an invalid command or error occur.
 
 - - -
 
@@ -151,6 +161,30 @@ While mongodb stores the majority of the users' data in the database, images are
 
 ## __Features__
 
+### __Base Template Features__
+
+* __Favicon__ - I designed the favicon in Illustrator, the 2 'R's form the logo which is also used as the home link in the left of the Navbar.
+
+  ![Rave Reviews favicon](documentation/images/features/favicon.png)
+
+* __Navbar__ - The Navbar is displayed on all pages and changes depending on is the sur is logged in or out and if admin when Organisations is visible.
+
+  Logged Out Navba
+
+  ![Logged Out Navbar](documentation/images/features/logged-out-navbar.png)
+
+  Logged In Navbar
+
+  ![Logged In NavBar](documentation/images/features/logged-in-navbar.png)
+
+  Admin Logged In Navbar
+
+  ![Admin Logged In NavBar](documentation/images/features/admin-logged-in.png)
+
+### __Main Content Features__
+
+
+
 There are 14 pages which extend from a base template;
 
 * Logged Out Home
@@ -168,6 +202,7 @@ There are 14 pages which extend from a base template;
 * Contact
 * Errors
 
+### __Extra Features__
 
 S3 Buckets
 
