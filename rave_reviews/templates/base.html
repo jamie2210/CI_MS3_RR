@@ -12,7 +12,7 @@
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon.png') }}" alt="two 'R's representing the rave reviews logo">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -110,20 +110,18 @@
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <span><img class="footer-logo" alt="rave reviews logo"
+                    <span><img class="footer-logo" alt="Rave Reviews logo"
                             src="{{ url_for('static', filename='images/rr-logo-2.png') }}"></span>
-                    <p></i> Created and designed by Jamie2210 <a href="https://github.com/jamie2210/CI_MS3_RR"
+                    <p> Created and designed by Jamie2210 <a href="https://github.com/jamie2210/CI_MS3_RR"
                             target="_blank" aria-label="Go to Github site"><i class="fa-brands fa-github icons"></i></a></p>
-                        Please get in touch
-                        <a href="{{ url_for('index.contact') }}" aria-label="Go to contact form page"><i class="fa-solid fa-envelope icons"></i></a>
-                    </p>
+                    <p> Please get in touch <a href="{{ url_for('index.contact') }}" aria-label="Go to contact form page"><i class="fa-solid fa-envelope icons"></i></a></p>
                     <p>Rave Reviews © <span id="current-year"> </span></p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Socials</h5>
                     <ul>
-                        <li><a href="https://www.facebook.com" aria-label="Go to facebook page (opens in new tab)" target="_blank"><i class="fa-brands fa-facebook icons"></i></li>
-                        <li><a href="https://www.twitter.com" aria-label="Go to twitter page (opens in new tab)" target="_blank"><i class="fa-brands fa-twitter icons"></i></li>
+                        <li><a href="https://www.facebook.com" aria-label="Go to facebook page (opens in new tab)" target="_blank"><i class="fa-brands fa-facebook icons"></i></a></li>
+                        <li><a href="https://www.twitter.com" aria-label="Go to twitter page (opens in new tab)" target="_blank"><i class="fa-brands fa-twitter icons"></i></a></li>
                         <li><a href="https://www.instagram.com" aria-label="Go to instagram page (opens in new tab)" target="_blank"><i class="fa-brands fa-instagram icons"></i></a></li>
                     </ul>
                 </div>

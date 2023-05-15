@@ -1,10 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="background-image center-align">
-    <h1 class="title">{{ title }}</h1>
     <div class="row">
-        <img src="{{ url_for('static', filename='images/rr-logo-main.png') }}" class="main-logo"
-            alt="Raves Reviews logo">
+        <img src="{{ url_for('static', filename='images/rr-logo-main.png') }}" alt="Raves Reviews logo" class="main-logo">
         <div class="welcome-container">
             <h2 class="title">Welcome to Rave Reviews!</h2>
             <p>This site is designed for Drum and Bass enthusiastics to share their experiences, favourite sets and
@@ -12,8 +10,8 @@
             <p>Please be friendly, foul behaviour, comments or reviews will result in removal of the site.</p>
             <p><i class="fa-regular fa-hand-peace prefix fa-icon"></i> Peace and Love <i
                     class="fa-regular fa-heart prefix fa-icon"></i></p>
-            <a href="{{ url_for('authentication.login') }}" class="btn">Log In</a></li>
-            <a href="{{ url_for('authentication.register') }}" class="btn">Register</a></li>
+            <a href="{{ url_for('authentication.login') }}" class="btn">Log In</a>
+            <a href="{{ url_for('authentication.register') }}" class="btn">Register</a>
 
         </div>
     </div>
