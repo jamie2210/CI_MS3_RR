@@ -118,6 +118,10 @@ body {
     color: white;
 }
 
+.page-footer h2 {
+    font-size: x-large;
+}
+
 .footer-logo {
     width: 200px;
     height: auto;

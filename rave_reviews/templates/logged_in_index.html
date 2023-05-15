@@ -12,9 +12,9 @@
             <p>Please be friendly, foul behaviour, comments or reviews will result in removal of the site.</p>
             <p><i class="fa-regular fa-hand-peace prefix fa-icon"></i> Peace and Love <i
                     class="fa-regular fa-heart prefix fa-icon"></i></p>
-            <a href="{{ url_for('raves.get_user_raves', rave_id=rave_id) }}" class="btn">My Reviews</a>
-            <a href="{{ url_for('raves.add_rave') }}" class="btn">Leave Review</a>
-            <a href="{{ url_for('raves.get_raves') }}" class="btn">Rave Reviews</a>
+            <a href="{{ url_for('raves.get_user_raves', rave_id=rave_id) }}" aria-label="go to my reviews page" class="btn">My Reviews</a>
+            <a href="{{ url_for('raves.add_rave') }}" aria-label="go to leave review page" class="btn">Leave Review</a>
+            <a href="{{ url_for('raves.get_raves') }}" aria-label="go to rave review page" class="btn">Rave Reviews</a>
         </div>
     </div>
 </div>

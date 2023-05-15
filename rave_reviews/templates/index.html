@@ -4,14 +4,14 @@
     <div class="row">
         <img src="{{ url_for('static', filename='images/rr-logo-main.png') }}" alt="Raves Reviews logo" class="main-logo">
         <div class="welcome-container">
-            <h2 class="title">Welcome to Rave Reviews!</h2>
+            <h1 class="title">Welcome to Rave Reviews!</h1>
             <p>This site is designed for Drum and Bass enthusiastics to share their experiences, favourite sets and
                 raves.</p>
             <p>Please be friendly, foul behaviour, comments or reviews will result in removal of the site.</p>
             <p><i class="fa-regular fa-hand-peace prefix fa-icon"></i> Peace and Love <i
                     class="fa-regular fa-heart prefix fa-icon"></i></p>
-            <a href="{{ url_for('authentication.login') }}" class="btn">Log In</a>
-            <a href="{{ url_for('authentication.register') }}" class="btn">Register</a>
+            <a href="{{ url_for('authentication.login') }}" class="btn" aria-label="go to login page">Log In</a>
+            <a href="{{ url_for('authentication.register') }}" class="btn" aria-label="go to register page">Register</a>
 
         </div>
     </div>
