@@ -65,11 +65,17 @@ When pasting in my index errors and warnings were flagged all linked to Material
 When validating just my own custom CSS file it passes with no errors with only 1 warning as it could not read the Google Fonts import.
 <details><summary>style.css</summary>
 <img src="documentation/testing/css_validation.png">
-</details>
+</details><br>
 
 ### JavaScript Validation
 
+JSHint JS Validation Service was used to validate the Javascript files. No significant issues were found. Only undefined variables flagged were those used for the emailjs functions.
 
+OnClick buttons were flagged as unused, but /* exported */ feature was used to remove the flags as they are called in the html files.
+
+<details><summary>script.js</summary>
+<img src="documentation/testing/jshint.png">
+</details><br>
 
 ### Python Validation
 
