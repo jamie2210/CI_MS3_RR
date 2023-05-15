@@ -69,6 +69,8 @@ When validating just my own custom CSS file it passes with no errors with only 1
 
 ### JavaScript Validation
 
+
+
 ### Python Validation
 
 ### Accessibility
