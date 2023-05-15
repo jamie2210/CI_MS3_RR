@@ -34,7 +34,7 @@
             <div class="nav-wrapper rr-nav">
                 {% if session.user %}
                 <a href="{{ url_for('index.logged_in_home', username=session['user'])}}"><img
-                        src="{{ url_for('static', filename='images/favicon.png') }}" class="rr-logo"></a>
+                        src="{{ url_for('static', filename='images/favicon.png') }}" alt="two 'R's representing the rave reviews logo" class="rr-logo"></a>
                 {% else %}
                 <a href="{{ url_for('index.home')}}"><img src="{{ url_for('static', filename='images/favicon.png') }}"
                         class="rr-logo"></a>
@@ -66,7 +66,7 @@
         <ul class="sidenav rr-nav" id="mobile-demo">
             <li>
                 <div class="center-align">
-                    <img src="{{ url_for('static', filename='images/rr-logo-2.png') }}"
+                    <img src="{{ url_for('static', filename='images/rr-logo-2.png') }}" alt="two 'R's representing the rave reviews logo"
                         class="collapse-title collapse-logo">
                 </div>
             </li>
@@ -87,9 +87,8 @@
         </ul>
 
     </header>
-
-    <!-- <h1 class="title">{{ title }}</h1> -->
-    <section>
+    <!-- Main content -->
+    <div>
         <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -100,7 +99,7 @@
         {% endfor %}
         {% endif %}
         {% endwith %}
-    </section>
+    </div>
     <main>
 
         {% block content %}
@@ -111,25 +110,21 @@
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <span><img class="footer-logo"
+                    <span><img class="footer-logo" alt="rave reviews logo"
                             src="{{ url_for('static', filename='images/rr-logo-2.png') }}"></span>
                     <p></i> Created and designed by Jamie2210 <a href="https://github.com/jamie2210/CI_MS3_RR"
-                            target="_blank" aria-label="Go to Github site"><i class="fa-brands fa-github icons"></i></a>
+                            target="_blank" aria-label="Go to Github site"><i class="fa-brands fa-github icons"></i></a></p>
                         Please get in touch
-                        <a href="{{ url_for('index.contact') }}" aria-label="Go to contact form page"><i
-                                class="fa-solid fa-envelope icons"></i></a>
+                        <a href="{{ url_for('index.contact') }}" aria-label="Go to contact form page"><i class="fa-solid fa-envelope icons"></i></a>
                     </p>
                     <p>Rave Reviews © <span id="current-year"> </span></p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Socials</h5>
                     <ul>
-                        <li><a href="https://www.facebook.com" aria-label="Go to facebook page (opens in new tab)"
-                                target="_blank"><i class="fa-brands fa-facebook icons"></i></li>
-                        <li><a href="https://www.twitter.com" aria-label="Go to twitter page (opens in new tab)"
-                                target="_blank"><i class="fa-brands fa-twitter icons"></i></li>
-                        <li><a href="https://www.instagram.com" aria-label="Go to instagram page (opens in new tab)"
-                                target="_blank"><i class="fa-brands fa-instagram icons"></i></a></li>
+                        <li><a href="https://www.facebook.com" aria-label="Go to facebook page (opens in new tab)" target="_blank"><i class="fa-brands fa-facebook icons"></i></li>
+                        <li><a href="https://www.twitter.com" aria-label="Go to twitter page (opens in new tab)" target="_blank"><i class="fa-brands fa-twitter icons"></i></li>
+                        <li><a href="https://www.instagram.com" aria-label="Go to instagram page (opens in new tab)" target="_blank"><i class="fa-brands fa-instagram icons"></i></a></li>
                     </ul>
                 </div>
             </div>
