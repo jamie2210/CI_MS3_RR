@@ -147,7 +147,7 @@ body {
 
 .main-logo {
     width: 650px;
-    max-width: 75%;
+    max-width: 60%;
     height: auto;
 }
 
@@ -564,7 +564,7 @@ body {
     }
 
     .main-logo {
-        max-width: 80%;
+        max-width: 70%;
     }
 
     .form-container {
@@ -591,7 +591,7 @@ body {
     }
 
     .main-logo {
-        max-width: 100%;
+        max-width: 80%;
     }
 
     .error-container .title {

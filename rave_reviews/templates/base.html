@@ -34,9 +34,9 @@
             <div class="nav-wrapper rr-nav">
                 {% if session.user %}
                 <a href="{{ url_for('index.logged_in_home', username=session['user'])}}"><img
-                        src="{{ url_for('static', filename='images/favicon.png') }}" alt="two 'R's representing the rave reviews logo" class="rr-logo"></a>
+                        src="{{ url_for('static', filename='images/rr-logo.png') }}" alt="two 'R's representing the rave reviews logo" class="rr-logo"></a>
                 {% else %}
-                <a href="{{ url_for('index.home')}}"><img src="{{ url_for('static', filename='images/favicon.png') }}" alt="two 'R's representing the rave reviews logo"
+                <a href="{{ url_for('index.home')}}"><img src="{{ url_for('static', filename='images/rr-logo.png') }}" alt="two 'R's representing the rave reviews logo"
                         class="rr-logo"></a>
                 {% endif %}
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i
