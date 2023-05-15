@@ -10,8 +10,7 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="fa-solid fa-user prefix fa-icon"></i>
-        <input id="username" name="username" type="text" minlength="5" value="{{ user.username }}" maxlenght="15"
-          pattern="^[a-zA-z0-9]{5,15}$" class="validate" readonly required>
+        <input id="username" name="username" type="text" minlength="3" maxlength="20" value="{{ user.username }}" class="validate" readonly required>
         <label for="username">Username</label>
       </div>
     </div>
@@ -123,7 +122,7 @@
     <div class="row center-align">
       <i class="fa-solid fa-arrow-up-from-square"></i>
       <a href="{{url_for('authentication.profile', username=user.username, user_id=user._id)}}" class="btn">Cancel</a>
-      <button type="submit" class="btn"><strong>Update Profile</button>
+      <button type="submit" class="btn">Update Profile</button>
     </div>
   </form>
 </div>
