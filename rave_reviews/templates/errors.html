@@ -9,9 +9,9 @@
             <p><i class="fa-regular fa-hand-peace prefix fa-icon"></i> Pleace and Love <i
                     class="fa-regular fa-heart prefix fa-icon"></i></p>
             {% if session.user %}
-            <a href="{{ url_for('index.logged_in_home')}}" class="btn">Return</a></li>
+            <a href="{{ url_for('index.logged_in_home')}}" class="btn">Return</a>
             {% else %}
-            <a href="{{ url_for('index.home')}}" class="btn">Return</a></li>
+            <a href="{{ url_for('index.home')}}" class="btn">Return</a>
             {% endif %}
         </div>
     </div>
