@@ -137,7 +137,7 @@ Wireframes have been designed for mobile, tablet and desktop.
 <img src="documentation/wireframes/index.png">
 </details>
 <details><summary>Register / Edit Profile</summary>
-<img src="documentation/wireframes/register.png">
+<img src="documentation/wireframes/register_edit_profile.png">
 </details>
 <details><summary>Login</summary>
 <img src="documentation/wireframes/login.png">
@@ -489,7 +489,8 @@ _ _ _
 - Fonts<br>
     [Merriweather-sans](#https://fonts.google.com/specimen/Merriweather+Sans)    
     - The text font Merriweather Sans is from Google fonts
-    [PhillySans](#https://www.dafont.com/philly-sans.font)
+  
+  [PhillySans](#https://www.dafont.com/philly-sans.font)
     - PhillySans was taken as a free font for personal use from dafont.
 
 _ _ _ 
