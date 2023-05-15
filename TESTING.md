@@ -29,8 +29,8 @@ _ _ _
 The W3C Markup Validation Service was used to validate the HTML of the website. All pages pass with no errors.
 
 Logged Out Home [results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2F)
-Logged In Home [results]()
-Logged In Home [results]()
+Logged In Home [results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2Flogged_in_home)
+Log In [results]()
 
 
 ### CSS Validation
