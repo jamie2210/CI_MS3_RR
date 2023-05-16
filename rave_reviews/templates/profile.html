@@ -7,7 +7,7 @@
         <h1 class="title">{{ title }}</h1>
         <div class="center-align profile-container">
             <div class="pic-container">
-                <img class="profile-pic" src="{{ user.profile_image }}">
+                <img class="profile-pic" src="{{ user.profile_image }}" alt="User profile picture">
             </div>
             <div class="profile-content">
                 <h3>{{ user.first_name }} {{ user.last_name }}</h3>
@@ -24,9 +24,9 @@
                 {% endif %}
             </div>
             {% if session.user|lower == user.username|lower %}
-            <a href="{{ url_for('raves.get_user_raves', rave_id=rave_id) }}" class="btn">My Reviews</a>
-            <a href="{{ url_for('authentication.edit_profile', user_id=user._id) }}" class="btn">Edit Profile</a>
-            <button onClick="deleteReviewModal( '{{user._id}}' )" class="btn">Delete Profile</button>
+            <a href="{{ url_for('raves.get_user_raves', rave_id=rave_id) }}" class="btn" aria-label="Go to to my reviews">My Reviews</a>
+            <a href="{{ url_for('authentication.edit_profile', user_id=user._id) }}" class="btn" aria-label="Edit profile">Edit Profile</a>
+            <button onClick="deleteReviewModal( '{{user._id}}' )" class="btn" aria-label="Delete profile">Delete Profile</button>
             {% endif %}
         </div>
     </div>
@@ -41,8 +41,8 @@
                         </h2>
                     </header>
                     <div class="modal-body">
-                        <button onClick="closeRaveModal('{{ user._id }}')" class="btn">Cancel</button>
-                        <a href="{{ url_for('authentication.delete_user', user_id=user._id) }}" class="btn">Delete</a>
+                        <button onClick="closeRaveModal('{{ user._id }}')" class="btn" aria-label="Cancel the deletion">Cancel</button>
+                        <a href="{{ url_for('authentication.delete_user', user_id=user._id) }}" class="btn" aria-label="Confirm deletion">Delete</a>
                     </div>
                 </div>
             </div>
