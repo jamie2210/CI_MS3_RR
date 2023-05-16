@@ -245,6 +245,10 @@ body {
     color: white;
 }
 
+.add_profile textarea {
+    color: white;
+}
+
 /* ---------------------------------- Log In */
 
 .link {
@@ -405,6 +409,10 @@ body {
 }
 
 .add_rave input {
+    color: white;
+}
+
+.add_rave textarea {
     color: white;
 }
 
