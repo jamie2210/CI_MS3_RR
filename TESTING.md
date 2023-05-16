@@ -40,7 +40,7 @@ Profile [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-ap
 
 Edit Profile [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2Fedit_profile%2F644ff1b57bd099cfccc82783)
 
-Get Raves [Results](https://rave-reviews-app.herokuapp.com/get_raves/)
+Get Raves [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2Fget_raves%2F)
 
 Add Rave [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2Fadd_rave)
 
