@@ -159,7 +159,9 @@ const errorAlert = document.querySelector(".alert");
 const passwordTick = document.querySelector(".tick-icon");
 const submitBtn = document.querySelector(".submit-btn");
 
-confirmPassword.addEventListener("input", checkPasswordsMatch)
+if (confirmPassword !== null) {
+    confirmPassword.addEventListener("input", checkPasswordsMatch);
+  }
 
 function checkPasswordsMatch() {
     if (confirmPassword.value !== "") {
