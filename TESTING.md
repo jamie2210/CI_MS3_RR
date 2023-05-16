@@ -86,36 +86,20 @@ To ensure the site is accesible as possible I have taken the following steps;
 - Using semantic HTML.
 - Descriptive alt attributes on images.
 - Label functions and links to ensure clarity of the roles of each button, icon or clickable feature.
-- Ensuring that there is a sufficient colour contrast throughout the site - There are contrast flags throughout the WAVE reporting but I am happy with the way the site is represented in these case as a low contrast was my intention and part of the design. I am happy with the visiblility of each flag so have left them as they are and they are all labelled with descriptions.
+- Ensuring that there is a sufficient colour contrast throughout the site (There are contrast flags throughout the WAVE reporting but I am happy with the way the site is represented in these case as a low contrast was my intention and part of the design. I am happy with the visiblility of each flag so have left them as they are and they are all labelled with descriptions.)
 
-All pass with no errors.
+[Wave accessibility](#https://wave.webaim.org/) was used to test the websites accessibility
+
+All pass with no errors apart from the forms as the drop down option has no form label which is a Materialize feature and something I can not adjust.
+
+Due to the log in WAVE can only access limited limit links but I shared those for demonstrations to how the rest of the site pages are structured for optimal accessibility.
 
 Logged Out Home [results](https://wave.webaim.org/report#/https://rave-reviews-app.herokuapp.com/)
 
-Logged In Home [results](https://wave.webaim.org/report#/https://rave-reviews-app.herokuapp.com/logged_in_home)
-
 Log In [results](https://wave.webaim.org/report#/https://rave-reviews-app.herokuapp.com/login)
 
-Register [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2Fregister)
+Register [Results](https://wave.webaim.org/report#/https://rave-reviews-app.herokuapp.com/register)
 
-Profile [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2Fprofile%2Fdnbharry)
-
-Edit Profile [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2Fedit_profile%2F644ff1b57bd099cfccc82783)
-
-Get Raves [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2Fget_raves%2F)
-
-Add Rave [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2Fadd_rave)
-
-Edit Rave [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2Fedit_rave%2F64512efa538d5c6ccbaf95c4)
-
-Get Organisations [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2Fget_organisations)
-
-Add Organisations [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2Fadd_organisation)
-
-Edit Organisations [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2Fedit_organisation%2F64568e7130db687d1fc3cac1)
-
-Contact [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2Fcontact)
-
-Errors [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2F457hdfr)
+Errors [Results](https://wave.webaim.org/report#/https://rave-reviews-app.herokuapp.com/profile/)
 
 ### Performance
