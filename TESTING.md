@@ -103,3 +103,31 @@ Register [Results](https://wave.webaim.org/report#/https://rave-reviews-app.hero
 Errors [Results](https://wave.webaim.org/report#/https://rave-reviews-app.herokuapp.com/profile/)
 
 ### Performance
+
+Logged Out Home
+
+Logged In Home
+
+Log In
+
+Register
+
+Profile
+
+Edit Profile
+
+Get Raves
+
+Add Rave
+
+Edit Rave
+
+Get Organisations
+
+Add Organisations
+
+Edit Organisations
+
+Contact
+
+Errors
