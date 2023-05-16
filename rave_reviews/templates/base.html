@@ -5,15 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Rave Reviews is sharing site for Drum and Bass enthusiastics to leave memories of raves they have attended">
+    <meta name="description" content="Drum and Bass site to add and comment of Drum and Base raves">
     <meta name="keywords" content="raves, rave reviews, raving, drum and bass, jungle, dnb, clubbing">
-    <meta name="author" content="Jamie Letts">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/rr-logo.png') }}">
+    {% block styles %}
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/rr-logo.png') }}">
+    <!-- User styles css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <!-- Email js -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
@@ -21,7 +23,6 @@
             emailjs.init("EB84Lrh7DSNQt_eKb");
         })();
     </script>
-    {% block styles %}
     {% endblock %}
     <title>Rave Reviews</title>
 </head>
@@ -129,6 +130,7 @@
             </div>
         </div>
     </footer>
+    {% block scripts %}
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous">
@@ -139,7 +141,6 @@
     <script src="https://kit.fontawesome.com/177beb570f.js" crossorigin="anonymous"></script>
     <!-- indexjs-->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    {% block scripts %}
     {% endblock %}
 </body>
 
