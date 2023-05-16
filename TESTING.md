@@ -24,7 +24,7 @@ _ _ _
 
 ## __Automated Testing__
 
-### HTML Validation
+### __HTML Validation__
 
 The W3C Markup Validation Service was used to validate the HTML of the website. All pages pass with no errors.
 
@@ -57,7 +57,7 @@ Contact [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-ap
 Errors [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app.herokuapp.com%2F457hdfr)
 
 
-### CSS Validation
+### __CSS Validation__
 
 The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website.
 When pasting in my index errors and warnings were flagged all linked to Materialize.
@@ -67,7 +67,7 @@ When validating just my own custom CSS file it passes with no errors with only 1
 <img src="documentation/testing/css_validation.png">
 </details><br>
 
-### JavaScript Validation
+### __JavaScript Validation__
 
 JSHint JS Validation Service was used to validate the Javascript files. No significant issues were found. Only undefined variables flagged were those used for the emailjs functions.
 
@@ -77,9 +77,9 @@ OnClick buttons were flagged as unused, but /* exported */ feature was used to r
 <img src="documentation/testing/jshint.png">
 </details><br>
 
-### Python Validation
+### __Python Validation__
 
-### Accessibility
+### __Accessibility__
 
 To ensure the site is accesible as possible I have taken the following steps;
 
@@ -102,32 +102,62 @@ Register [Results](https://wave.webaim.org/report#/https://rave-reviews-app.hero
 
 Errors [Results](https://wave.webaim.org/report#/https://rave-reviews-app.herokuapp.com/profile/)
 
-### Performance
+### __Performance__
 
-Logged Out Home
+Performance testing was done using lighthouse in chrome developer tools testing the performance, accessibility, best practices and SEO of the website. Some of the scores are lower than I'd like them to be but for most of them, the lower ones especialy, it was from labels or formatting within Materialize I which I could not change so it's not something I'm too worried about.
+<br>
+<details><summary>Logged Out Home</summary>
+<img src="documentation/testing/lighthouse/logged-out-home.png">
+</details>
 
-Logged In Home
+<details><summary>Logged In Home</summary>
+<img src="documentation/testing/lighthouse/logged-in-home.png">
+</details>
 
-Log In
+<details><summary>Log In</summary>
+<img src="documentation/testing/lighthouse/login.png">
+</details>
 
-Register
+<details><summary>Register</summary>
+<img src="documentation/testing/lighthouse/register.png">
+</details>
 
-Profile
+<details><summary>Profile</summary>
+<img src="documentation/testing/lighthouse/profile.png">
+</details>
 
-Edit Profile
+<details><summary>Edit Profile</summary>
+<img src="documentation/testing/lighthouse/edit-profile.png">
+</details>
 
-Get Raves
+<details><summary>Get Raves</summary>
+<img src="documentation/testing/lighthouse/get-raves.png">
+</details>
 
-Add Rave
+<details><summary>Add Rave</summary>
+<img src="documentation/testing/lighthouse/add-rave.png">
+</details>
 
-Edit Rave
+<details><summary>Edit Rave</summary>
+<img src="documentation/testing/lighthouse/edit-rave.png">
+</details>
 
-Get Organisations
+<details><summary>Organisations</summary>
+<img src="documentation/testing/lighthouse/organisations.png">
+</details>
 
-Add Organisations
+<details><summary>Add Organisation</summary>
+<img src="documentation/testing/lighthouse/add-organisation.png">
+</details>
 
-Edit Organisations
+<details><summary>Edit Organisation</summary>
+<img src="documentation/testing/lighthouse/edit-organisation.png">
+</details>
 
-Contact
+<details><summary>Contact</summary>
+<img src="documentation/testing/lighthouse/contact.png">
+</details>
 
-Errors
+<details><summary>Errors</summary>
+<img src="documentation/testing/lighthouse/errors.png">
+</details>
