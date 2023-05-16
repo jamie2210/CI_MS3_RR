@@ -231,6 +231,7 @@ body {
 
 .add_profile {
     background-color: #3b3b3b;
+    border: 3px solid #e08e01;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -238,6 +239,10 @@ body {
     width: 850px;
     padding: 15px;
     border-radius: 1%;
+}
+
+.add_profile input {
+    color: white;
 }
 
 /* ---------------------------------- Log In */
@@ -249,6 +254,10 @@ body {
 
 .link:hover {
     color: #f9b233;
+}
+
+.card-panel {
+    border: 3px solid #e08e01;
 }
 
 /* ---------------------------------- Raves */
@@ -385,6 +394,7 @@ body {
 
 .add_rave {
     background-color: #3b3b3b;
+    border: 3px solid #e08e01;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -392,6 +402,10 @@ body {
     width: 850px;
     padding: 15px;
     border-radius: 1%;
+}
+
+.add_rave input {
+    color: white;
 }
 
 .banger {
