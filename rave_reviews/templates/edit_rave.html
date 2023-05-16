@@ -22,7 +22,7 @@
                     {% endif %}
                     {% endfor %}
                 </select>
-                <label for="organisation_name">Organisation</label>
+                <label for="organisation_name" aria-label="Select Organisation">Organisation</label>
             </div>
         </div>
         <!-- image upload -->
@@ -31,7 +31,7 @@
                 <i class="fa-solid fa-image prefix fa-icon"></i>
                 <input type="file" name="rave_image" id="rave_image" class="validate" required>
                 <div class="img-label">
-                    <label for="rave_image">Upload a new pic from the rave</label>
+                    <label for="rave_image" aria-label="Upload a rave picture">Upload a new pic from the rave</label>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                 <i class="fa-solid fa-face-grin-wide prefix fa-icon"></i>
                 <input id="rave_name" name="rave_name" type="text" class="validate" value="{{ rave.rave_name }}"
                     maxlength="20" required>
-                <label for="rave_name">Rave Name</label>
+                <label for="rave_name" aria-label="Add the rave name">Rave Name</label>
             </div>
         </div>
         <!-- rave date picker -->
@@ -49,7 +49,7 @@
             <div class="input-field col s12">
                 <i class="fa-solid fa-calendar-days prefix fa-icon"></i>
                 <input id="date" name="date" type="text" class="datepicker validate" value="{{ rave.date }}" required>
-                <label for="date">Rave Date</label>
+                <label for="date" aria-label="Add the rave date">Rave Date</label>
             </div>
         </div>
         <!-- rave venue -->
@@ -57,7 +57,7 @@
             <div class="input-field col s12">
                 <i class="fa-solid fa-warehouse prefix fa-icon"></i>
                 <input id="venue" name="venue" type="text" class="validate" value="{{ rave.venue }}" required>
-                <label for="venue">Rave Venue</label>
+                <label for="venue" aria-label="Add the rave venue">Rave Venue</label>
             </div>
         </div>
         <!-- rave description -->
@@ -67,7 +67,7 @@
                 <textarea id="rave_description" name="rave_description" class="materialize-textarea validate" required>
                             {{- rave.rave_description -}}
                         </textarea>
-                <label for="rave_description">How was it?</label>
+                <label for="rave_description" aria-label="Describe the rave">How was it?</label>
             </div>
         </div>
         <!-- Youtube Upload -->
@@ -75,14 +75,14 @@
             <div class="input-field col s12">
                 <i class="fa-solid fa-link prefix fa-icon"></i>
                 <input id="rave_set" name="rave_set" type="text" class="validate">
-                <label for="rave_set">Add a youtube set?</label>
+                <label for="rave_set" aria-label="Upload a youtube set">Add a youtube set?</label>
             </div>
         </div>
         <!-- banger checkbox -->
         <div class="row">
             <div class="input-field col s12">
                 <div class="switch">
-                    <i class="fa-solid fa-bullhorn fa-icon prefix banger"></i>
+                    <i class="fa-solid fa-bullhorn fa-icon prefix banger" aria-label="Click the checkbox to signifiy a proper naughty rave"></i>
                     <label for="banger">
                         {% if rave.banger == "on" %}
                         <input type="checkbox" name="banger" id="banger" checked>
@@ -99,9 +99,9 @@
         <div class="row">
             <div class="col s12 center-align">
                 <!-- Cancel button -->
-                <a href="{{url_for('raves.get_raves')}}" class="btn">Cancel</a>
+                <a href="{{url_for('raves.get_raves')}}" class="btn" aria-label="Cancel the edit">Cancel</a>
                 <i class="fa-solid fa-arrow-up-from-square"></i>
-                <button type="submit" value="Upload" class="btn">Edit Review</button>
+                <button type="submit" value="Upload" class="btn" aria-label="Confirm the edit">Edit Review</button>
             </div>
         </div>
     </form>

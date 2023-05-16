@@ -11,7 +11,7 @@
       <div class="input-field col s12">
         <i class="fa-solid fa-user prefix fa-icon"></i>
         <input id="username" name="username" type="text" minlength="3" maxlength="20" value="{{ user.username }}" class="validate" readonly required>
-        <label for="username">Username</label>
+        <label for="username" aria-label="Enter your username">Username</label>
       </div>
     </div>
     <!-- password -->
@@ -20,7 +20,7 @@
         <i class="fa-solid fa-lock prefix fa-icon"></i>
         <input id="password" name="password" type="password" minlength="5" maxlength="20"
           pattern="^[a-zA-Z0-9\W]{5,20}$" class="validate" required>
-        <label for="password">Password</label>
+        <label for="password" aria-label="Enter a password">Password</label>
       </div>
     </div>
     <!-- confirm password -->
@@ -28,7 +28,7 @@
       <div class="input-field col s12 confirm">
         <i class="fa-solid fa-lock prefix fa-icon"></i>
         <input id="confirm-password" name="confirm-password" type="password" class="validate" required>
-        <label for="confirm-password">Confirm Password</label>
+        <label for="confirm-password" aria-label="Confirm your password">Confirm Password</label>
         <div class="alert">
           <i class="fas fa-exclamation-circle error-icon"> </i>
           <span class="error-text">Passwords do not match</span>
@@ -45,7 +45,7 @@
         <i class="fa-solid fa-pen prefix fa-icon"></i>
         <input id="first_name" name="first_name" type="text" value="{{ user.first_name }}" maxlength="20"
           class="validate" required>
-        <label for="first_name">First Name</label>
+        <label for="first_name" aria-label="Enter your first name">First Name</label>
       </div>
     </div>
     <!-- last name -->
@@ -54,7 +54,7 @@
         <i class="fa-solid fa-pen prefix fa-icon"></i>
         <input id="last_name" name="last_name" type="text" value="{{ user.last_name }}" maxlength="20" class="validate"
           required>
-        <label for="last_name">Last Name</label>
+        <label for="last_name" aria-label="Enter your last name">Last Name</label>
       </div>
     </div>
     <!-- favourite dj -->
@@ -63,7 +63,7 @@
         <i class="fa-solid fa-compact-disc prefix fa-icon"></i>
         <input id="fave_dj" name="fave_dj" type="text" value="{{ user.fave_dj }}" maxlength="20" class="validate"
           required>
-        <label for="fave_dj">Favourite DJ</label>
+        <label for="fave_dj" aria-label="Enter your favourite DJ">Favourite DJ</label>
       </div>
     </div>
     <!-- favourite mc -->
@@ -72,7 +72,7 @@
         <i class="fa-solid fa-microphone-lines prefix fa-icon"></i>
         <input id="fave_mc" name="fave_mc" type="text" value="{{ user.fave_mc }}" maxlength="20" class="validate"
           required>
-        <label for="fave_mc">Favourite MC</label>
+        <label for="fave_mc" aria-label="Enter your favourite MC">Favourite MC</label>
       </div>
     </div>
     <!-- favourite venue -->
@@ -81,7 +81,7 @@
         <i class="fa-solid fa-warehouse prefix fa-icon"></i>
         <input id="fave_venue" name="fave_venue" type="text" value="{{ user.fave_venue }}" maxlength="20"
           class="validate" required>
-        <label for="fave_venue">Favourite Venue</label>
+        <label for="fave_venue" aria-label="Enter your favourite Venue">Favourite Venue</label>
       </div>
     </div>
     <!-- favourite organisation -->
@@ -97,7 +97,7 @@
         {% endif %}
         {% endfor %}
       </select>
-      <label for="fave_organisation">Favourite Organisation</label>
+      <label for="fave_organisation" aria-label="Select your favourite organisation">Favourite Organisation</label>
     </div>
     <!-- faveourtie set (youtube upload) -->
     <div class="row">
@@ -105,7 +105,7 @@
         <i class="fa-solid fa-link prefix fa-icon"></i>
         <input id="fave_set" name="fave_set" type="text" pattern="^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+"
           class="validate">
-        <label for="fave_set">Do you have a favourite set? (youtube link upload)</label>
+        <label for="fave_set" aria-label="Upload a favourite youtube set">Do you have a favourite set? (youtube link upload)</label>
       </div>
     </div>
     <!-- profile pic upload -->
@@ -114,15 +114,15 @@
         <i class="fa-solid fa-image-portrait prefix fa-icon"></i>
         <input type="file" name="profile_image" id="profile_image" class="validate" required>
         <div class="profile-img">
-          <label for="profile_image">Upload a profile pic</label>
+          <label for="profile_image" aria-label="Upload a profile picture">Upload a profile pic</label>
         </div>
       </div>
     </div>
     <!-- register button -->
     <div class="row center-align">
       <i class="fa-solid fa-arrow-up-from-square"></i>
-      <a href="{{url_for('authentication.profile', username=user.username, user_id=user._id)}}" class="btn">Cancel</a>
-      <button type="submit" class="btn">Update Profile</button>
+      <a href="{{url_for('authentication.profile', username=user.username, user_id=user._id)}}" class="btn" aria-label="Cancel the edit">Cancel</a>
+      <button type="submit" class="btn" aria-label="Confirm update">Update Profile</button>
     </div>
   </form>
 </div>

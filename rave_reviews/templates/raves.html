@@ -73,8 +73,8 @@
                         </form>
                         <div class="card-action">
                             {% if session.user|lower == rave.created_by|lower or session.user|lower == 'admin' %}
-                            <a href="{{ url_for('raves.edit_rave', rave_id=rave._id) }}" class="btn">Edit Review</a>
-                            <button onClick="deleteReviewModal('{{ rave._id }}')" class="btn">Delete Review</button>
+                            <a href="{{ url_for('raves.edit_rave', rave_id=rave._id) }}" class="btn" aria-label="Edit review">Edit Review</a>
+                            <button onClick="deleteReviewModal('{{ rave._id }}')" class="btn" aria-label="Delete review">Delete Review</button>
                             {% endif %}
                         </div>
                     </div>
@@ -108,18 +108,18 @@
     <div class="pagination-keys">
         {% if page > 1 %}
         <a href="/get_raves/?page={{ page - 1 }}&per_page={{ per_page }}&offset={{ offset }}" class="page-link"><i
-                class="fa-solid fa-hand-point-left prefix"></i></a>
+                class="fa-solid fa-hand-point-left prefix" aria-label="Go to previous pagination page"></i></a>
         {% endif %}
         {% for p in range(1, num_pages + 1) %}
         {% if p == page %}
-        <a href="#" class="page-num active">{{ p }}</a>
+        <a href="javascript:;" class="page-num active">{{ p }}</a>
         {% else %}
-        <a href="/get_raves/?page={{ p }}&per_page={{ per_page }}&offset={{ offset }}" class="page-num">{{ p }}</a>
+        <a href="/get_raves/?page={{ p }}&per_page={{ per_page }}&offset={{ offset }}" class="page-num" aria-label="Go to page number">{{ p }}</a>
         {% endif %}
         {% endfor %}
         {% if page < num_pages %}
         <a href="/get_raves/?page={{ page + 1 }}&per_page={{ per_page }}&offset={{ offset }}" class="page-link"><i
-                class="fa-solid fa-hand-point-right prefix"></i></a>
+                class="fa-solid fa-hand-point-right prefix" aria-label="Go to next pagination page"></i></a>
         {% endif %}
     </div>
 </div>

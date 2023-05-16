@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="center-align">
-        <a href="{{ url_for('organisations.add_organisation' )}}" class="btn org-btn">Add Organisation</a>
+        <a href="{{ url_for('organisations.add_organisation' )}}" class="btn org-btn" aria-label="Add organisation">Add Organisation</a>
     </div>
 </div>
 
@@ -18,7 +18,7 @@
                 <div class="card-action">
                     <a href="{{ url_for('organisations.edit_organisation', organisation_id=organisation._id) }}"
                         class="btn">Edit</a>
-                    <button onClick="deleteOrganisationModal('{{ organisation._id }}')" class="btn">Delete</button>
+                    <button onClick="deleteOrganisationModal('{{ organisation._id }}')" class="btn" aria-label="Delete organisation">Delete</button>
                 </div>
             </div>
         </div>
@@ -33,9 +33,9 @@
                             </h2>
                         </header>
                         <div class="modal-body">
-                            <button onClick="closeOrgModal('{{ organisation._id }}')" class="btn">Cancel</button>
+                            <button onClick="closeOrgModal('{{ organisation._id }}')" class="btn" aria-label="Cancel deletion">Cancel</button>
                             <a href="{{ url_for('organisations.delete_organisation',organisation_id=organisation._id) }}"
-                                class="btn">Delete</a>
+                                class="btn" aria-label="Confirm delete">Delete</a>
                         </div>
                     </div>
                 </div>
