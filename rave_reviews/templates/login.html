@@ -11,7 +11,7 @@
           <div class="input-field col s12">
             <i class="fa-regular fa-face-smile prefix fa-icon"></i>
             <input id="username" name="username" type="text" minlength="3" maxlength="15" class="validate" required>
-            <label for="username">Username</label>
+            <label for="username" aria-label="Enter your username">Username</label>
           </div>
         </div>
         <!-- password -->
@@ -20,13 +20,13 @@
             <i class="fa-solid fa-lock prefix fa-icon"></i>
             <input id="password" name="password" type="password" minlength="5" maxlength="15"
               pattern="^[a-zA-Z0-9\W]{5,20}$" class="validate" required>
-            <label for="password">Password</label>
+            <label for="password" aria-label="Enter your password">Password</label>
           </div>
         </div>
         <!-- log in button -->
         <div class="row">
           <i class="fa-solid fa-arrow-up-from-square"></i>
-          <button type="submit" class="col m6 offset-m3 text-center btn-large">Log In</button>
+          <button type="submit" class="col m6 offset-m3 text-center btn-large" aria-label="Log in">Log In</button>
         </div>
       </div>
     </form>
@@ -34,7 +34,7 @@
   <div class="row">
     <div class="col s12">
       <p class="center-align">
-        Not regstiered yet? Register <a href="{{ url_for('authentication.register')}}" class="link">here</a>
+        Not regstiered yet? Register <a href="{{ url_for('authentication.register')}}" class="link" aria-label="Go to register page">here</a>
       </p>
     </div>
   </div>
