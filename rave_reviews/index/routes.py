@@ -12,6 +12,9 @@ def home():
     HOME FUNCTION WHEN NO USER LOGGED IN
     Renders template for the home page
     """
+    # If the user is logged in, redirect them to logged in home/landing page
+    if 'user' in session:
+        return redirect(url_for("logged_in_index.home"))
     return render_template("index.html")
 
 
