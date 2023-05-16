@@ -79,6 +79,30 @@ OnClick buttons were flagged as unused, but /* exported */ feature was used to r
 
 ### __Python Validation__
 
+[pep8ci](#https://pep8ci.herokuapp.com/) was the linter used to check the python code, all clear with no errors.
+<br>
+
+<details><summary>Index</summary>
+<img src="documentation/testing/linter/index.png">
+</details>
+
+<details><summary>Authentication</summary>
+<img src="documentation/testing/linter/authentication.png">
+</details>
+
+<details><summary>Raves</summary>
+<img src="documentation/testing/linter/raves.png">
+</details>
+
+<details><summary>Organisations</summary>
+<img src="documentation/testing/linter/organisations.png">
+</details>
+
+<details><summary>Error Handlers</summary>
+<img src="documentation/testing/linter/error-handlers.png">
+</details>
+<br>
+
 ### __Accessibility__
 
 To ensure the site is accesible as possible I have taken the following steps;
@@ -92,7 +116,7 @@ To ensure the site is accesible as possible I have taken the following steps;
 
 All pass with no errors apart from the forms as the drop down option has no form label which is a Materialize feature and something I can not adjust.
 
-Due to the log in WAVE can only access limited limit links but I shared those for demonstrations to how the rest of the site pages are structured for optimal accessibility.
+Due to the log in WAVE can only access limited links these are sahred for demonstration to how the rest of the sites pages are structured for optimal accessibility.
 
 Logged Out Home [results](https://wave.webaim.org/report#/https://rave-reviews-app.herokuapp.com/)
 
