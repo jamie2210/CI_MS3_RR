@@ -185,3 +185,28 @@ Performance testing was done using lighthouse in chrome developer tools testing 
 <details><summary>Errors</summary>
 <img src="documentation/testing/lighthouse/errors.png">
 </details>
+
+_ _ _
+
+## __Manuel Testing__
+
+### __Device testing__
+The website was tested on the following devices:
+- MacBook Pro
+- iPad Tablet
+- Google Pixel 5
+- iPhone 12
+
+In addition, the website was tested using Google Chrome Developer Tools device toggle option for all available device options.
+
+
+### __Browser Compatibility__
+
+The website was tested on the following browsers:
+- Google Chrome
+- Apple Safari
+- Mozilla Firefox
+
+### __Testing user stories__
+
+## __Bugs__
