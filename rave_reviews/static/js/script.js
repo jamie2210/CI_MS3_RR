@@ -154,11 +154,30 @@ function sendMail(contactForm) {
  */
 
 const password = document.querySelector("#password");
+const passwordAlert = document.querySelector(".password-alert");
 const confirmPassword = document.querySelector("#confirm-password");
 const errorAlert = document.querySelector(".alert");
 const passwordTick = document.querySelector(".tick-icon");
 const submitBtn = document.querySelector(".submit-btn");
 
+/**
+ * Checks if password is present to avoid listening on all pages and causing an error
+ */
+if (password !== null) {
+    password.addEventListener("input", checkPassword);
+  }
+
+function checkPassword() {
+    if (password.value.length < 8) {
+    passwordAlert.style.display = "block";
+    } else {
+    passwordAlert.style.display = "none";
+    }
+}
+
+/**
+ * Checks if confirmPassword is present to avoid listening on all pages and causing an error
+ */
 if (confirmPassword !== null) {
     confirmPassword.addEventListener("input", checkPasswordsMatch);
   }
@@ -176,6 +195,7 @@ function checkPasswordsMatch() {
         }
     }
 }
+
 
 /* exported 
 reviewModal,
