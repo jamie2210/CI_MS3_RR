@@ -166,7 +166,11 @@ const submitBtn = document.querySelector(".submit-btn");
 if (password !== null) {
     password.addEventListener("input", checkPassword);
   }
-
+/**
+ * Checks if password is less than 8 characters
+ * If so, user is alerted password must be 8 or more characters
+ * Alert removed when 8 chracters or above
+ */
 function checkPassword() {
     if (password.value.length < 8) {
     passwordAlert.style.display = "block";
@@ -182,6 +186,11 @@ if (confirmPassword !== null) {
     confirmPassword.addEventListener("input", checkPasswordsMatch);
   }
 
+/**
+ * Check if passwords match
+ * If not, user is alrted and register button disabled
+ * If so, user is alerted and register button enabled
+ */
 function checkPasswordsMatch() {
     if (confirmPassword.value !== "") {
         if (password.value === confirmPassword.value) {
