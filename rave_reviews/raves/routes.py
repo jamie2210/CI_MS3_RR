@@ -69,8 +69,6 @@ def get_user_raves():
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page',
         offset_parameter='offset')
-    # Set the number of items per page to 4
-    per_page = 4
     # Call the user in session
     session_user = session["user"]
     # Check if a user session exists and has a valid value
@@ -109,8 +107,6 @@ def search():
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page',
         offset_parameter='offset')
-    # Set the number of items per page to 4
-    per_page = 4
     # Create pagination for the raves by calling the pagination function
     raves, num_pages = create_pagination(page, per_page, query)
     # Find comments in the MongoDB collection
