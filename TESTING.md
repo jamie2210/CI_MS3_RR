@@ -208,17 +208,6 @@ The website was tested on the following browsers:
 
 ### __Testing user stories__
 
-#### __First Time Visitor Goals__
-
-As a first time user of the site I want to be able to:
-
-1. Understand what the site is for and how to navigate through site.
-2. Register for an account and create a profile.
-3. Find Rave reviews.
-4. Create a rave review.
-
-
-
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
 `First Time Visitor Goals`
@@ -248,27 +237,6 @@ __Search__
 | Defensive Programming (user in session) | When user logged out any page only for liged in access will automatically redirect to the logged outhome page | Attempt to enter pages for logged In Access Only | Redirected to home page | Pass |
 | Defensive Prgramming (deletion) | Before any deletion a modal pops up confirming the user wishes to delete | Attempt to delete Organisation, Profile & Review | Defensive modal pops up | Pass |
 | Error Page | Button redirects the user to the home page | Clicked button | Redirected to home page | Pass |
-
-#### __Returning Visitor Goals__
-
-1. Log in to my account.
-2. Create, edit, delete and view my rave reviews.
-3. Edit, delete and view my profile.
-4. Search for other rave reviews from other members.
-
-#### __Site Owner__
-
-1. Automatically return a logged out user to the logged out home page if not on a page they shouldn't be.
-2. Ensure defensive programming to avoid deletions by mistake
-3. Relevant error page displayed should an invalid command or error occur.
-
-#### __Admin User__
-
-As an administrator for the site I want to be able to:
-
-1. The only one with access to Add or remove organisations.
-2. The only one with access to remove any content that could be offensive.
-
 _ _ _
 
 ## __Bugs__
