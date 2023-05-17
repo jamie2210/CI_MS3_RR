@@ -248,7 +248,7 @@ It was flagged by a friend that it may be a good feature to remove the necessity
 - When attempting to create a profile with the 'required' removed the user is refused with the flash mesaage 'Invalid file format. Please use 'JPG', 'jpeg', 'PNG''
 - This is set to ensure the images that are uploaded are the correct format to ensure they display properly.
 - Below is the code I have tried to make the register fucntion aloow an empty image upload. I got to a point where the flahs message would not show if no image was present but instead of registering the account it reset the page. 
-- With more time I'd like to look in to this further to make it work but for now as time is limited I will leave the image feidl as 'required'.
+- With more time I'd like to look in to this further to make it work but for now as time is limited I will leave the image field as 'required'.
 
 ```Python (Register function)
         image_url = upload("profile_image")
@@ -277,7 +277,7 @@ It was flagged by a friend that it may be a good feature to remove the necessity
 
 __2. Search Pagination__
 
-When a search is performed with more than 4 reviews it paginates the same way the review page does. Thge issue with this is once the next page is clicked the page resets, goes to the next page but the search feidl is removed so all reviews are displayed.
+When a search is performed with more than 4 reviews it paginates the same way the review page does. The issue with this is once the next page is clicked the page resets, goes to the next page but the search feidl is removed so all reviews are displayed.
 
 The same issues occurs for the 'My Reviews' button.
 
@@ -288,7 +288,7 @@ The same issues occurs for the 'My Reviews' button.
 
 __3. Password__
 
-When creating the password if it does match the correct requirements the user is only notified it does not match, rather than alert the user what they must include.
+When creating the password if it does not match the correct requirements the user is only notified it does not match, rather than alert the user what they must include.
 
 __4. Youtube Upload__ 
 

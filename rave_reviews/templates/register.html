@@ -22,6 +22,10 @@
           <input id="password" name="password" type="password" minlength="5" maxlength="20"
             pattern="^[a-zA-Z0-9\W]{5,20}$" class="validate" required>
           <label for="password" aria-label="Enter a password">Password</label>
+          <div class="password-alert">
+            <i class="fas fa-exclamation-circle error-icon"> </i>
+            <span class="password-text">Password must be at least 5 characters long</span>
+          </div>
         </div>
       </div>
       <!-- confirm password -->
