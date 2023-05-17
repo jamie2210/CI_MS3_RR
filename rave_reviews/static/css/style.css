@@ -377,8 +377,12 @@ body {
     font-size: 35px;
 }
 
-.page-num:hover {
-    color: #f9b233
+.page-num.active {
+    color: #f9b233;
+}
+
+.active {
+    color: #f9b233;
 }
 
 .search-form {
