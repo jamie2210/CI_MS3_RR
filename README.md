@@ -52,6 +52,8 @@ it has been designed with the focus of creating 'CRUD' functions.
 
 12. [Acknowledgements](#acknowledgements)
 
+_ _ _
+
 ## __User Experience__
 
 ### __Project Goals__
@@ -68,7 +70,7 @@ comment on others and share their favourtie sets.
 #### __Target Audience__
 
 Target audience is for anyone with in interest in Drum and Base, while raves are for 18 year olds an over, the age one appreciate the music and experiences 
-from fellow enthusiasts is any age so it would be restrictive to set a specific target audience. That said, I would imagine it will appeal mostly to those aged 16 - 50 as those are the ages that will have experienced joys of Drum and Bass and the raves most.
+from fellow enthusiasts is any age so it would be restrictive to set a specific target audience. That said, I would imagine it will appeal mostly to those aged 16 - 50 as those are the ages that will have experienced joys of Drum and Bass and the raves most since it's birth in the mid 90's.
 
 #### __First Time Visitor Goals__
 
@@ -76,7 +78,7 @@ As a first time user of the site I want to be able to:
 
 1. Understand what the site is for and how to navigate through site.
 2. Register for an account and create a profile.
-3. Search for raves.
+3. Find Rave reviews.
 4. Create a rave review.
 
 #### __Returning Visitor Goals__
@@ -84,7 +86,7 @@ As a first time user of the site I want to be able to:
 As a returning registered user of the site I want to be able to:
 
 1. Log in to my account.
-2. Create, edit, delete and view my my rave reviews.
+2. Create, edit, delete and view my rave reviews.
 3. Create, edit, delete and view my profile.
 4. Search for other rave reviews from other members.
 
@@ -94,6 +96,8 @@ As an administrator for the site I want to be able to:
 
 1. Add or remove organisations.
 2. Remove any content that could be offensive.
+3. Ensure defensive programming to avoid deletions by mistake
+4. Ensure defensive progamming so a logged out user can't access areas of the webiste only accessible via log in.
 
 #### __Site Owner__
 
