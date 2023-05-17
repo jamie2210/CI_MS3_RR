@@ -217,18 +217,17 @@ As a first time user of the site I want to be able to:
 3. Find Rave reviews.
 4. Create a rave review.
 
-#### __Returning Visitor Goals__
 
-1. Log in to my account.
-2. Create, edit, delete and view my rave reviews.
-3. Create, edit, delete and view my profile.
-4. Search for other rave reviews from other members.
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
+`First Time Visitor Goals`
+| Understand what the site is for and how to navigate through site. | Logged out landing home page introduuction explains the use of the site | Go to home page as a new user | Explaintion is clear and present | Pass |
+| Register For An Account | User creates an account | Clicks 'Register' links, enters correct details | Account is created | Pass |
+| Find & Read Rave Reviews | Once logged in buttons and links will take user to reviews page where all reviews are accessible | Click 'Rave Reviews' buttons or links | Review page and all reviews are loaded | Pass |
+| Create Rave Review | User can fill out the form and create a review | Click 'Leave Review' link or button | Form is present, once all necessary fields are fillled out, review is created | Pass |
 `Returning Visitor Goals`
 __Profile__
-| Register For An Account | User creates an account | Clicks 'Register' links, enters correct details | Account is created | Pass |
 | View Profile | Once logged in user is directed to their profile page | User logs in | Profile page is loaded with all information of the user | Pass |
 | Edit Profile | If user is on their profile page, user can edit their profile | Click 'Edit Profile' button | Edit profile page with information pre-populated on the form | Pass |
 | Delete Profile | If user is their profile page, user can delete their profile | Click 'Delete Profile' button | Defenisve modal pops up asking user to confirm the deletion of the specified profile, once delelted user is redirected to the logged out home page | Pass |
@@ -239,6 +238,9 @@ __Reviews__
 | Read Rave Review | Once logged in user can find reviews and read all reviews from other members | Click 'Rave Reviews' link | Rave review page is loaded with all reviews available | Pass |
 | Edit Rave Review | If review is the user's, user can edit the review | Click 'Edit Review' button | Edit review page with information pre-populated on the form | Pass |
 | Delete Rave Review | If review is the user's, user can delete the review | Click 'Delete Review' button | Defenisve modal pops up asking user to confirm the deletion of the specified review, once delete user is redirected to the rave reviews page | Pass |
+__Search__
+| Search For Rave Reviews | User can use the search bar to search for specific reviews | Type in different reviews by name, venue and title key words | Search brings up the inteded specified reviews | Pass |
+| --- | --- | --- | --- | --- |
 `Admin User`
 | Add or Remove Organisations Privilege | If logged in as Admin access to organisations, if not redirect to home page  | Attempted to load organisation pages as user and Admin | If user not admin redirected to home page, if admin access allowed | Pass |
 | Remove Content Privilege | Only access to delete offensive reviews is Admin | Delete button present on all reviews for Admin. Button only present to user's personal reviews | Review deleted | Pass |
@@ -246,6 +248,13 @@ __Reviews__
 | Defensive Programming (user in session) | When user logged out any page only for liged in access will automatically redirect to the logged outhome page | Attempt to enter pages for logged In Access Only | Redirected to home page | Pass |
 | Defensive Prgramming (deletion) | Before any deletion a modal pops up confirming the user wishes to delete | Attempt to delete Organisation, Profile & Review | Defensive modal pops up | Pass |
 | Error Page | Button redirects the user to the home page | Clicked button | Redirected to home page | Pass |
+
+#### __Returning Visitor Goals__
+
+1. Log in to my account.
+2. Create, edit, delete and view my rave reviews.
+3. Edit, delete and view my profile.
+4. Search for other rave reviews from other members.
 
 #### __Site Owner__
 

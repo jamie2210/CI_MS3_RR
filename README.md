@@ -87,7 +87,7 @@ As a returning registered user of the site I want to be able to:
 
 1. Log in to my account.
 2. Create, edit, delete and view my rave reviews.
-3. Create, edit, delete and view my profile.
+3. Edit, delete and view my profile.
 4. Search for other rave reviews from other members.
 
 #### __Admin User__
