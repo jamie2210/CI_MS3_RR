@@ -18,7 +18,7 @@ s3 = boto3.client('s3',
                   aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
                   aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'])
 
-# Create a authentication object as a blueprint
+# Create an authentication object as a blueprint
 authentication = Blueprint('authentication', __name__)
 
 
