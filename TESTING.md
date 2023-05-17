@@ -251,6 +251,11 @@ When a search is performed with more than 4 reviews it paginates the same way th
 
 The same issues occurs for the 'My Reviews' button.
 
+ - Sadly with limited time I have been unable to resolve this issue so to work around it I have removed the per_page which sets the 4 at which to paginated from.
+ - This means the reviews page will still paginated but when searching for reviews or clicking 'My Reviews' a list will be generated allowing the user to access all reviews in over 4.
+ - It's not perfect but allows for a better user experience, with more time I would look into another way of allowing the pagination to remain.
+ - removed code: <code>per_page = 4</code>
+
 __3. Password__
 
 When creating the password if it does match the correct requirements the user is only notified it does not match, rather than alert the user what they must include.
