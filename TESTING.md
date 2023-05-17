@@ -208,26 +208,41 @@ The website was tested on the following browsers:
 
 ### __Testing user stories__
 
+#### __First Time Visitor Goals__
 
+As a first time user of the site I want to be able to:
+
+1. Understand what the site is for and how to navigate through site.
+2. Register for an account and create a profile.
+3. Find Rave reviews.
+4. Create a rave review.
+
+#### __Returning Visitor Goals__
 
 1. Log in to my account.
 2. Create, edit, delete and view my rave reviews.
 3. Create, edit, delete and view my profile.
 4. Search for other rave reviews from other members.
 
-#### __Admin User__
-
-As an administrator for the site I want to be able to:
-
-1. The only one with access to Add or remove organisations.
-2. The only one with access to remove any content that could be offensive.
-
-
-|`Admin User`|   |   |   |   |   |
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+`Returning Visitor Goals`
+__Profile__
+| Register For An Account | User creates an account | Clicks 'Register' links, enters correct details | Account is created | Pass |
+| View Profile | Once logged in user is directed to their profile page | User logs in | Profile page is loaded with all information of the user | Pass |
+| Edit Profile | If user is on their profile page, user can edit their profile | Click 'Edit Profile' button | Edit profile page with information pre-populated on the form | Pass |
+| Delete Profile | If user is their profile page, user can delete their profile | Click 'Delete Profile' button | Defenisve modal pops up asking user to confirm the deletion of the specified profile, once delelted user is redirected to the logged out home page | Pass |
+__Log In__
+| Log In To My Account | Registered user can log in via the log in button and navbar link | Clicks links, enters correct details | User logged in | Pass |
+__Reviews__
+| Create Rave Review | User can fill out the form and create a review | Click 'Leave Review' link or button | Form is present, once all necessary fields are fillled out, review is created | Pass |
+| Read Rave Review | Once logged in user can find reviews and read all reviews from other members | Click 'Rave Reviews' link | Rave review page is loaded with all reviews available | Pass |
+| Edit Rave Review | If review is the user's, user can edit the review | Click 'Edit Review' button | Edit review page with information pre-populated on the form | Pass |
+| Delete Rave Review | If review is the user's, user can delete the review | Click 'Delete Review' button | Defenisve modal pops up asking user to confirm the deletion of the specified review, once delete user is redirected to the rave reviews page | Pass |
+`Admin User`
 | Add or Remove Organisations Privilege | If logged in as Admin access to organisations, if not redirect to home page  | Attempted to load organisation pages as user and Admin | If user not admin redirected to home page, if admin access allowed | Pass |
 | Remove Content Privilege | Only access to delete offensive reviews is Admin | Delete button present on all reviews for Admin. Button only present to user's personal reviews | Review deleted | Pass |
-
-|`Site Owner` |   |   |   |   |   |
+`Site Owner` 
 | Defensive Programming (user in session) | When user logged out any page only for liged in access will automatically redirect to the logged outhome page | Attempt to enter pages for logged In Access Only | Redirected to home page | Pass |
 | Defensive Prgramming (deletion) | Before any deletion a modal pops up confirming the user wishes to delete | Attempt to delete Organisation, Profile & Review | Defensive modal pops up | Pass |
 | Error Page | Button redirects the user to the home page | Clicked button | Redirected to home page | Pass |
@@ -237,6 +252,13 @@ As an administrator for the site I want to be able to:
 1. Automatically return a logged out user to the logged out home page if not on a page they shouldn't be.
 2. Ensure defensive programming to avoid deletions by mistake
 3. Relevant error page displayed should an invalid command or error occur.
+
+#### __Admin User__
+
+As an administrator for the site I want to be able to:
+
+1. The only one with access to Add or remove organisations.
+2. The only one with access to remove any content that could be offensive.
 
 _ _ _
 
