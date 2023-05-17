@@ -17,6 +17,10 @@ def get_organisations():
     # If the user is not logged in, redirect them to home/landing page
     if 'user' not in session:
         return redirect(url_for("index.home"))
+    # If the user is not admin, redirect them to home/landing page
+    if session.get("user") != 'admin':
+        return redirect(url_for("index.logged_in_home"))
+
     # Retrieve the list of organizations from the database
     # and sort them by "organisation_name" in ascending order
     organisations = list(
@@ -35,6 +39,9 @@ def add_organisation():
     # If the user is not logged in, redirect them to home/landing page
     if 'user' not in session:
         return redirect(url_for("index.home"))
+    # If the user is not admin, redirect them to home/landing page
+    if session.get("user") != 'admin':
+        return redirect(url_for("index.logged_in_home"))
 
     # Get the organisation name from the form data
     if request.method == "POST":
@@ -59,6 +66,9 @@ def edit_organisation(organisation_id):
     # If the user is not logged in, redirect them to home/landing page
     if 'user' not in session:
         return redirect(url_for("index.home"))
+    # If the user is not admin, redirect them to home/landing page
+    if session.get("user") != 'admin':
+        return redirect(url_for("index.logged_in_home"))
 
     if request.method == "POST":
         # Get the submitted form data
