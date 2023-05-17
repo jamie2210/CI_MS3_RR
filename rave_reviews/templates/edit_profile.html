@@ -10,7 +10,8 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="fa-solid fa-user prefix fa-icon"></i>
-        <input id="username" name="username" type="text" minlength="3" maxlength="20" value="{{ user.username }}" class="validate" readonly required>
+        <input id="username" name="username" type="text" minlength="3" maxlength="20" value="{{ user.username }}"
+          class="validate" readonly required>
         <label for="username" aria-label="Enter your username">Username</label>
       </div>
     </div>
@@ -18,9 +19,13 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="fa-solid fa-lock prefix fa-icon"></i>
-        <input id="password" name="password" type="password" minlength="5" maxlength="20"
+        <input id="password" name="password" type="password" minlength="8" maxlength="20"
           pattern="^[a-zA-Z0-9\W]{5,20}$" class="validate" required>
         <label for="password" aria-label="Enter a password">Password</label>
+        <div class="password-alert">
+          <i class="fas fa-exclamation-circle error-icon"> </i>
+          <span class="password-text">Password must be at least 8 characters long</span>
+        </div>
       </div>
     </div>
     <!-- confirm password -->
@@ -105,7 +110,8 @@
         <i class="fa-solid fa-link prefix fa-icon"></i>
         <input id="fave_set" name="fave_set" type="text" pattern="^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+"
           class="validate">
-        <label for="fave_set" aria-label="Upload a favourite youtube set">Do you have a favourite set? (youtube link upload)</label>
+        <label for="fave_set" aria-label="Upload a favourite youtube set">Do you have a favourite set? (youtube link
+          upload)</label>
       </div>
     </div>
     <!-- profile pic upload -->
@@ -121,7 +127,8 @@
     <!-- register button -->
     <div class="row center-align">
       <i class="fa-solid fa-arrow-up-from-square"></i>
-      <a href="{{url_for('authentication.profile', username=user.username, user_id=user._id)}}" class="btn" aria-label="Cancel the edit">Cancel</a>
+      <a href="{{url_for('authentication.profile', username=user.username, user_id=user._id)}}" class="btn"
+        aria-label="Cancel the edit">Cancel</a>
       <button type="submit" class="btn" aria-label="Confirm update">Update Profile</button>
     </div>
   </form>

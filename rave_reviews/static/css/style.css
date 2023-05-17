@@ -166,7 +166,7 @@ body {
 .password-alert {
     font-size: medium;
     padding-top: 20px;
-    /* display: none; */
+    display: none;
 }
 
 .alert {
