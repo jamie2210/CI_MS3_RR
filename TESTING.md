@@ -240,3 +240,28 @@ __Search__
 _ _ _
 
 ## __Bugs__
+
+__1. Image Upload__
+
+It was flagged by a friend that it may be a good feature to remove the necessity of having a profile picture. 
+
+__2. Search Pagination__
+
+When a search is performed with more than 4 reviews it paginates the same way the review page does. Thge issue with this is once the next page is clicked the page resets, goes to the next page but the search feidl is removed so all reviews are displayed.
+
+The same issues occurs for the 'My Reviews' button.
+
+__3. Password__
+
+When creating the password if it does match the correct requirements the user is only notified it does not match, rather than alert the user what they must include.
+
+__4. Youtube Upload__ 
+
+A user doesn't need to upload a youtube video, but it text is entered in the youtube feild that isn't a youtube link and error occurs where 404 error page is generated with the input field.
+
+__5. Iphone Organisation Selection__
+
+When selecting the organisations on some Iphones it would not select the Organisation clicked, but one that is 2 up in the row. 
+
+ - I do not know how to fix this issue as it is a Materialize feature and one I don't have access to edit.
+ - It was only flagged by one user out of many so I am assuming it doesn't happen all the time or on all devices.
