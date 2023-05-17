@@ -245,6 +245,34 @@ __1. Image Upload__
 
 It was flagged by a friend that it may be a good feature to remove the necessity of having a profile picture. 
 
+- When attempting to create a profile with the 'required' removed the user is refused with the flash mesaage 'Invalid file format. Please use 'JPG', 'jpeg', 'PNG''
+- This is set to ensure the images that are uploaded are the correct format to ensure they display properly.
+
+```Python (Register function)
+        image_url = upload("profile_image")
+        if image_url is None:
+            pass
+        elif image_url == "invalid":
+            if request.files.get("profile_image"):
+                flash("Invalid file format. Please use 'JPG', 'jpeg', 'PNG'")
+            return redirect(url_for("authentication.register"))
+        else:
+            pass
+```
+``` Python (uploaded function)
+        if file_key not in request.files:
+        return None
+    # Retrieve the file from the request using the provided file key
+    f = request.files[file_key]
+
+    # Check if the file exists and the extension is allowed
+    if not allowed_file(f.filename):
+        return 'invalid'
+    # Check if the file is empty
+    if not f:
+        return None
+```
+
 __2. Search Pagination__
 
 When a search is performed with more than 4 reviews it paginates the same way the review page does. Thge issue with this is once the next page is clicked the page resets, goes to the next page but the search feidl is removed so all reviews are displayed.
