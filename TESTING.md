@@ -247,6 +247,8 @@ It was flagged by a friend that it may be a good feature to remove the necessity
 
 - When attempting to create a profile with the 'required' removed the user is refused with the flash mesaage 'Invalid file format. Please use 'JPG', 'jpeg', 'PNG''
 - This is set to ensure the images that are uploaded are the correct format to ensure they display properly.
+- Below is the code I have tried to make the register fucntion aloow an empty image upload. I got to a point where the flahs message would not show if no image was present but instead of registering the account it reset the page. 
+- With more time I'd like to look in to this further to make it work but for now as time is limited I will leave the image feidl as 'required'.
 
 ```Python (Register function)
         image_url = upload("profile_image")
