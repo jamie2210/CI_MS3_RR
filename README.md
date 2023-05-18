@@ -483,6 +483,10 @@ _ _ _
 
   https://stackoverflow.com/questions/33239308/how-to-get-exception-message-in-python-properly
 
+* For a better understanding on how to check for youtube links in javascript I sued this stack overflow thread;
+
+  https://stackoverflow.com/questions/28735459/how-to-validate-youtube-url-in-client-side-in-text-box
+
 _ _ _
 
 ## __Content__
