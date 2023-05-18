@@ -310,7 +310,7 @@ When creating the password if it does not match the correct requirements the use
 
 __4. Youtube Upload__ 
 
-A user doesn't need to upload a youtube video, but it text is entered in the youtube feild that isn't a youtube link and error occurs where 404 error page is generated with the input field.
+A user doesn't need to upload a youtube video, but if text is entered in the youtube feild that isn't a youtube link and error occurs where 404 error page is generated with the input field.
 
 __5. Iphone Organisation Selection__
 

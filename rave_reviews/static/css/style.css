@@ -163,13 +163,9 @@ body {
 
 /* ---------------------------------- Register */
 
-.password-alert {
-    font-size: medium;
-    padding-top: 20px;
-    display: none;
-}
-
-.alert {
+.password-alert, .alert, 
+.tick-icon, .youtube-correct, 
+.youtube-incorrect {
     font-size: medium;
     padding-top: 20px;
     display: none;
@@ -179,16 +175,8 @@ body {
     color: #d93025;
 }
 
-.tick-icon {
-    font-size: medium;
-    padding-top: 20px;
-    display: none;
-}
-
 .fa-circle-check {
     color: #2fbc1f;
-    font-size: x-large;
-
 }
 
 /* ---------------------------------- Profile */

@@ -154,8 +154,11 @@ function sendMail(contactForm) {
  */
 
 const password = document.querySelector("#password");
-const passwordAlert = document.querySelector(".password-alert");
 const confirmPassword = document.querySelector("#confirm-password");
+const faveSet = document.querySelector("#fave_set");
+const passwordAlert = document.querySelector(".password-alert");
+const youtubeCorrect = document.querySelector(".youtube-correct");
+const youtubeIncorrect = document.querySelector(".youtube-incorrect");
 const errorAlert = document.querySelector(".alert");
 const passwordTick = document.querySelector(".tick-icon");
 const submitBtn = document.querySelector(".submit-btn");
@@ -205,6 +208,23 @@ function checkPasswordsMatch() {
     }
 }
 
+if (faveSet !== null) {
+    faveSet.addEventListener("input", checkFaveSet);
+  }
+
+function checkFaveSet() {
+
+    const youtubeLink = /^(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([^#\&\?]{11}).*/;
+
+    if (youtubeLink.test(faveSet.value))
+        {
+        youtubeCorrect.style.display = "block";
+        youtubeIncorrect.style.display = "none";
+        } else {
+        youtubeCorrect.style.display = "none";
+        youtubeIncorrect.style.display = "block";
+    }
+}
 
 /* exported 
 reviewModal,
