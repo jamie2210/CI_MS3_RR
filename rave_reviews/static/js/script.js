@@ -175,10 +175,12 @@ if (password !== null) {
  * Alert removed when 8 chracters or above
  */
 function checkPassword() {
-    if (password.value.length < 8) {
-    passwordAlert.style.display = "block";
+    if (password.value === ""){
+        passwordAlert.style.display = "none";
+    } else if (password.value.length < 8) {
+        passwordAlert.style.display = "block";
     } else {
-    passwordAlert.style.display = "none";
+        passwordAlert.style.display = "none";
     }
 }
 
@@ -195,18 +197,20 @@ if (confirmPassword !== null) {
  * If so, user is alerted and register button enabled
  */
 function checkPasswordsMatch() {
-    if (confirmPassword.value !== "") {
-        if (password.value === confirmPassword.value) {
-            passwordTick.style.display = "block";
-            errorAlert.style.display = "none";
-            submitBtn.disabled = false;
-        } else {
-            passwordTick.style.display = "none";
-            errorAlert.style.display = "block";
-            submitBtn.disabled = true;
-        }
+    if (confirmPassword.value === "") {
+        passwordTick.style.display = "none";
+        errorAlert.style.display = "none";
+    } else if (password.value === confirmPassword.value) {
+        passwordTick.style.display = "block";
+        errorAlert.style.display = "none";
+        submitBtn.disabled = false;
+    } else {
+        passwordTick.style.display = "none";
+        errorAlert.style.display = "block";
+        submitBtn.disabled = true;
     }
 }
+
 
 if (faveSet !== null) {
     faveSet.addEventListener("input", checkFaveSet);
@@ -216,11 +220,13 @@ function checkFaveSet() {
     
     const youtubeLink = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
 
-    if (youtubeLink.test(faveSet.value))
-        {
+    if (faveSet.value === "") {
+        youtubeCorrect.style.display = "none";
+        youtubeIncorrect.style.display = "none";
+    } else if (youtubeLink.test(faveSet.value)) {
         youtubeCorrect.style.display = "block";
         youtubeIncorrect.style.display = "none";
-        } else {
+    } else {
         youtubeCorrect.style.display = "none";
         youtubeIncorrect.style.display = "block";
     }
