@@ -205,12 +205,19 @@ def upload(file_key):
 
 def modify_youtube_link(link):
     """
-    This function takes a youtube link and
-    returns it eddited so it will embed correctly
+    This function takes a YouTube link and
+    returns it edited so it will embed correctly
     """
-    if "watch?v=" in link:
-        # If the condition is True, replace "watch?v=" with "embed/"
-        link = link.replace("watch?v=", "embed/")
+    if "youtube.com" in link or "youtu.be" in link:
+        if "embed/" not in link:
+            if "watch?v=" in link:
+                # If the condition is True, replace "watch?v=" with "embed/"
+                link = link.replace("watch?v=", "embed/")
+        # Otherwise, already contains "embed/" or is a valid YouTube link
+        # and doesn't need any modification
+    else:
+        # Ignore the link if it is not a YouTube link
+        link = ""
     return link
 
 
