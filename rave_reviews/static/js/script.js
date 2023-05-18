@@ -156,12 +156,14 @@ function sendMail(contactForm) {
 const password = document.querySelector("#password");
 const confirmPassword = document.querySelector("#confirm-password");
 const faveSet = document.querySelector("#fave_set");
+const raveSet = document.querySelector("#rave_set");
 const passwordAlert = document.querySelector(".password-alert");
 const youtubeCorrect = document.querySelector(".youtube-correct");
 const youtubeIncorrect = document.querySelector(".youtube-incorrect");
 const errorAlert = document.querySelector(".alert");
 const passwordTick = document.querySelector(".tick-icon");
 const submitBtn = document.querySelector(".submit-btn");
+const youtubeLink = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
 
 /**
  * Checks if password is present to avoid listening on all pages and causing an error
@@ -225,9 +227,6 @@ if (faveSet !== null) {
 * If url is not valid incorrect alert displayed
 */
 function checkFaveSet() {
-    // checks to see url enter is a valid youtube link
-    const youtubeLink = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-
     if (faveSet.value === "") {
         youtubeCorrect.style.display = "none";
         youtubeIncorrect.style.display = "none";
@@ -239,6 +238,32 @@ function checkFaveSet() {
         youtubeIncorrect.style.display = "block";
     }
 }
+
+/**
+ * Checks if RaveSet is present to avoid listening on all pages and causing an error
+ */
+if (raveSet !== null) {
+    raveSet.addEventListener("input", checkRaveSet);
+  }
+/**
+* If If input field is a empty nothing is displayed
+* If url is a valid youtube link Correct alert displayed
+* If url is not valid incorrect alert displayed
+*/
+function checkRaveSet() {
+    if (raveSet.value === "") {
+        youtubeCorrect.style.display = "none";
+        youtubeIncorrect.style.display = "none";
+    } else if (youtubeLink.test(raveSet.value)) {
+        youtubeCorrect.style.display = "block";
+        youtubeIncorrect.style.display = "none";
+    } else {
+        youtubeCorrect.style.display = "none";
+        youtubeIncorrect.style.display = "block";
+    }
+}
+
+
 
 /* exported 
 reviewModal,
