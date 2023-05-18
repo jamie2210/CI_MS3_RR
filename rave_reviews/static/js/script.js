@@ -213,8 +213,8 @@ if (faveSet !== null) {
   }
 
 function checkFaveSet() {
-
-    const youtubeLink = /^(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([^#\&\?]{11}).*/;
+    
+    const youtubeLink = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
 
     if (youtubeLink.test(faveSet.value))
         {
