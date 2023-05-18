@@ -290,6 +290,24 @@ __3. Password__
 
 When creating the password if it does not match the correct requirements the user is only notified it does not match, rather than alert the user what they must include.
 
+ - To fix this I added an alert that is called on by javascript explaining the password must be at least 8 characters long if it is not and allowing all types of characters for the password. Previously it only allowed numbers and letters, this also allows for more secure login access.
+
+ ```html
+    <div class="password-alert">
+        <i class="fas fa-exclamation-circle error-icon"> </i>
+        <span class="password-text">Password must be at least 8 characters long</span>
+    </div>
+```
+```javascript
+    function checkPassword() {
+        if (password.value.length < 8) {
+        passwordAlert.style.display = "block";
+        } else {
+        passwordAlert.style.display = "none";
+        }
+    }
+ ``` 
+
 __4. Youtube Upload__ 
 
 A user doesn't need to upload a youtube video, but it text is entered in the youtube feild that isn't a youtube link and error occurs where 404 error page is generated with the input field.
