@@ -310,7 +310,61 @@ When creating the password if it does not match the correct requirements the use
 
 __4. Youtube Upload__ 
 
-A user doesn't need to upload a youtube video, but if text is entered in the youtube feild that isn't a youtube link and error occurs where 404 error page is generated with the input field.
+A user doesn't need to upload a youtube video, but if text is entered in the youtube feild that isn't a youtube link an error occurs where 404 error page is generated within the input field.
+
+ - To fix this I had to update the HTML, Javascrpt and Python code to avoid and future issues. 
+ - First I added alerts to the input field to let the user know if the supplied link was in the correct format or not.
+ 
+```html
+        <div class="youtube-incorrect">
+            <i class="fas fa-exclamation-circle error-icon"> </i>
+            <span class="error-text">Incorrect format, must be a YouTube url (or leave blank)</span>
+        </div>
+        <div class="youtube-correct">
+            <i class="fa-regular fa-circle-check"></i>
+            <span class="error-text">Correct YouTube format</span>
+        </div>
+```
+ - Then I added the necessary javascrip to call on each alert depending on what was entered in the form
+
+```Javascript
+    const youtubeLink = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+    function checkFaveSet() {
+        if (faveSet.value === "") {
+            youtubeCorrect.style.display = "none";
+            youtubeIncorrect.style.display = "none";
+        } else if (youtubeLink.test(faveSet.value)) {
+            youtubeCorrect.style.display = "block";
+            youtubeIncorrect.style.display = "none";
+        } else {
+            youtubeCorrect.style.display = "none";
+            youtubeIncorrect.style.display = "block";
+        }
+    }
+```
+ - As the input field isn't required I need a defensive mechanism to ensure an url that was not in the correct format would be ignored and returned as an emtpy string.
+ - I also wanted to ensure that should someone upload a youtube video that's already formatted to embed this too would also work.
+
+ - To do this I updated the modify youtube function.
+``` Python
+    def modify_youtube_link(link):
+    """
+    This function takes a YouTube link and
+    returns it edited so it will embed correctly
+    """
+    if "youtube.com" in link or "youtu.be" in link:
+        if "embed/" not in link:
+            if "watch?v=" in link:
+                # If the condition is True, replace "watch?v=" with "embed/"
+                link = link.replace("watch?v=", "embed/")
+        # Otherwise, already contains "embed/" or is a valid YouTube link
+        # and doesn't need any modification
+    else:
+        # Ignore the link if it is not a YouTube link
+        link = ""
+    return link
+```
+ - I am now happy with how it all works and feel it is safe proofed against incorrect url uploads.
 
 __5. Iphone Organisation Selection__
 
