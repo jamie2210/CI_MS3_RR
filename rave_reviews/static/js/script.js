@@ -170,6 +170,7 @@ if (password !== null) {
     password.addEventListener("input", checkPassword);
   }
 /**
+ * If input field is a empty nothing is displayed
  * Checks if password is less than 8 characters
  * If so, user is alerted password must be 8 or more characters
  * Alert removed when 8 chracters or above
@@ -192,6 +193,7 @@ if (confirmPassword !== null) {
   }
 
 /**
+ * If input field is a empty nothing is displayed
  * Check if passwords match
  * If not, user is alrted and register button disabled
  * If so, user is alerted and register button enabled
@@ -211,13 +213,19 @@ function checkPasswordsMatch() {
     }
 }
 
-
+/**
+ * Checks if faveSet is present to avoid listening on all pages and causing an error
+ */
 if (faveSet !== null) {
     faveSet.addEventListener("input", checkFaveSet);
   }
-
+/**
+* If If input field is a empty nothing is displayed
+* If url is a valid youtube link Correct alert displayed
+* If url is not valid incorrect alert displayed
+*/
 function checkFaveSet() {
-    
+    // checks to see url enter is a valid youtube link
     const youtubeLink = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
 
     if (faveSet.value === "") {
