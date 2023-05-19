@@ -404,6 +404,10 @@ body {
     color: white;
 }
 
+.add_rave .dropdown-trigger {
+    color:#3b3b3b;
+}
+
 .add_rave textarea {
     color: white;
 }
