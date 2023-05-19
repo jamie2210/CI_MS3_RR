@@ -62,15 +62,19 @@ def register():
             "fave_set": modified_link,
             "profile_image": image_url,
         }
-        # Insert dictionjary into mongoDB collection
-        mongo.db.users.insert_one(register)
-        # Retrieve the list of organisations from the database and sort them
-        organisations = mongo.db.organisation.find().sort(
-         "organisation_name", 1)
+        try:
+            # Insert dictionjary into mongoDB collection
+            mongo.db.users.insert_one(register)
+            # Retrieve the list of organisations
+            # from the database and sort them
+            organisations = mongo.db.organisation.find(
+            ).sort("organisation_name", 1)
 
-        # put the new user into 'session' cookie
-        session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
+            # put the new user into 'session' cookie
+            session["user"] = request.form.get("username").lower()
+            flash("Registration Successful!")
+        except Exception as e:
+            flash("An exception occurred when adding a new user" + str(e))
         return redirect(
             url_for("authentication.profile", username=session["user"]))
     # Retrieve the list of organisations from the database and sort them
@@ -115,14 +119,17 @@ def edit_profile(user_id):
             "fave_set": modified_link,
             "profile_image": image_url,
         }
-        # Insert updated dictionary into mongoDB collection
-        mongo.db.users.update_one(
-            {"_id": ObjectId(user_id)}, {"$set": update_profile})
-        # Search for the user and redirect them back to their profile page
-        # with their updated information displayed
-        user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
-        user_name = user['username']
-        flash(f"{user_name} Profile Updated!")
+        try:
+            # Insert updated dictionary into mongoDB collection
+            mongo.db.users.update_one(
+                {"_id": ObjectId(user_id)}, {"$set": update_profile})
+            # Search for the user and redirect them back to their profile page
+            # with their updated information displayed
+            user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+            user_name = user['username']
+            flash(f"{user_name} Profile Updated!")
+        except Exception as e:
+            flash("An exception occurred when editing the profile" + str(e))
         return redirect(
             url_for("authentication.profile", username=session["user"]))
 
@@ -254,13 +261,16 @@ def delete_user(user_id):
     the user_id ARG
     """
     # finds the rave name before deleting it
-    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
-    username = user['username']
-    mongo.db.users.delete_one({"_id": ObjectId(user_id)})
-    # f string adds rave name to the flash message once deleted
-    flash(f"{username} is Gone!")
-    # ensures the user is logged out once deleted
-    session.pop("user")
+    try:
+        user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+        username = user['username']
+        mongo.db.users.delete_one({"_id": ObjectId(user_id)})
+        # f string adds rave name to the flash message once deleted
+        flash(f"{username} is Gone!")
+        # ensures the user is logged out once deleted
+        session.pop("user")
+    except Exception as e:
+        flash("An exception occurred when deleting the user" + str(e))
     return redirect(url_for("authentication.register"))
 
 

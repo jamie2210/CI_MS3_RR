@@ -364,7 +364,22 @@ A user doesn't need to upload a youtube video, but if text is entered in the you
         link = ""
     return link
 ```
- - I am now happy with how it all works and feel it is safe proofed against incorrect url uploads.
+
+__Further Testing__
+
+ - When testing on mobile once a user copies a link from the YouTube app it is always in the youtu.be format. It is also sometimes the same from web browsers.
+ - This stops the function from working correctly as it is only editing a watch?v= format. 
+ - To over come the issue I added the following code to the fucntion.
+```Python
+      elif "youtu.be" in link:
+        # If link is youtu.be format it is replaced with
+        # the web based embed structure
+        link = link.replace(
+            "youtu.be/", "www.youtube.com/embed/")
+```
+
+ - I am now happy with how it all works and feel it is safe proofed against incorrect url uploads and Youtube link formats.
+
 
 __5. Iphone Organisation Selection__
 

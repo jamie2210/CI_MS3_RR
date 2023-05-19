@@ -20,12 +20,16 @@ def get_organisations():
     # If the user is not admin, redirect them to home/landing page
     if session.get("user") != 'admin':
         return redirect(url_for("index.logged_in_home"))
-
-    # Retrieve the list of organizations from the database
-    # and sort them by "organisation_name" in ascending order
-    organisations = list(
-        mongo.db.organisation.find().sort("organisation_name", 1))
-    # Render the "organisations.html" template
+    try:
+        # Retrieve the list of organizations from the database
+        # and sort them by "organisation_name" in ascending order
+        organisations = list(
+            mongo.db.organisation.find().sort("organisation_name", 1))
+        # Render the "organisations.html" template
+    except Exception as e:
+        flash("An exception occurred while retrieving organisations" +
+              str(e))
+        return redirect(url_for("index.home"))
     return render_template(
         "organisations.html", title="ORGANISATIONS",
         organisations=organisations)
@@ -45,12 +49,16 @@ def add_organisation():
 
     # Get the organisation name from the form data
     if request.method == "POST":
-        organisation = {
-            "organisation_name": request.form.get("organisation_name")
-        }
-        # Insert the organisation into the database
-        mongo.db.organisation.insert_one(organisation)
-        flash("New Organisation Added")
+        try:
+            organisation = {
+                "organisation_name": request.form.get("organisation_name")
+            }
+            # Insert the organisation into the database
+            mongo.db.organisation.insert_one(organisation)
+            flash("New Organisation Added")
+        except Exception as e:
+            flash("An exception occurred while adding organisation" +
+                  str(e))
         # Redirect to the page that displays all organisations
         return redirect(url_for("organisations.get_organisations"))
     # Render the add_organisation template
@@ -71,18 +79,22 @@ def edit_organisation(organisation_id):
         return redirect(url_for("index.logged_in_home"))
 
     if request.method == "POST":
-        # Get the submitted form data
-        submit = {
-            "organisation_name": request.form.get("organisation_name")
-        }
-        # Update the organisation in the database
-        mongo.db.organisation.update_one(
-            {"_id": ObjectId(organisation_id)}, {"$set": submit})
-        org = mongo.db.organisation.find_one(
-            {"_id": ObjectId(organisation_id)})
-        # Retrieve the updated organisation from the database
-        org_name = org['organisation_name']
-        flash(f"{org_name} Updated")
+        try:
+            # Get the submitted form data
+            submit = {
+                "organisation_name": request.form.get("organisation_name")
+            }
+            # Update the organisation in the database
+            mongo.db.organisation.update_one(
+                {"_id": ObjectId(organisation_id)}, {"$set": submit})
+            org = mongo.db.organisation.find_one(
+                {"_id": ObjectId(organisation_id)})
+            # Retrieve the updated organisation from the database
+            org_name = org['organisation_name']
+            flash(f"{org_name} Updated")
+        except Exception as e:
+            flash("An exception occurred while editing organisation" +
+                  str(e))
         # Redirect the user to the organisations list page
         return redirect(url_for("organisations.get_organisations"))
 
@@ -100,11 +112,14 @@ def delete_organisation(organisation_id):
     """
     This function deletes an existing organisation
     """
-    # finds the organisation name before deleting it
-    organisation = mongo.db.organisation.find_one(
-        {"_id": ObjectId(organisation_id)})
-    organisation_name = organisation['organisation_name']
-    mongo.db.organisation.delete_one({"_id": ObjectId(organisation_id)})
-    # f string adds organisation name to the flash message once deleted
-    flash(f"{organisation_name} is Gone!")
+    try:
+        # finds the organisation name before deleting it
+        organisation = mongo.db.organisation.find_one(
+            {"_id": ObjectId(organisation_id)})
+        organisation_name = organisation['organisation_name']
+        mongo.db.organisation.delete_one({"_id": ObjectId(organisation_id)})
+        # f string adds organisation name to the flash message once deleted
+        flash(f"{organisation_name} is Gone!")
+    except Exception as e:
+        flash("An exception occurred while deleting organisation" + str(e))
     return redirect(url_for("organisations.get_organisations"))

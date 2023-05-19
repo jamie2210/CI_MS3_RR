@@ -34,23 +34,27 @@ def get_raves():
     # If the user is not logged in, redirect them to home/landing page
     if 'user' not in session:
         return redirect(url_for("index.home"))
-    # Get the 'rave_id' from the request arguments
-    rave_id = request.args.get('rave_id')
-    # Get the page, per_page, and offset values from the request arguments
-    page, per_page, offset = get_page_args(
-        page_parameter='page', per_page_parameter='per_page',
-        offset_parameter='offset')
-    # Set the number of items per page to 4
-    per_page = 4
-    # Create pagination for the raves by calling the pagination function
-    raves, num_pages = create_pagination(page, per_page)
-    # Find comments in the MongoDB collection
-    comments = list(mongo.db.comments.find(
-        {"rave_id": rave_id}).sort("comment_created_by", 1))
-    # Render the 'raves.html' template with the provided variables
-    return render_template(
-        "raves.html", title="RAVE REVIEWS",
-        raves=raves, comments=comments, num_pages=num_pages, page=page)
+    try:
+        # Get the 'rave_id' from the request arguments
+        rave_id = request.args.get('rave_id')
+        # Get the page, per_page, and offset values from the request arguments
+        page, per_page, offset = get_page_args(
+            page_parameter='page', per_page_parameter='per_page',
+            offset_parameter='offset')
+        # Set the number of items per page to 4
+        per_page = 4
+        # Create pagination for the raves by calling the pagination function
+        raves, num_pages = create_pagination(page, per_page)
+        # Find comments in the MongoDB collection
+        comments = list(mongo.db.comments.find(
+            {"rave_id": rave_id}).sort("comment_created_by", 1))
+        # Render the 'raves.html' template with the provided variables
+        return render_template(
+            "raves.html", title="RAVE REVIEWS",
+            raves=raves, comments=comments, num_pages=num_pages, page=page)
+    except Exception as e:
+        flash("An exception occurred while retrieving rave reviews" + str(e))
+        return redirect(url_for("index.home"))
 
 
 @raves.route("/get_user_raves/", methods=["GET"])
@@ -63,33 +67,38 @@ def get_user_raves():
     # If the user is not logged in, redirect them to home/landing page
     if 'user' not in session:
         return redirect(url_for("index.home"))
-    # Get the 'rave_id' from the request arguments
-    rave_id = request.args.get('rave_id')
-    # Get the page, per_page, and offset values from the request arguments
-    page, per_page, offset = get_page_args(
-        page_parameter='page', per_page_parameter='per_page',
-        offset_parameter='offset')
-    # Call the user in session
-    session_user = session["user"]
-    # Check if a user session exists and has a valid value
-    if session_user:
-        # Perform pagination with user-specific information
-        raves, num_pages = create_pagination(
-            page, per_page, session_user=session_user)
-    else:
-        # Perform pagination with all information
-        raves, num_pages = create_pagination(
-            page, per_page)
-
-    # Find comments in the MongoDB collection
-    comments = list(mongo.db.comments.find(
-        {"rave_id": rave_id}).sort("comment_created_by", 1))
-
-    # Render the 'raves.html' template with the provided variables
-    return render_template(
-        "raves.html", title=f"{session_user}'s RAVES",
-        raves=raves, comments=comments,
-        num_pages=num_pages, page=page, session_user=session_user)
+    try:
+        # Get the 'rave_id' from the request arguments
+        rave_id = request.args.get('rave_id')
+        # Get the page, per_page, and offset values from the request arguments
+        page, per_page, offset = get_page_args(
+            page_parameter='page', per_page_parameter='per_page',
+            offset_parameter='offset')
+        # Call the user in session
+        session_user = session.get("user")
+        # Check if a user session exists and has a valid value
+        if session_user:
+            # Perform pagination with user-specific information
+            raves, num_pages = create_pagination(
+                page, per_page, session_user=session_user)
+            title = f"{session_user}'s RAVES"
+        else:
+            # Perform pagination with all information
+            raves, num_pages = create_pagination(
+                page, per_page)
+            title = "RAVE REVIEWS"
+        # Find comments in the MongoDB collection
+        comments = list(mongo.db.comments.find(
+            {"rave_id": rave_id}).sort("comment_created_by", 1))
+        # Render the 'raves.html' template with the provided variables
+        return render_template(
+            "raves.html", title=title,
+            raves=raves, comments=comments,
+            num_pages=num_pages, page=page, session_user=session_user)
+    except Exception as e:
+        flash("An exception occurred while retrieving the rave reviews" +
+              str(e))
+        return redirect(url_for("index.home"))
 
 
 @raves.route("/search", methods=["GET", "POST"])
@@ -107,12 +116,17 @@ def search():
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page',
         offset_parameter='offset')
+    # Find comments in the MongoDB collection
+    try:
+        comments = list(mongo.db.comments.find(
+            {"rave_id": rave_id}).sort("comment_created_by", 1))
+        # Render the 'raves.html' template with the provided variables
+    except Exception as e:
+        flash("An exception occurred while searching the rave reviews" +
+              str(e))
+        return redirect(url_for("raves.get_raves"))
     # Create pagination for the raves by calling the pagination function
     raves, num_pages = create_pagination(page, per_page, query)
-    # Find comments in the MongoDB collection
-    comments = list(mongo.db.comments.find(
-        {"rave_id": rave_id}).sort("comment_created_by", 1))
-    # Render the 'raves.html' template with the provided variables
     return render_template(
         "raves.html", title="RAVES",
         raves=raves, comments=comments, num_pages=num_pages, page=page)
@@ -128,34 +142,38 @@ def add_rave():
         return redirect(url_for("index.home"))
 
     if request.method == "POST":
-        # Check if the file type is an allowed image file type
-        image_url = upload("rave_image")
-        if image_url == "invalid":
-            flash("Invalid file format. Please use 'JPG', 'jpeg', 'PNG'")
-            return redirect(url_for("raves.add_rave"))
+        try:
+            # Check if the file type is an allowed image file type
+            image_url = upload("rave_image")
+            if image_url == "invalid":
+                flash("Invalid file format. Please use 'JPG', 'jpeg', 'PNG'")
+                return redirect(url_for("raves.add_rave"))
 
-        # Retrieve the value of the "rave_set" field from the submitted form
-        rave_set_link = request.form.get("rave_set")
-        # Call fucntion to modify youtube link
-        modified_link = modify_youtube_link(rave_set_link)
-        # Check ifbanger is checked and set value
-        banger = "on" if request.form.get("banger") else "off"
+            # Retrieve the value of the "rave_set"
+            # field from the submitted form
+            rave_set_link = request.form.get("rave_set")
+            # Call fucntion to modify youtube link
+            modified_link = modify_youtube_link(rave_set_link)
+            # Check ifbanger is checked and set value
+            banger = "on" if request.form.get("banger") else "off"
 
-        # Create a dictionary to store the rave review data
-        rave = {
-            "organisation_name": request.form.get("organisation_name"),
-            "rave_image": image_url,
-            "rave_name": request.form.get("rave_name"),
-            "date": request.form.get("date"),
-            "venue": request.form.get("venue"),
-            "rave_description": request.form.get("rave_description"),
-            "rave_set": modified_link,
-            "banger": banger,
-            "created_by": session["user"]
-        }
-        # Insert dictionary into mongoDB collection
-        mongo.db.raves.insert_one(rave)
-        flash("Rave Review Uploaded!")
+            # Create a dictionary to store the rave review data
+            rave = {
+                "organisation_name": request.form.get("organisation_name"),
+                "rave_image": image_url,
+                "rave_name": request.form.get("rave_name"),
+                "date": request.form.get("date"),
+                "venue": request.form.get("venue"),
+                "rave_description": request.form.get("rave_description"),
+                "rave_set": modified_link,
+                "banger": banger,
+                "created_by": session["user"]
+            }
+            # Insert dictionary into mongoDB collection
+            mongo.db.raves.insert_one(rave)
+            flash("Rave Review Uploaded!")
+        except Exception as e:
+            flash("An exception occurred while adding the review" + str(e))
         # Redirect the user to the page displaying all raves
         return redirect(url_for("raves.get_raves"))
     # Retrieve the list of organisations from the database and sort them
@@ -233,36 +251,41 @@ def edit_rave(rave_id):
     information in mongoDB
     """
     if request.method == "POST":
-        # Check if the file type is an allowed image file type
-        image_url = upload("rave_image")
-        if image_url == "invalid":
-            flash("Invalid file format. Please use 'JPG', 'jpeg', 'PNG'")
-            return redirect(url_for("raves.get_raves"))
+        try:
+            # Check if the file type is an allowed image file type
+            image_url = upload("rave_image")
+            if image_url == "invalid":
+                flash("Invalid file format. Please use 'JPG', 'jpeg', 'PNG'")
+                return redirect(url_for("raves.get_raves"))
 
-        # Check ifbanger is checked and set value
-        banger = "on" if request.form.get("banger") else "off"
-        # Retrieve the value of the "rave_set" field from the submitted form
-        rave_set_link = request.form.get("rave_set")
-        # Call the function to modify youtube link
-        modified_link = modify_youtube_link(rave_set_link)
+            # Check ifbanger is checked and set value
+            banger = "on" if request.form.get("banger") else "off"
+            # Retrieve the value of the "rave_set"
+            # field from the submitted form
+            rave_set_link = request.form.get("rave_set")
+            # Call the function to modify youtube link
+            modified_link = modify_youtube_link(rave_set_link)
 
-        # Create a dictionary to store the rave review data
-        submit = {
-            "organisation_name": request.form.get("organisation_name"),
-            "rave_image": image_url,
-            "rave_name": request.form.get("rave_name"),
-            "date": request.form.get("date"),
-            "venue": request.form.get("venue"),
-            "rave_description": request.form.get("rave_description"),
-            "rave_set": modified_link,
-            "banger": banger,
-            "created_by": session["user"]
-        }
-        # Update the rave document in the MongoDB collection
-        mongo.db.raves.update_one({"_id": ObjectId(rave_id)}, {"$set": submit})
-        rave = mongo.db.raves.find_one({"_id": ObjectId(rave_id)})
-        rave_name = rave['rave_name']
-        flash(f"{rave_name} Edit Uploaded!")
+            # Create a dictionary to store the rave review data
+            submit = {
+                "organisation_name": request.form.get("organisation_name"),
+                "rave_image": image_url,
+                "rave_name": request.form.get("rave_name"),
+                "date": request.form.get("date"),
+                "venue": request.form.get("venue"),
+                "rave_description": request.form.get("rave_description"),
+                "rave_set": modified_link,
+                "banger": banger,
+                "created_by": session["user"]
+            }
+            # Update the rave document in the MongoDB collection
+            mongo.db.raves.update_one(
+                {"_id": ObjectId(rave_id)}, {"$set": submit})
+            rave = mongo.db.raves.find_one({"_id": ObjectId(rave_id)})
+            rave_name = rave['rave_name']
+            flash(f"{rave_name} Edit Uploaded!")
+        except Exception as e:
+            flash("An exception occurred while editing the review" + str(e))
         # Redirect the user to the "get_raves" route
         return redirect(url_for("raves.get_raves"))
 
@@ -280,12 +303,15 @@ def delete_rave(rave_id):
     """
     This function deletes a rave review
     """
-    # finds the rave name before deleting it
-    rave = mongo.db.raves.find_one({"_id": ObjectId(rave_id)})
-    rave_name = rave['rave_name']
-    mongo.db.raves.delete_one({"_id": ObjectId(rave_id)})
-    # f string adds rave name to the flash message once deleted
-    flash(f"{rave_name} is Gone!")
+    try:
+        # finds the rave name before deleting it
+        rave = mongo.db.raves.find_one({"_id": ObjectId(rave_id)})
+        rave_name = rave['rave_name']
+        mongo.db.raves.delete_one({"_id": ObjectId(rave_id)})
+        # f string adds rave name to the flash message once deleted
+        flash(f"{rave_name} is Gone!")
+    except Exception as e:
+        flash("An exception occurred while deleting the review" + str(e))
     return redirect(url_for("raves.get_raves"))
 
 
@@ -305,14 +331,17 @@ def add_comment(rave_id):
         "comment_created_by": session["user"],
         "comment_id": ObjectId(rave_id),
     }
-    # Insert the comment into collection in MongoDB
-    mongo.db.comments.insert_one(comment)
-    # Retrieves all comments that match the rave_id
-    # Sorts comments by who made the comment
-    comments = list(
-        mongo.db.comments.find(
-            {"rave_id": rave_id}).sort("comment_created_by", 1))
-    flash("Comment successfully added")
+    try:
+        # Insert the comment into collection in MongoDB
+        mongo.db.comments.insert_one(comment)
+        # Retrieves all comments that match the rave_id
+        # Sorts comments by who made the comment
+        comments = list(
+            mongo.db.comments.find(
+                {"rave_id": rave_id}).sort("comment_created_by", 1))
+        flash("Comment successfully added")
+    except Exception as e:
+        flash("An exception occurred while adding the comment" + str(e))
     # Redirect the user to the 'get_raves' route
     return redirect(
         url_for("raves.get_raves", raves=raves, comments=comments))
