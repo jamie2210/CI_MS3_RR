@@ -206,7 +206,32 @@ The website was tested on the following browsers:
 - Apple Safari
 - Mozilla Firefox
 
-### __Testing user stories__
+### __Developer Feature Testing__
+
+| Feature | Testing Performed | Pass/Fail |
+| --- | --- | --- |
+| Links | Check all links navigate correctly | Pass |
+| Buttons | Check all buttons perform correct action | Pass |
+| Modals | Check all delete options have defenisve modals and modal buttons perform correctly | Pass |
+| Create | Check add profile, organisation, review and comment functions work and add information to the database | Pass |
+| Read | Check all profiles organisations reviews and comments display as expected | Pass |
+| Update | Check edit profile, organisation, review and comment functions work and update information to the database | Pass |
+| Delete | Check delete profile, organisation, review and functions work and delete information to the database | Pass |
+| Delete Comments | Ensure associated comments are deleted when review is deleted | Pass |
+| Pagination | Check pagination works as soon as there are more than 4 reviews | Pass |
+| Search | Search index applies to all text fields apart from date | Pass |
+| Email | Filled out form sends email to developers address | Pass |
+| Image Upload | Check invalid file formats are rejected and valid display correctly | Pass |
+| YouTube Link | Check all types of urls are formated within the function and display correctly | Pass |
+| Non YouTube Link | Check function ignores the url and displays nothing with no errors | Pass |
+| Javascript | All JS alert functions notify the user with the correct information | Pass |
+| Logged Out Users | All logged out users are returned to the logged out home page| Pass|
+| Logged in users | All logged in users are returned to the logged in home page if on a page only for Admin | Pass
+| Admin | Priveleged access to Organisations and CRUD functions across entire site | Pass |
+| User | Can access, edit and delete their porfile and reviews only, leave comments on all reviews |
+| Errors | All error codes covered with return button working | Pass |
+
+### __Testing User Stories__
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
