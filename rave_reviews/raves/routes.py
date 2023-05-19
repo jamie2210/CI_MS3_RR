@@ -231,6 +231,8 @@ def modify_youtube_link(link):
             if "watch?v=" in link:
                 # If the condition is True, replace "watch?v=" with "embed/"
                 link = link.replace("watch?v=", "embed/")
+                # Remove "&feature=share" if it exists
+                link = link.replace("&feature=share", "")
         # Otherwise, already contains "embed/" or is a valid YouTube link
         # and doesn't need any modification
     elif "youtu.be" in link:

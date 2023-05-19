@@ -7,7 +7,7 @@
     <form class="add_rave" method="POST" action="{{ url_for('raves.add_rave') }}" enctype="multipart/form-data">
         <div class="row">
             <!-- selecet organisation -->
-            <div class="input-field col s12">
+            <div class="input-field org-select col s12">
                 <i class="fa-solid fa-people-group prefix fa-icon"></i>
                 <select id="organisation_name" name="organisation_name" class="validate" required>
                     <option value="" disabled selected>Select Organisation</option>
@@ -38,7 +38,7 @@
         </div>
         <!-- rave date picker -->
         <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field date-picker col s12">
                 <i class="fa-solid fa-calendar-days prefix fa-icon"></i>
                 <input id="date" name="date" type="text" class="datepicker validate" required>
                 <label for="date" aria-label="Enter the rave date">Rave Date</label>

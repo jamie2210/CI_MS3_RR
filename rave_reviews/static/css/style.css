@@ -404,7 +404,11 @@ body {
     color: white;
 }
 
-.add_rave .dropdown-trigger {
+.org-select .dropdown-trigger {
+    color: white;
+}
+
+.date-picker .dropdown-trigger {
     color:#3b3b3b;
 }
 
