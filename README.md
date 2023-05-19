@@ -1,6 +1,6 @@
 # __Rave Reviews__
 
-![Mockup image](docs/device-display.jpg)
+![Mockup image](documentation/images/device-display.jpg)
 
 [Live webpage](https://rave-reviews-app.herokuapp.com/)
 
