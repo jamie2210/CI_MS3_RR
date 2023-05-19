@@ -40,9 +40,9 @@
                             <img src="{{ rave.rave_image }}" class="materialboxed">
                         </div>
                         <div class="card-content">
-                            <h5>{{ rave.organisation_name }}</h5>
-                            <p>{{ rave.date }}
-                                <P>{{ rave.venue }}</P>
+                            <h5>Organisation: {{ rave.organisation_name }}</h5>
+                            <p>Rave Date: {{ rave.date }}
+                                <P>Venue: {{ rave.venue }}</P>
                                 <p>{{ rave.rave_description }}</p>
                                 {% if rave.rave_set %}
                                 <iframe class="youtube-vid" width="560" height="315" src="{{rave.rave_set}}"

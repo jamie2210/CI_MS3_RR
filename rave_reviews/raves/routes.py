@@ -309,7 +309,10 @@ def delete_rave(rave_id):
         # finds the rave name before deleting it
         rave = mongo.db.raves.find_one({"_id": ObjectId(rave_id)})
         rave_name = rave['rave_name']
+        # Delete review from the database
         mongo.db.raves.delete_one({"_id": ObjectId(rave_id)})
+        # Delete all associated comments
+        mongo.db.comments.delete_many({"comment_id": ObjectId(rave_id)})
         # f string adds rave name to the flash message once deleted
         flash(f"{rave_name} is Gone!")
     except Exception as e:
