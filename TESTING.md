@@ -377,6 +377,11 @@ __Further Testing__
         link = link.replace(
             "youtu.be/", "www.youtube.com/embed/")
 ```
+ - When testing further on mobiles I found another way to share which creates a differently structured url with "&feature=share" at the end. Other than that it is the same as a "watch?v=? link so I added another command to fix it should that type of url be used.
+```Python
+    # Remove "&feature=share" if it exists
+    link = link.replace("&feature=share", "")
+```
 
  - I am now happy with how it all works and feel it is safe proofed against incorrect url uploads and Youtube link formats.
 
