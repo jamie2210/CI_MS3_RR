@@ -227,9 +227,9 @@ __Reviews__
 | Read Rave Review | Once logged in user can find reviews and read all reviews from other members | Click 'Rave Reviews' link | Rave review page is loaded with all reviews available | Pass |
 | Edit Rave Review | If review is the user's, user can edit the review | Click 'Edit Review' button | Edit review page with information pre-populated on the form | Pass |
 | Delete Rave Review | If review is the user's, user can delete the review | Click 'Delete Review' button | Defenisve modal pops up asking user to confirm the deletion of the specified review, once delete user is redirected to the rave reviews page | Pass |
+| Leave Comments  | User can write and post comments on each review | Leave comments on multiple reviews | Comments are posted and user name is displayed with comment | Pass |
 __Search__
 | Search For Rave Reviews | User can use the search bar to search for specific reviews | Type in different reviews by name, venue and title key words | Search brings up the inteded specified reviews | Pass |
-| --- | --- | --- | --- | --- |
 `Admin User`
 | Add or Remove Organisations Privilege | If logged in as Admin access to organisations, if not redirect to home page  | Attempted to load organisation pages as user and Admin | If user not admin redirected to home page, if admin access allowed | Pass |
 | Remove Content Privilege | Only access to delete offensive reviews is Admin | Delete button present on all reviews for Admin. Button only present to user's personal reviews | Review deleted | Pass |
@@ -247,7 +247,7 @@ It was flagged by a friend that it may be a good feature to remove the necessity
 
 - When attempting to create a profile with the 'required' removed the user is refused with the flash mesaage 'Invalid file format. Please use 'JPG', 'jpeg', 'PNG''
 - This is set to ensure the images that are uploaded are the correct format to ensure they display properly.
-- Below is the code I have tried to make the register fucntion aloow an empty image upload. I got to a point where the flahs message would not show if no image was present but instead of registering the account it reset the page. 
+- Below is the code I have tried to make the register function allow an empty image upload. I got to a point where the flash message would not show if no image was present but instead of registering the account it reset the page. 
 - With more time I'd like to look in to this further to make it work but for now as time is limited I will leave the image field as 'required'.
 
 ```Python (Register function)
@@ -310,7 +310,7 @@ When creating the password if it does not match the correct requirements the use
 
 __4. Youtube Upload__ 
 
-A user doesn't need to upload a youtube video, but if text is entered in the youtube feild that isn't a youtube link an error occurs where 404 error page is generated within the input field.
+A user doesn't need to upload a youtube video, but if text is entered in the youtube feild that isn't a youtube link an error occurs where 404 error page is generated within the YouTube uplaod div.
 
  - To fix this I had to update the HTML, Javascrpt and Python code to avoid and future issues. 
  - First I added alerts to the input field to let the user know if the supplied link was in the correct format or not.
@@ -348,19 +348,11 @@ A user doesn't need to upload a youtube video, but if text is entered in the you
  - To do this I updated the modify youtube function.
 ``` Python
     def modify_youtube_link(link):
-    """
-    This function takes a YouTube link and
-    returns it edited so it will embed correctly
-    """
     if "youtube.com" in link or "youtu.be" in link:
         if "embed/" not in link:
             if "watch?v=" in link:
-                # If the condition is True, replace "watch?v=" with "embed/"
                 link = link.replace("watch?v=", "embed/")
-        # Otherwise, already contains "embed/" or is a valid YouTube link
-        # and doesn't need any modification
     else:
-        # Ignore the link if it is not a YouTube link
         link = ""
     return link
 ```
@@ -372,19 +364,17 @@ __Further Testing__
  - To over come the issue I added the following code to the fucntion.
 ```Python
       elif "youtu.be" in link:
-        # If link is youtu.be format it is replaced with
-        # the web based embed structure
         link = link.replace(
             "youtu.be/", "www.youtube.com/embed/")
 ```
  - When testing further on mobiles I found another way to share which creates a differently structured url with "&feature=share" at the end. Other than that it is the same as a "watch?v=? link so I added another command to fix it should that type of url be used.
 ```Python
-    # Remove "&feature=share" if it exists
-    link = link.replace("&feature=share", "")
+    if "watch?v=" in link:
+        link = link.replace("watch?v=", "embed/")
+        link = link.replace("&feature=share", "")
 ```
 
  - I am now happy with how it all works and feel it is safe proofed against incorrect url uploads and Youtube link formats.
-
 
 __5. Iphone Organisation Selection__
 
