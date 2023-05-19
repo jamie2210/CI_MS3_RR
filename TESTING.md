@@ -382,3 +382,9 @@ When selecting the organisations on some Iphones it would not select the Organis
 
  - I do not know how to fix this issue as it is a Materialize feature and one I don't have access to edit.
  - It was only flagged by one user out of many so I am assuming it doesn't happen all the time or on all devices.
+
+__6. Accordion Issue__
+
+ - The Materialize Accordion should close when another opens but it doesn't. I have followed the instructions form the website and added the correct jquery.
+ - My assumption is that as I have intergrated cards within my accordion someowehre along the line I have intruded this feature.
+ - It's annoying but it doesn't chang ethe way the website is meant to function, with more time I'd like to get it sorted though.
