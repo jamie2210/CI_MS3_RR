@@ -469,8 +469,12 @@ body {
     margin-right: auto;
     margin-bottom: 20px;
     margin-top: 20px;
-    ;
 }
+
+.form-container input, textarea {
+    color: white;
+}
+
 
 #name {
     width: 100%;
