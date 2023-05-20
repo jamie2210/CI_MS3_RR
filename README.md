@@ -95,7 +95,7 @@ As a returning registered user of the site I want to be able to:
 
 As an administrator for the site I want to be able to:
 
-10. Add or remove organisations.
+10. Add, edit or remove organisations.
 11. Remove any content that could be offensive.
 12. Ensure defensive programming to avoid deletions by mistake
 13. Ensure defensive programming so a logged out user can't access areas of the website only accessible via log in.
@@ -252,7 +252,8 @@ There are 14 pages which extend from a base template;
 ### Logged Out Home
 - Introduction to the site
 - Log In or Register Button
-- User Stories covered: 1, 2 & 5
+- User redirected here if not logged in
+- User Stories covered: 1, 2, 5 & 14
 
 ![Logged Out Home](documentation/images/features/logged-out-home.png)
 
@@ -319,26 +320,40 @@ There are 14 pages which extend from a base template;
 ![Organisations](documentation/images/features/organisations.png)
 
 ### Add Organisation
+- Input field for organisation name
+- User stories covered: 10
 
 ![Add Organisation](documentation/images/features/add-organisations.png)
 
 ### Edit Organisation
+- Input field for organisation name
+- User stories covered: 10
 
 ![Edit Organisation](documentation/images/features/edit-organisations.png)
 
 ### Contact
+- Contact form that contacts the site owner directly via emailjs
+- User stories covered: 16
 
 ![Contact](documentation/images/features/contact.png)
 
 ### Errors
+- Specific error page returned depening on the error
+- User stories covered: 15
 
 ![Errors](documentation/images/features/errors.png)
 
-### __Extra Features__
-
-* __Delete Modals__ - Defenisve programming has been used to avoid accidental deletions. Anything with a delete option will have a modal pop up confirming the the delte is intended.
+### Delete Modals
+- Defenisve programming has been used to avoid accidental deletions
+- Anything with a delete option will have a modal pop up confirming the the delte is intended.
+- User stories covered: 12
 
 ![Delete](documentation/images/features/delete.png)
+
+### Admin User Specifics
+- Can delete or update any review that is offensive
+- Can hide any comments that are offensive
+- User stories covered: 11 
 
 ### Future Implementations
 
