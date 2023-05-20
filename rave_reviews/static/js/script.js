@@ -118,6 +118,29 @@ function closeUserModal(user_id) {
     modalBackground.style.display = "none";
 }
 
+/**
+ * Remove Comments Function
+ */
+function handleComments(comment_id) {
+    const comments = document.querySelectorAll(`#comments-${comment_id}`);
+    const commentSection = document.querySelectorAll(`#comment-section-${comment_id}`);
+    for (var i = 0; i < comments.length; i++) {
+        if (comments[i].style.display === 'none') {
+          comments[i].style.display = 'block';
+        } else {
+          comments[i].style.display = 'none';
+        }
+      }
+      
+      for (var j = 0; j < commentSection.length; j++) {
+        if (commentSection[j].style.display === 'none') {
+          commentSection[j].style.display = 'block';
+        } else {
+          commentSection[j].style.display = 'none';
+        }
+      }
+    }
+
 // Updates the copyright year in footer with the current year
 const year = document.querySelector('#current-year');
 year.innerHTML = new Date().getFullYear();
@@ -313,6 +336,10 @@ function checkRaveImage() {
         imageIncorrect.style.display = "block";
     }
 }
+
+
+
+
 
 /* exported 
 reviewModal,
