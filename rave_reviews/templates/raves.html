@@ -52,7 +52,7 @@
                                 {% endif %}
                                 <p><em>Raver: {{ rave.created_by }}</em></p>
                         </div>
-                        <div class="comments">
+                        <div class="comments" id="comments-{{comment_id}}">
                             {% for comment in comments %}
                             {% if comment.comment_id == rave._id %}
                             <p>{{ comment.comment_created_by}}: {{ comment.comment_text }}</p>
@@ -63,17 +63,19 @@
                         <form method="POST" enctype="multipart/form-data"
                             action="{{ url_for('raves.add_comment', rave_id=rave._id) }}" class="validate">
 
-                            <div class="comment-section">
+                            <div class="comment-section" id="comment-section-{{comment_id}}">
                                 <label for="comment" hidden>Comment</label>
                                 <textarea class="comment-box textarea" name="comment" id="comment"></textarea>
                             </div>
                             <button class="btn comment-btn" type="submit">Post comment</button>
-
                         </form>
                         <div class="card-action">
                             {% if session.user|lower == rave.created_by|lower or session.user|lower == 'admin' %}
                             <a href="{{ url_for('raves.edit_rave', rave_id=rave._id) }}" class="btn" aria-label="Edit review">Edit Review</a>
                             <button onClick="deleteReviewModal('{{ rave._id }}')" class="btn" aria-label="Delete review">Delete Review</button>
+                            {% endif %}
+                            {% if session.user|lower == 'admin' %}
+                            <button class="btn" onClick="handleComments('{{ comment_id }}')">Comments On/Off</button>
                             {% endif %}
                         </div>
                     </div>
