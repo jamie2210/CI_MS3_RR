@@ -303,7 +303,10 @@ The website was tested on the following browsers:
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| Log In | Click button or link | Fill in user name and password | Works as expected |
+| Leave Review | Click Leave Reivew button or link | Fill in form requirements | Works as expected |
+| Edit Review | Click Edit button | Fill in form requirements | Works as expected |
+| Delete Review | Click Delete button | Confirm deletion on modal | Works as expected |
+| View Review | Click My Reviews button | See users reviews | Works as expected |
 
 <details><summary>Add Review</summary>
 <img src="documentation/user-stories/add-review.gif">
@@ -314,22 +317,52 @@ The website was tested on the following browsers:
 <details><summary>Delete Review</summary>
 <img src="documentation/user-stories/delete-review.gif">
 </details>
+<details><summary>View Reviews</summary>
+<img src="documentation/user-stories/view-reviews.gif">
+</details>
 <br>
 
-__Profile__
-| View Profile | Once logged in user is directed to their profile page | User logs in | Profile page is loaded with all information of the user | Pass |
-| Edit Profile | If user is on their profile page, user can edit their profile | Click 'Edit Profile' button | Edit profile page with information pre-populated on the form | Pass |
-| Delete Profile | If user is their profile page, user can delete their profile | Click 'Delete Profile' button | Defenisve modal pops up asking user to confirm the deletion of the specified profile, once delelted user is redirected to the logged out home page | Pass |
-__Log In__
-| Log In To My Account | Registered user can log in via the log in button and navbar link | Clicks links, enters correct details | User logged in | Pass |
-__Reviews__
-| Create Rave Review | User can fill out the form and create a review | Click 'Leave Review' link or button | Form is present, once all necessary fields are fillled out, review is created | Pass |
-| Read Rave Review | Once logged in user can find reviews and read all reviews from other members | Click 'Rave Reviews' link | Rave review page is loaded with all reviews available | Pass |
-| Edit Rave Review | If review is the user's, user can edit the review | Click 'Edit Review' button | Edit review page with information pre-populated on the form | Pass |
-| Delete Rave Review | If review is the user's, user can delete the review | Click 'Delete Review' button | Defenisve modal pops up asking user to confirm the deletion of the specified review, once delete user is redirected to the rave reviews page | Pass |
-| Leave Comments  | User can write and post comments on each review | Leave comments on multiple reviews | Comments are posted and user name is displayed with comment | Pass |
-__Search__
-| Search For Rave Reviews | User can use the search bar to search for specific reviews | Type in different reviews by name, venue and title key words | Search brings up the inteded specified reviews | Pass |
+7. Edit, delete and view my profile.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| View Profile | Click profile link | View profile | Works as expected |
+| Edit Profile | Click Edit button | Fill in form requirements | Works as expected |
+| Delete Review | Click Delete button | Confirm deletion on modal | Works as expected |
+
+<details><summary>View Profile</summary>
+<img src="documentation/user-stories/view-profile.gif">
+</details>
+<details><summary>Edit Profile</summary>
+<img src="documentation/user-stories/edit-profile.gif">
+</details>
+<details><summary>Delete Profile</summary>
+<img src="documentation/user-stories/delete-profile.gif">
+</details>
+<br>
+
+8. Search for other rave reviews from other members.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Search Reviews | Type in search criteria | See reviews listed | Works as expected |
+
+<details><summary>Search Reviews</summary>
+<img src="documentation/user-stories/search.gif">
+</details>
+<br>
+
+9. Leave comments for other members to read.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Leave Comments | Write comment and post it | See comment under review | Works as expected |
+
+<details><summary>Leave Comments</summary>
+<img src="documentation/user-stories/comments.gif">
+</details>
+<br>
+
 `Admin User`
 | Add or Remove Organisations Privilege | If logged in as Admin access to organisations, if not redirect to home page  | Attempted to load organisation pages as user and Admin | If user not admin redirected to home page, if admin access allowed | Pass |
 | Remove Content Privilege | Only access to delete offensive reviews is Admin | Delete button present on all reviews for Admin. Button only present to user's personal reviews | Review deleted | Pass |
