@@ -36,7 +36,4 @@ def contact():
     CONTACT PAGE
     Renders template for the contact page
     """
-    # If the user is not logged in, redirect them to home/landing page
-    if 'user' not in session:
-        return redirect(url_for("index.home"))
     return render_template("contact.html", title="PLEASE GET IN TOUCH")
