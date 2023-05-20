@@ -267,21 +267,45 @@ function checkRaveSet() {
 }
 
 /**
- * Checks if RaveSet is present to avoid listening on all pages and causing an error
+ * Checks if profileImage is present to avoid listening on all pages and causing an error
  */
 if (profileImage !== null) {
-    profileImage.addEventListener("input", checkprofileImage);
+    profileImage.addEventListener("input", checkProfileImage);
   }
 /**
 * If If input field is a empty nothing is displayed
-* If url is a valid youtube link Correct alert displayed
-* If url is not valid incorrect alert displayed
+* If image type is a valid correct alert displayed
+* If image type is not valid incorrect alert displayed
 */
-function checkprofileImage() {
+function checkProfileImage() {
     if (profileImage.value === "") {
         imageCorrect.style.display = "none";
         imageIncorrect.style.display = "none";
     } else if (imageType.test(profileImage.value)) {
+        imageCorrect.style.display = "block";
+        imageIncorrect.style.display = "none";
+    } else {
+        imageCorrect.style.display = "none";
+        imageIncorrect.style.display = "block";
+    }
+}
+
+/**
+ * Checks if raveImage is present to avoid listening on all pages and causing an error
+ */
+if (raveImage !== null) {
+    raveImage.addEventListener("input", checkRaveImage);
+  }
+/**
+* If If input field is a empty nothing is displayed
+* If image type is a valid correct alert displayed
+* If image type is not valid incorrect alert displayed
+*/
+function checkRaveImage() {
+    if (raveImage.value === "") {
+        imageCorrect.style.display = "none";
+        imageIncorrect.style.display = "none";
+    } else if (imageType.test(raveImage.value)) {
         imageCorrect.style.display = "block";
         imageIncorrect.style.display = "none";
     } else {
