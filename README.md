@@ -85,25 +85,26 @@ As a first time user of the site I want to be able to:
 
 As a returning registered user of the site I want to be able to:
 
-1. Log in to my account.
-2. Create, edit, delete and view my rave reviews.
-3. Edit, delete and view my profile.
-4. Search for other rave reviews from other members.
-5. Leave comments for other members to read.
+5. Log in to my account.
+6. Create, edit, delete and view my rave reviews.
+7. Edit, delete and view my profile.
+8. Search for other rave reviews from other members.
+9. Leave comments for other members to read.
 
 #### __Admin User__
 
 As an administrator for the site I want to be able to:
 
-1. Add or remove organisations.
-2. Remove any content that could be offensive.
-3. Ensure defensive programming to avoid deletions by mistake
-4. Ensure defensive progamming so a logged out user can't access areas of the webiste only accessible via log in.
+10. Add or remove organisations.
+11. Remove any content that could be offensive.
+12. Ensure defensive programming to avoid deletions by mistake
+13. Ensure defensive programming so a logged out user can't access areas of the website only accessible via log in.
 
 #### __Site Owner__
 
-1. Automatically return a logged out user to the logged out home page.
-2. Relevant error page displayed should an invalid command or error occur.
+14. Automatically return a logged out user to the logged out home page.
+15. Relevant error page displayed should an invalid command or error occur.
+16. I want the user to be able to contact me should they have any questions.
 
 - - -
 
@@ -205,19 +206,27 @@ While mongodb stores the majority of the users' data in the database, images are
 
 * __Navbar__ - The Navbar is displayed on all pages and changes depending on is the sur is logged in or out and if admin when Organisations is visible.
 
-  Logged Out Navba
+  Logged Out Navbar
+  - Log In, Register & Home links
+  - User Stories covered: 1, 2 & 5
 
   ![Logged Out Navbar](documentation/images/features/logged-out-navbar.png)
 
   Logged In Navbar
+  - Home, Profile, Rave Reviews, Leave Reviews & Log Out Links
+  - User stories covered: 3, 4, 6 & 7
 
   ![Logged In NavBar](documentation/images/features/logged-in-navbar.png)
 
   Admin Logged In Navbar
+  - Home, Profile, Rave Reviews, Leave Reviews, Organisation & Log Out Links
+  - User stories covered: 10 & 11
 
   ![Admin Logged In NavBar](documentation/images/features/admin-logged-in.png)
 
-* __Footer__ - The footer is displayed on all pages and includes social links, my GitHub link to this repository, a link to the contact page, the copyright year and the logo.
+* __Footer__ 
+- The footer is displayed on all pages and includes social links, my GitHub link to this repository, a link to the contact page, the copyright year and the logo.
+- User stories covered: 16
 
   ![Footer](documentation/images/features/footer.png)
 
@@ -241,42 +250,71 @@ There are 14 pages which extend from a base template;
 * __Errors__
 
 ### Logged Out Home
+- Introduction to the site
+- Log In or Register Button
+- User Stories covered: 1, 2 & 5
 
 ![Logged Out Home](documentation/images/features/logged-out-home.png)
 
 ### Logged In Home
+- Navigation buttons to user reviews, rave reviews & leave review
+- User stories covered: 3, 4, 6 & 7
 
 ![Logged In Home](documentation/images/features/logged-in-home.png)
 
 ### Login
+- User name and password form input
+- User stories covered: 5
 
 ![Login](documentation/images/features/login.png)
 
 ### Register
+- Form with requirements that build the profile
+- User stories covered: 2
 
 ![Register](documentation/images/features/register.png)
 
 ### Profile
+- Features the detials from the registration form
+- Buttons for edit or delete profile and user's reviews with defenisve modal or delete option
+- User stories covered: 6, 7 & 12
 
 ![Profile](documentation/images/features/profile.png)
 
 ### Edit Profile
+- Same form as registration with selected fields populated with the profile information
+- Iser stories covered: 7
 
 ![Edit Profile](documentation/images/features/edit-profile.png)
 
 ### Rave Reviews
+- Search for reviews
+- Button for user's reviews
+- Option to edit user's reviews
+- Leave comments on all reviews
+- Delete option if user's review with defenisve modal
+- User stories covered: 6, 8, 9 & 12
 
 ![Rave Reviews](documentation/images/features/rave-reviews.png)
 
+![Rave Review](documentation/images/features/rave-review.png)
+
 ### Add Rave Review
+- Form with requirements to create the review
+- User stories covered: 4 & 6
 
 ![Add Rave Review](documentation/images/features/add-rave-review.png)
 
 ### Edit Rave Review
+- Same form as add rave review with selected fields populated with the review information
+- User stories covered: 6
 
 ![Edit Rave Review](documentation/images/features/edit-rave-review.png)
 
 ### Organisations
+- Only accessible as 'Admin' user, user redirected to home if not Admin
+- Edit or delete options for all organisations with defenisve modal for delete button
+- User stories covered: 10, 12 & 13
 
 ![Organisations](documentation/images/features/organisations.png)
 
