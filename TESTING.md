@@ -413,3 +413,53 @@ __6. Accordion Issue__
  - The Materialize Accordion should close when another opens but it doesn't. I have followed the instructions form the website and added the correct jquery.
  - My assumption is that as I have intergrated cards within my accordion someowehre along the line I have intruded this feature.
  - It's annoying but it doesn't chang ethe way the website is meant to function, with more time I'd like to get it sorted though.
+
+__7. Delete Comments__
+
+ - It's an importnant feature to me as admin to be able to remove distasteful comments or reviews.
+ - While testing my user stories I realised I could only remove comments by delete the entire review. This was not ideal.
+ - My first attempt was to build a javascript function that could hide all comments,affectively turning them off.
+
+```javascript
+function handleComments(comment_id) {
+    const comments = document.querySelectorAll(`#comments-${comment_id}`);
+    const commentSection = document.querySelectorAll(`#comment-section-${comment_id}`);
+    for (var i = 0; i < comments.length; i++) {
+        if (comments[i].style.display === 'none') {
+          comments[i].style.display = 'block';
+        } else {
+          comments[i].style.display = 'none';
+        }
+      }
+      
+      for (var j = 0; j < commentSection.length; j++) {
+        if (commentSection[j].style.display === 'none') {
+          commentSection[j].style.display = 'block';
+        } else {
+          commentSection[j].style.display = 'none';
+        }
+      }
+    }
+```
+ - This code worked until the page refreshed and the orginal settings returned, which prevented from it working properly.
+ - It then dawned on me that if use this function then it stops others being able to comment.
+ - As a result I built a delete comment function in python
+
+```python
+def delete_comment(rave_id):
+    """
+    This function deletes comments from a rave review
+    """
+    try:
+        # finds the rave name the comments are assocaited to
+        rave = mongo.db.raves.find_one({"_id": ObjectId(rave_id)})
+        rave_name = rave['rave_name']
+        # Delete all associated comments
+        mongo.db.comments.delete_many({"comment_id": ObjectId(rave_id)})
+        # f string adds rave name to the flash message once deleted
+        flash(f"Comments for {rave_name} are Gone!")
+    except Exception as e:
+        flash("An exception occurred while deleting the review" + str(e))
+    return redirect(url_for("raves.get_raves"))
+```
+ - There's a slight flaw in that I can only delete all comments rather than specific ones but due to time restraints this will do for now.
