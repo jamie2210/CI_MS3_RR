@@ -75,7 +75,8 @@
                             <button onClick="deleteReviewModal('{{ rave._id }}')" class="btn" aria-label="Delete review">Delete Review</button>
                             {% endif %}
                             {% if session.user|lower == 'admin' %}
-                            <button class="btn" onClick="handleComments('{{ comment_id }}')">Comments On/Off</button>
+                            <!-- <button class="btn" onClick="handleComments('{{ rave.comment_id }}')">Comments On/Off</button> -->
+                            <a href="{{ url_for('raves.delete_comment', rave_id=rave._id) }}" class="btn">Delete Comments</a>
                             {% endif %}
                         </div>
                     </div>
