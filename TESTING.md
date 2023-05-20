@@ -364,12 +364,91 @@ The website was tested on the following browsers:
 <br>
 
 `Admin User`
-| Add or Remove Organisations Privilege | If logged in as Admin access to organisations, if not redirect to home page  | Attempted to load organisation pages as user and Admin | If user not admin redirected to home page, if admin access allowed | Pass |
-| Remove Content Privilege | Only access to delete offensive reviews is Admin | Delete button present on all reviews for Admin. Button only present to user's personal reviews | Review deleted | Pass |
+
+10. Add, edit or delete organisations.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Add Organisation | Click Add organisation button | Fill in required form | Works as expected |
+| Edit Organisation | Click edit organisation button | Fill in required form | Works as expected |
+| Delete Organisation | Click delete organisation button | Confirm deletion on Modal | Works as expected |
+
+<details><summary>Add / Edit / Delete Organistion</summary>
+<img src="documentation/user-stories/organisations.gif">
+</details>
+<br>
+
+11. Remove any content that could be offensive.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Delete Comments | Click delete comments button | Confirm deletion on Modal | Works as expected |
+| Delete Review | Click delete review button | Confirm deletion on Modal | Works as expected |
+
+<details><summary>Delete Comments</summary>
+<img src="documentation/user-stories/delete-comments.gif">
+</details>
+<details><summary>Delete Any Review</summary>
+<img src="documentation/user-stories/delete-any-review.gif">
+</details>
+<br>
+
+12. Ensure defensive programming to avoid deletions by mistake
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Delete Anything | Click delete button | Modal pops up to comfirm correct content to delete | Works as expected |
+
+<details><summary>Delete Profile</summary>
+<img src="documentation/user-stories/delete-profile.gif">
+</details>
+<br>
+
+13. Ensure defensive progamming so a logged out user or non-Admin can't access restricted areas of the webiste.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Log Out | Enter URL of restricted access | returned to home page | Works as expected |
+
+<details><summary>Return Restricted user</summary>
+<img src="documentation/user-stories/return-restricted.gif">
+</details>
+<br>
+
 `Site Owner` 
-| Defensive Programming (user in session) | When user logged out any page only for liged in access will automatically redirect to the logged outhome page | Attempt to enter pages for logged In Access Only | Redirected to home page | Pass |
-| Defensive Prgramming (deletion) | Before any deletion a modal pops up confirming the user wishes to delete | Attempt to delete Organisation, Profile & Review | Defensive modal pops up | Pass |
-| Error Page | Button redirects the user to the home page | Clicked button | Redirected to home page | Pass |
+
+14. Automatically return a logged out user to the logged out home page.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Log Out | User logs out | Returned to home page | Works as expected |
+
+<details><summary>Log out</summary>
+<img src="documentation/user-stories/logout.gif">
+</details>
+<br>
+
+15. Relevant error page displayed should an invalid command or error occur.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Error Page | Enter invalid url | Error page displayed | Works as expected |
+
+<details><summary>Error Page</summary>
+<img src="documentation/user-stories/error.gif">
+</details>
+<br>
+
+16. I want the user to be able to contact me shold they have any questions.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Contact Form | Fill out form and send | email is sent to site owners email account | Works as expected |
+
+<details><summary>Contact Form</summary>
+<img src="documentation/user-stories/contact.gif">
+</details>
+<br>
 _ _ _
 
 ## __Bugs__

@@ -95,7 +95,7 @@ As a returning registered user of the site I want to be able to:
 
 As an administrator for the site I want to be able to:
 
-10. Add, edit or remove organisations.
+10. Add, edit or delete organisations.
 11. Remove any content that could be offensive.
 12. Ensure defensive programming to avoid deletions by mistake
 13. Ensure defensive programming so a logged out user can't access areas of the website only accessible via log in.
