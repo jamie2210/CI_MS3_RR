@@ -352,8 +352,10 @@ There are 14 pages which extend from a base template;
 
 ### Admin User Specifics
 - Can delete or update any review that is offensive
-- Can hide any comments that are offensive
+- Can delete any comments that are offensive
 - User stories covered: 11 
+
+![Delete/Edit](documentation/images/features/delete-comments.png)
 
 ### Future Implementations
 
