@@ -75,15 +75,14 @@
                             <button onClick="deleteReviewModal('{{ rave._id }}')" class="btn" aria-label="Delete review">Delete Review</button>
                             {% endif %}
                             {% if session.user|lower == 'admin' %}
-                            <!-- <button class="btn" onClick="handleComments('{{ rave.comment_id }}')">Comments On/Off</button> -->
-                            <a href="{{ url_for('raves.delete_comment', rave_id=rave._id) }}" class="btn">Delete Comments</a>
+                            <button onClick="deleteCommentsModal('{{ rave._id }}')" class="btn" aria-label="Delete comments">Delete Comments</button>
                             {% endif %}
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
-        <!-- Delete Modal -->
+        <!-- Delete Review Modal -->
         <div class="modal-background" id="modal-background-{{ rave._id }}">
             <div class="row">
                 <div class="center-align review-modal" id="rave-modal-{{ rave._id }}">
@@ -96,6 +95,24 @@
                         <div class="modal-body">
                             <button onClick="closeRaveModal('{{ rave._id }}')" class="btn">Cancel</button>
                             <a href="{{ url_for('raves.delete_rave', rave_id=rave._id) }}" class="btn">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Delete Comments Modal -->
+        <div class="modal-background" id="comments-background-{{ rave._id }}">
+            <div class="row">
+                <div class="center-align review-modal" id="comments-modal-{{ rave._id }}">
+                    <div class="col-12">
+                        <header class="modal-header">
+                            <h2>
+                                Are you sure you want to delete the {{rave.rave_name }} comments!?
+                            </h2>
+                        </header>
+                        <div class="modal-body">
+                            <button onClick="closeCommentsModal('{{ rave._id }}')" class="btn">Cancel</button>
+                            <a href="{{ url_for('raves.delete_comment', rave_id=rave._id) }}" class="btn">Delete Comments</a>
                         </div>
                     </div>
                 </div>
