@@ -326,13 +326,13 @@ def delete_comment(rave_id):
     This function deletes comments from a rave review
     """
     try:
-        # finds the rave name before deleting it
+        # finds the rave name the comments are assocaited to
         rave = mongo.db.raves.find_one({"_id": ObjectId(rave_id)})
         rave_name = rave['rave_name']
         # Delete all associated comments
         mongo.db.comments.delete_many({"comment_id": ObjectId(rave_id)})
         # f string adds rave name to the flash message once deleted
-        flash("Comments are Gone!")
+        flash(f"Comments for {rave_name} are Gone!")
     except Exception as e:
         flash("An exception occurred while deleting the review" + str(e))
     return redirect(url_for("raves.get_raves"))
