@@ -165,10 +165,12 @@ body {
 
 .password-alert, .alert, 
 .tick-icon, .youtube-correct, 
-.youtube-incorrect {
+.youtube-incorrect, .image-correct,
+.image-incorrect {
     font-size: medium;
     padding-top: 20px;
     display: none;
+    color: white;
 }
 
 .error-icon {

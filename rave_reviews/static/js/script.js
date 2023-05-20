@@ -148,22 +148,25 @@ function sendMail(contactForm) {
 }
 
 /**
- * Password match function to ensure users passwords match
- * Alerts used to display when passowrds do or don't match
- * Register button disabled until passwords match
+ * Set variables
  */
 
 const password = document.querySelector("#password");
 const confirmPassword = document.querySelector("#confirm-password");
 const faveSet = document.querySelector("#fave_set");
 const raveSet = document.querySelector("#rave_set");
+const profileImage = document.querySelector("#profile_image");
+const raveImage = document.querySelector("#rave_image");
 const passwordAlert = document.querySelector(".password-alert");
 const youtubeCorrect = document.querySelector(".youtube-correct");
 const youtubeIncorrect = document.querySelector(".youtube-incorrect");
+const imageCorrect = document.querySelector(".image-correct");
+const imageIncorrect = document.querySelector(".image-incorrect");
 const errorAlert = document.querySelector(".alert");
 const passwordTick = document.querySelector(".tick-icon");
 const submitBtn = document.querySelector(".submit-btn");
 const youtubeLink = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+const imageType = /\.(png|jpeg|jpg)$/i;
 
 /**
  * Checks if password is present to avoid listening on all pages and causing an error
@@ -263,7 +266,29 @@ function checkRaveSet() {
     }
 }
 
-
+/**
+ * Checks if RaveSet is present to avoid listening on all pages and causing an error
+ */
+if (profileImage !== null) {
+    profileImage.addEventListener("input", checkprofileImage);
+  }
+/**
+* If If input field is a empty nothing is displayed
+* If url is a valid youtube link Correct alert displayed
+* If url is not valid incorrect alert displayed
+*/
+function checkprofileImage() {
+    if (profileImage.value === "") {
+        imageCorrect.style.display = "none";
+        imageIncorrect.style.display = "none";
+    } else if (imageType.test(profileImage.value)) {
+        imageCorrect.style.display = "block";
+        imageIncorrect.style.display = "none";
+    } else {
+        imageCorrect.style.display = "none";
+        imageIncorrect.style.display = "block";
+    }
+}
 
 /* exported 
 reviewModal,
