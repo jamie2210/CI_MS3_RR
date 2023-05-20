@@ -305,8 +305,9 @@ body {
     padding-right: 0;
 }
 
-.collapsible-header h4 {
+.collapsible-header h2 {
     text-align: left;
+    font-size: xx-large;
 }
 
 .fa-hand-point-down {
@@ -622,5 +623,8 @@ body {
 
     .error-container .title {
         font-size: 50px;
+    }
+    .collapsible-header h2 {
+        font-size: x-large;
     }
 }
