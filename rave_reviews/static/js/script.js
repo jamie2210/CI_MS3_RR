@@ -90,6 +90,20 @@ function closeRaveModal(rave_id) {
     modalBackground.style.display = "none";
 }
 
+function deleteCommentsModal(rave_id) {
+    const modal = document.querySelector(`#comments-modal-${rave_id}`);
+    const modalBackground = document.querySelector(`#comments-background-${rave_id}`);
+    modal.style.display = "block";
+    modalBackground.style.display = "block";
+}
+
+function closeCommentsModal(rave_id) {
+    const modal = document.querySelector(`#comments-modal-${rave_id}`);
+    const modalBackground = document.querySelector(`#comments-background-${rave_id}`);
+    modal.style.display = "none";
+    modalBackground.style.display = "none";
+}
+
 function deleteOrganisationModal(organisation_id) {
     const modal = document.querySelector(`#organisation-modal-${organisation_id}`);
     const modalBackground = document.querySelector(`#modal-background-${organisation_id}`);
@@ -117,29 +131,6 @@ function closeUserModal(user_id) {
     modal.style.display = "none";
     modalBackground.style.display = "none";
 }
-
-/**
- * Remove Comments Function
- */
-function handleComments(comment_id) {
-    const comments = document.querySelectorAll(`#comments-${comment_id}`);
-    const commentSection = document.querySelectorAll(`#comment-section-${comment_id}`);
-    for (var i = 0; i < comments.length; i++) {
-        if (comments[i].style.display === 'none') {
-          comments[i].style.display = 'block';
-        } else {
-          comments[i].style.display = 'none';
-        }
-      }
-      
-      for (var j = 0; j < commentSection.length; j++) {
-        if (commentSection[j].style.display === 'none') {
-          commentSection[j].style.display = 'block';
-        } else {
-          commentSection[j].style.display = 'none';
-        }
-      }
-    }
 
 // Updates the copyright year in footer with the current year
 const year = document.querySelector('#current-year');
@@ -338,13 +329,12 @@ function checkRaveImage() {
 }
 
 
-
-
-
 /* exported 
 reviewModal,
 deleteReviewModal,
 closeRaveModal,
+closeCommentsModal,
+deleteCommentsModal,
 deleteOrganisationModal,
 closeOrgModal,
 deleteUserModal,
