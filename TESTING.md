@@ -217,7 +217,7 @@ The website was tested on the following browsers:
 | Read | Check all profiles organisations reviews and comments display as expected | Pass |
 | Update | Check edit profile, organisation, review and comment functions work and update information to the database | Pass |
 | Delete | Check delete profile, organisation, review and functions work and delete information to the database | Pass |
-| Delete Comments | Ensure associated comments are deleted when review is deleted | Pass |
+| Delete Comments | Delete comments associated to a specific review | Pass |
 | Pagination | Check pagination works as soon as there are more than 4 reviews | Pass |
 | Search | Search index applies to all text fields apart from date | Pass |
 | Email | Filled out form sends email to developers address | Pass |
@@ -233,14 +233,89 @@ The website was tested on the following browsers:
 
 ### __Testing User Stories__
 
-| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
-| --- | --- | --- | --- | --- |
 `First Time Visitor Goals`
-| Understand what the site is for and how to navigate through site. | Logged out landing home page introduuction explains the use of the site | Go to home page as a new user | Explaintion is clear and present | Pass |
-| Register For An Account | User creates an account | Clicks 'Register' links, enters correct details | Account is created | Pass |
-| Find & Read Rave Reviews | Once logged in buttons and links will take user to reviews page where all reviews are accessible | Click 'Rave Reviews' buttons or links | Review page and all reviews are loaded | Pass |
-| Create Rave Review | User can fill out the form and create a review | Click 'Leave Review' link or button | Form is present, once all necessary fields are fillled out, review is created | Pass |
+
+1. Understand what the site is for and how to navigate through site.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Introduction Banner | Logged out landing home page | Introduction explains the use of the site | Works as expected |
+
+<details><summary>Logged Out Home Page</summary>
+<img src="documentation/images/features/logged-out-home.png">
+</details>
+<br>
+
+2. Register for an account and create a profile.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Register Button / Link | Click button or link | Registration form page | Works as expected |
+| Create Profile | Fill out form and create profile | Profile page loaded | Works as expected |
+
+<details><summary>Register Button / Links</summary>
+<img src="documentation/images/features/logged-out-home.png">
+</details>
+<details><summary>Create Profile</summary>
+<img src="documentation/user-stories/create-profile.gif">
+</details>
+<br>
+
+3. find Rave Reviews.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Rave Reviews Button / Link | Click button or link | Rave Reviews page | Works as expected |
+
+<details><summary>Find Reviews</summary>
+<img src="documentation/user-stories/find-reviews.gif">
+</details>
+<br>
+
+4. Create a rave review.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Leave Reviews Button / Link | Click button or link | Reivew form page uplaoded, fill out form, 'add review' | Works as expected |
+
+<details><summary>Find Review Form</summary>
+<img src="documentation/user-stories/find-review-form.gif">
+</details>
+<details><summary>Add Review</summary>
+<img src="documentation/user-stories/add-review.gif">
+</details>
+<br>
+
 `Returning Visitor Goals`
+
+5. Log in to my account.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Log In | Click button or link | Fill in user name and password | Works as expected |
+
+<details><summary>Log In</summary>
+<img src="documentation/user-stories/login.gif">
+</details>
+<br>
+
+6. Create, edit, delete and view my rave reviews.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Log In | Click button or link | Fill in user name and password | Works as expected |
+
+<details><summary>Add Review</summary>
+<img src="documentation/user-stories/add-review.gif">
+</details>
+<details><summary>Edit Review</summary>
+<img src="documentation/user-stories/edit-review.gif">
+</details>
+<details><summary>Delete Review</summary>
+<img src="documentation/user-stories/delete-review.gif">
+</details>
+<br>
+
 __Profile__
 | View Profile | Once logged in user is directed to their profile page | User logs in | Profile page is loaded with all information of the user | Pass |
 | Edit Profile | If user is on their profile page, user can edit their profile | Click 'Edit Profile' button | Edit profile page with information pre-populated on the form | Pass |
