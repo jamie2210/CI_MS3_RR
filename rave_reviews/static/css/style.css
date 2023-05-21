@@ -119,7 +119,8 @@ body {
 }
 
 .page-footer h2 {
-    font-size: x-large;
+    font-family: "PhillySans", sans-serif;
+    font-size: 40px;
 }
 
 .footer-logo {
@@ -632,5 +633,8 @@ body {
     }
     .collapsible-header h2 {
         font-size: x-large;
+    }
+    .page-footer h2 {
+        font-size: 30px;
     }
 }
