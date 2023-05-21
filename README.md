@@ -530,7 +530,7 @@ _ _ _
 *  For the pagination of the reviews these articles were of great help;
 
     https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
-    
+
     https://pythonhosted.org/Flask-paginate/
 
     and these tutorials;<br>
@@ -544,7 +544,7 @@ _ _ _
 
   https://stackoverflow.com/questions/33239308/how-to-get-exception-message-in-python-properly
 
-* For a better understanding on how to check for youtube links in javascript I sued this stack overflow thread;
+* For a better understanding on how to check for youtube links in javascript I used this stack overflow thread;
 
   https://stackoverflow.com/questions/28735459/how-to-validate-youtube-url-in-client-side-in-text-box
 
