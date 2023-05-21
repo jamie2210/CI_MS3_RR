@@ -19,7 +19,7 @@
     * [Testing user stories](#testing-user-stories)
 3. [Bugs](#bugs)
 
-I consistently tested throughout the build of the project with Chrome developer tools, utilising print statements in python and checking for device compatibility at each stage opf the development.
+I consistently tested throughout the build of the project with Chrome developer tools, utilising print statements in python and checking for device compatibility at each stage of the development.
 _ _ _ 
 
 ## __Automated Testing__
@@ -60,7 +60,7 @@ Errors [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Frave-reviews-app
 ### __CSS Validation__
 
 The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website.
-When pasting in my index errors and warnings were flagged all linked to Materialize.
+When pasting in my index errors and warnings flagged were all linked to Materialize.
 
 When validating just my own custom CSS file it passes with no errors with only 1 warning as it could not read the Google Fonts import.
 <details><summary>style.css</summary>
@@ -71,7 +71,7 @@ When validating just my own custom CSS file it passes with no errors with only 1
 
 JSHint JS Validation Service was used to validate the Javascript files. No significant issues were found. Only undefined variables flagged were those used for the emailjs functions.
 
-OnClick buttons were flagged as unused, but /* exported */ feature was used to remove the flags as they are called in the html files.
+OnClick buttons were flagged as unused, but /* exported */ feature was used to remove the flags as they are called in the HTML files.
 
 <details><summary>script.js</summary>
 <img src="documentation/testing/jshint.png">
@@ -105,18 +105,18 @@ OnClick buttons were flagged as unused, but /* exported */ feature was used to r
 
 ### __Accessibility__
 
-To ensure the site is accesible as possible I have taken the following steps;
+To ensure the site is accessible as possible I have taken the following steps;
 
 - Using semantic HTML.
 - Descriptive alt attributes on images.
 - Label functions and links to ensure clarity of the roles of each button, icon or clickable feature.
-- Ensuring that there is a sufficient colour contrast throughout the site (There are contrast flags throughout the WAVE reporting but I am happy with the way the site is represented in these case as a low contrast was my intention and part of the design. I am happy with the visiblility of each flag so have left them as they are and they are all labelled with descriptions.)
+- Ensuring that there is a sufficient colour contrast throughout the site (There are contrast flags throughout the WAVE reporting but I am happy with the way the site is represented in these case as a low contrast was my intention and part of the design. I am happy with the visibility of each flag so have left them as they are and they are all labelled with descriptions.)
 
 [Wave accessibility](#https://wave.webaim.org/) was used to test the websites accessibility
 
-All pass with no errors apart from the forms as the drop down option has no form label which is a Materialize feature and something I can not adjust.
+All pass with no errors apart from the forms as the drop down option has no form label which is a Materialize feature and something I cannot adjust.
 
-Due to the log in WAVE can only access limited links these are sahred for demonstration to how the rest of the sites pages are structured for optimal accessibility.
+Due to the log in WAVE can only access limited links, these are shared for demonstration to how the rest of the sites pages are structured for optimal accessibility.
 
 Logged Out Home [results](https://wave.webaim.org/report#/https://rave-reviews-app.herokuapp.com/)
 
@@ -128,7 +128,7 @@ Errors [Results](https://wave.webaim.org/report#/https://rave-reviews-app.heroku
 
 ### __Performance__
 
-Performance testing was done using lighthouse in chrome developer tools testing the performance, accessibility, best practices and SEO of the website. Some of the scores are lower than I'd like them to be but for most of them, the lower ones especialy, it was from labels or formatting within Materialize I which I could not change so it's not something I'm too worried about.
+Performance testing was done using lighthouse in chrome developer tools testing the performance, accessibility, best practices, and SEO of the website. Some of the scores are lower than I'd like them to be but for most of them, the lower ones especially, it was from labels or formatting within Materialize I which I could not change so it's not something I'm too worried about.
 <br>
 <details><summary>Logged Out Home</summary>
 <img src="documentation/testing/lighthouse/logged-out-home.png">
@@ -212,7 +212,7 @@ The website was tested on the following browsers:
 | --- | --- | --- |
 | Links | Check all links navigate correctly | Pass |
 | Buttons | Check all buttons perform correct action | Pass |
-| Modals | Check all delete options have defenisve modals and modal buttons perform correctly | Pass |
+| Modals | Check all delete options have defensive modals and modal buttons perform correctly | Pass |
 | Create | Check add profile, organisation, review and comment functions work and add information to the database | Pass |
 | Read | Check all profiles organisations reviews and comments display as expected | Pass |
 | Update | Check edit profile, organisation, review and comment functions work and update information to the database | Pass |
@@ -222,13 +222,13 @@ The website was tested on the following browsers:
 | Search | Search index applies to all text fields apart from date | Pass |
 | Email | Filled out form sends email to developers address | Pass |
 | Image Upload | Check invalid file formats are rejected and valid display correctly | Pass |
-| YouTube Link | Check all types of urls are formated within the function and display correctly | Pass |
+| YouTube Link | Check all types of urls are formatted within the function and display correctly | Pass |
 | Non YouTube Link | Check function ignores the url and displays nothing with no errors | Pass |
 | Javascript | All JS alert functions notify the user with the correct information | Pass |
 | Logged Out Users | All logged out users are returned to the logged out home page| Pass|
 | Logged in users | All logged in users are returned to the logged in home page if on a page only for Admin | Pass
-| Admin | Priveleged access to Organisations and CRUD functions across entire site | Pass |
-| User | Can access, edit and delete their porfile and reviews only, leave comments on all reviews |
+| Admin | Privileged access to Organisations and CRUD functions across entire site | Pass |
+| User | Can access, edit and delete their profile and reviews only, leave comments on all reviews |
 | Errors | All error codes covered with return button working | Pass |
 
 ### __Testing User Stories__
@@ -276,7 +276,7 @@ The website was tested on the following browsers:
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| Leave Reviews Button / Link | Click button or link | Reivew form page uplaoded, fill out form, 'add review' | Works as expected |
+| Leave Reviews Button / Link | Click button or link | Review form page uploaded, fill out form, 'add review' | Works as expected |
 
 <details><summary>Find Review Form</summary>
 <img src="documentation/user-stories/find-review-form.gif">
@@ -292,7 +292,7 @@ The website was tested on the following browsers:
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| Log In | Click button or link | Fill in user name and password | Works as expected |
+| Log In | Click button or link | Fill in user-name and password | Works as expected |
 
 <details><summary>Log In</summary>
 <img src="documentation/user-stories/login.gif">
@@ -303,7 +303,7 @@ The website was tested on the following browsers:
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| Leave Review | Click Leave Reivew button or link | Fill in form requirements | Works as expected |
+| Leave Review | Click Leave Review button or link | Fill in form requirements | Works as expected |
 | Edit Review | Click Edit button | Fill in form requirements | Works as expected |
 | Delete Review | Click Delete button | Confirm deletion on modal | Works as expected |
 | View Review | Click My Reviews button | See users reviews | Works as expected |
@@ -373,7 +373,7 @@ The website was tested on the following browsers:
 | Edit Organisation | Click edit organisation button | Fill in required form | Works as expected |
 | Delete Organisation | Click delete organisation button | Confirm deletion on Modal | Works as expected |
 
-<details><summary>Add / Edit / Delete Organistion</summary>
+<details><summary>Add / Edit / Delete Organisation</summary>
 <img src="documentation/user-stories/organisations.gif">
 </details>
 <br>
@@ -397,14 +397,14 @@ The website was tested on the following browsers:
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| Delete Anything | Click delete button | Modal pops up to comfirm correct content to delete | Works as expected |
+| Delete Anything | Click delete button | Modal pops up to confirm correct content to delete | Works as expected |
 
 <details><summary>Delete Profile</summary>
 <img src="documentation/user-stories/delete-profile.gif">
 </details>
 <br>
 
-13. Ensure defensive progamming so a logged out user or non-Admin can't access restricted areas of the webiste.
+13. Ensure defensive programming so a logged-out user or non-Admin can't access restricted areas of the website.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
@@ -417,7 +417,7 @@ The website was tested on the following browsers:
 
 `Site Owner` 
 
-14. Automatically return a logged out user to the logged out home page.
+14. Automatically return a logged-out user to the logged-out home page, or anyone but Admin from restricted pages to the logged-in Home page if logged-in.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
@@ -425,6 +425,9 @@ The website was tested on the following browsers:
 
 <details><summary>Log out</summary>
 <img src="documentation/user-stories/logout.gif">
+</details>
+<details><summary>Restricted Page Return</summary>
+<img src="documentation/user-stories/restricted.gif">
 </details>
 <br>
 
@@ -439,7 +442,7 @@ The website was tested on the following browsers:
 </details>
 <br>
 
-16. I want the user to be able to contact me shold they have any questions.
+16. I want the user to be able to contact me should they have any questions.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
@@ -457,10 +460,11 @@ __1. Image Upload__
 
 It was flagged by a friend that it may be a good feature to remove the necessity of having a profile picture. 
 
-- When attempting to create a profile with the 'required' removed the user is refused with the flash mesaage 'Invalid file format. Please use 'JPG', 'jpeg', 'PNG''
+- When attempting to create a profile with the 'required' removed the user is refused with the flash message 'Invalid file format. Please use 'JPG', 'jpeg', 'PNG''
 - This is set to ensure the images that are uploaded are the correct format to ensure they display properly.
 - Below is the code I have tried to make the register function allow an empty image upload. I got to a point where the flash message would not show if no image was present but instead of registering the account it reset the page. 
 - With more time I'd like to look in to this further to make it work but for now as time is limited I will leave the image field as 'required'.
+- As a work around I added a Jaavscript function to alert the user if the file is a correct format or not. 
 
 ```Python (Register function)
         image_url = upload("profile_image")
@@ -486,10 +490,24 @@ It was flagged by a friend that it may be a good feature to remove the necessity
     if not f:
         return None
 ```
+``` Javascript
+function checkProfileImage() {
+    if (profileImage.value === "") {
+        imageCorrect.style.display = "none";
+        imageIncorrect.style.display = "none";
+    } else if (imageType.test(profileImage.value)) {
+        imageCorrect.style.display = "block";
+        imageIncorrect.style.display = "none";
+    } else {
+        imageCorrect.style.display = "none";
+        imageIncorrect.style.display = "block";
+    }
+}
+```
 
 __2. Search Pagination__
 
-When a search is performed with more than 4 reviews it paginates the same way the review page does. The issue with this is once the next page is clicked the page resets, goes to the next page but the search feidl is removed so all reviews are displayed.
+When a search is performed with more than 4 reviews it paginates the same way the review page does. The issue with this is once the next page is clicked the page resets, goes to the next page but the search field is removed so all reviews are displayed.
 
 The same issues occurs for the 'My Reviews' button.
 
@@ -502,7 +520,7 @@ __3. Password__
 
 When creating the password if it does not match the correct requirements the user is only notified it does not match, rather than alert the user what they must include.
 
- - To fix this I added an alert that is called on by javascript explaining the password must be at least 8 characters long if it is not and allowing all types of characters for the password. Previously it only allowed numbers and letters, this also allows for more secure login access.
+ - To fix this I added an alert that is called on by Javascript explaining the password must be at least 8 characters long if it is not and allowing all types of characters for the password. Previously it only allowed numbers and letters, this also allows for more secure login access.
 
  ```html
     <div class="password-alert">
@@ -520,9 +538,9 @@ When creating the password if it does not match the correct requirements the use
     }
  ``` 
 
-__4. Youtube Upload__ 
+__4. YouTube Upload__ 
 
-A user doesn't need to upload a youtube video, but if text is entered in the youtube feild that isn't a youtube link an error occurs where 404 error page is generated within the YouTube uplaod div.
+A user doesn't need to upload a Youtube video, but if text is entered in the YouTube feild that isn't a YouTube link an error occurs where 404 error page is generated within the YouTube upload div, creating an odd error with a new webpage portal inisde the video area.
 
  - To fix this I had to update the HTML, Javascrpt and Python code to avoid and future issues. 
  - First I added alerts to the input field to let the user know if the supplied link was in the correct format or not.
@@ -554,10 +572,11 @@ A user doesn't need to upload a youtube video, but if text is entered in the you
         }
     }
 ```
- - As the input field isn't required I need a defensive mechanism to ensure an url that was not in the correct format would be ignored and returned as an emtpy string.
- - I also wanted to ensure that should someone upload a youtube video that's already formatted to embed this too would also work.
+ - As the input field isn't required, I need a defensive mechanism to ensure an url that was not in the correct format would be ignored and returned as an empty string.
+ - I also wanted to ensure that should someone upload a YouTube video that's already formatted to embed this too would also work.
 
- - To do this I updated the modify youtube function.
+ - To do this I updated the modify YouTube function.
+
 ``` Python
     def modify_youtube_link(link):
     if "youtube.com" in link or "youtu.be" in link:
@@ -571,41 +590,44 @@ A user doesn't need to upload a youtube video, but if text is entered in the you
 
 __Further Testing__
 
- - When testing on mobile once a user copies a link from the YouTube app it is always in the youtu.be format. It is also sometimes the same from web browsers.
+ - When testing on mobile, once a user copies a link from the YouTube app it is always in the youtu.be format. It is also sometimes the same from web browsers.
  - This stops the function from working correctly as it is only editing a watch?v= format. 
- - To over come the issue I added the following code to the fucntion.
+ - To over come the issue I added the following code to the function.
+
 ```Python
       elif "youtu.be" in link:
         link = link.replace(
             "youtu.be/", "www.youtube.com/embed/")
 ```
  - When testing further on mobiles I found another way to share which creates a differently structured url with "&feature=share" at the end. Other than that it is the same as a "watch?v=? link so I added another command to fix it should that type of url be used.
+
 ```Python
     if "watch?v=" in link:
         link = link.replace("watch?v=", "embed/")
         link = link.replace("&feature=share", "")
 ```
 
- - I am now happy with how it all works and feel it is safe proofed against incorrect url uploads and Youtube link formats.
+ - I am now happy with how it all works and feel it is safe proofed against incorrect url uploads and YouTube link formats.
+ - I still find some Youtube links don't work when uploaded but I think this now down to restrictive settings on the video set by the owner to prevent embedding or sharing on sites.
 
 __5. Iphone Organisation Selection__
 
 When selecting the organisations on some Iphones it would not select the Organisation clicked, but one that is 2 up in the row. 
 
  - I do not know how to fix this issue as it is a Materialize feature and one I don't have access to edit.
- - It was only flagged by one user out of many so I am assuming it doesn't happen all the time or on all devices.
+ - It was only flagged by one user out of many, so I am assuming it doesn't happen all the time or on all devices.
 
 __6. Accordion Issue__
 
  - The Materialize Accordion should close when another opens but it doesn't. I have followed the instructions form the website and added the correct jquery.
- - My assumption is that as I have intergrated cards within my accordion someowehre along the line I have intruded this feature.
- - It's annoying but it doesn't chang ethe way the website is meant to function, with more time I'd like to get it sorted though.
+ - My assumption is that as I have integrated cards within my accordion somewhere along the line I have intruded this feature.
+ - It's annoying but it doesn't change the way the website is meant to function, with more time I'd like to get it sorted though.
 
 __7. Delete Comments__
 
- - It's an importnant feature to me as admin to be able to remove distasteful comments or reviews.
+ - It's an important feature to me as admin to be able to remove distasteful comments or reviews.
  - While testing my user stories I realised I could only remove comments by delete the entire review. This was not ideal.
- - My first attempt was to build a javascript function that could hide all comments,affectively turning them off.
+ - My first attempt was to build a javascript function that could hide all comments, affectively turning them off.
 
 ```javascript
 function handleComments(comment_id) {
@@ -628,9 +650,9 @@ function handleComments(comment_id) {
       }
     }
 ```
- - This code worked until the page refreshed and the orginal settings returned, which prevented from it working properly.
+ - This code worked until the page refreshed and the original settings returned, which prevented from it working properly.
  - It then dawned on me that if use this function then it stops others being able to comment.
- - As a result I built a delete comment function in python
+ - As a result, I built a delete comment function in python
 
 ```python
 def delete_comment(rave_id):
