@@ -4,8 +4,9 @@
 
 [Live webpage](https://rave-reviews-app.herokuapp.com/)
 
-Rave Reivews was created as my third milestone porject for the Code Insitute level 5 Diploma in Web Application Development,
-it has been designed with the focus of creating 'CRUD' functions. 
+This is the website for Rave Reviews was created as my third milestone project for the Code Institute level 5 Diploma in Web Application Development,
+it has been designed with the focus of creating 'CRUD' functionality and it is designed to be responsive and accessible on all devices. Rave Reivews is a site accessed via
+registering an account and it is designed for like-minded Drum and Base enthusiasts to share their experiences and sets of thei favourite raves / club nights and online events.
 
 ## __CONTENTS__
 
@@ -14,7 +15,7 @@ it has been designed with the focus of creating 'CRUD' functions.
   * [User Stories](#user-stories)
 
 2. [Design](#design)
-  * [Colour Scheme](#colour-scheme)
+  * [Appearance & Colour Scheme](#appearance--colour-scheme)
   * [Typography](#typography)
   * [Imagery](#imagery)
   * [Wireframes](#wireframes)
@@ -23,7 +24,6 @@ it has been designed with the focus of creating 'CRUD' functions.
 3. [Features](#features)
   * [Base template Features](#base-template-features)
   * [Main Content Features](#main-content-features)
-  * [Extra Features](#extra-feautres)
 
 4. [Future Implementations](#future-implementations)
 
@@ -31,7 +31,7 @@ it has been designed with the focus of creating 'CRUD' functions.
   * [Languages](#languages)
   * [Databases](#databases)
   * [Frameworks](#frameworks)
-  * [Libraries & Packages](#libraries-&-packages)
+  * [Libraries & Packages](#libraries--packages)
   * [Programs](#programs)
 
 6. [Testing](#testing)
@@ -58,35 +58,35 @@ _ _ _
 
 ### __Project Goals__
 
-The decided to create Rave Reivews based on my love for Drum and Bass as teenager and into my early 20's. Me and my friends are 
-always discussing raves we've been to and the sets from them. Sharing on tunea and sets so I thought it would be great to have a place 
+The decided to create Rave Reviews based on my love for Drum and Bass as teenager and into my early 20's. My friends and I are 
+always discussing raves we've been to and the sets from them. Sharing our favourite tunes and sets so I thought it would be great to have a place 
 all these recordings and memories could be stored.
 
-In a sense this would be like a facebook page but specifally for Drum and Base enthusiasts where they can review raves, 
+In a sense this would be like a Facebook page but specifally for Drum and Base enthusiasts where they can review raves, 
 comment on others and share their favourtie sets.
 
 ### __User Stories__
 
 #### __Target Audience__
 
-Target audience is for anyone with in interest in Drum and Base, while raves are for 18 year olds an over, the age one appreciate the music and experiences 
+Target audience is for anyone with in interest in Drum and Base, while raves are for 18-year-olds an over, the age one appreciate the music and experiences 
 from fellow enthusiasts is any age so it would be restrictive to set a specific target audience. That said, I would imagine it will appeal mostly to those aged 16 - 50 as those are the ages that will have experienced joys of Drum and Bass and the raves most since it's birth in the mid 90's.
 
 #### __First Time Visitor Goals__
 
-As a first time user of the site I want to be able to:
+As a first-time user of the site I want to be able to:
 
 1. Understand what the site is for and how to navigate through site.
 2. Register for an account and create a profile.
-3. Find Rave reviews.
+3. Find rave reviews.
 4. Create a rave review.
 
 #### __Returning Visitor Goals__
 
-As a returning registered user of the site I want to be able to:
+As a returning registered user of the site, I want to be able to:
 
 5. Log in to my account.
-6. Create, edit, delete and view my rave reviews.
+6. Create, edit, delete, and view my rave reviews.
 7. Edit, delete and view my profile.
 8. Search for other rave reviews from other members.
 9. Leave comments for other members to read.
@@ -95,14 +95,14 @@ As a returning registered user of the site I want to be able to:
 
 As an administrator for the site I want to be able to:
 
-10. Add, edit or delete organisations.
+10. Add, edit, or delete organisations.
 11. Remove any content that could be offensive.
 12. Ensure defensive programming to avoid deletions by mistake
-13. Ensure defensive programming so a logged out user can't access areas of the website only accessible via log in.
+13. Ensure defensive programming so a logged-out user can't access areas of the website only accessible via log in.
 
 #### __Site Owner__
 
-14. Automatically return a logged out user to the logged out home page.
+14. Automatically return a logged-out user to the logged out home page, or anyone but Admin from restricted pages, like Organisations.
 15. Relevant error page displayed should an invalid command or error occur.
 16. I want the user to be able to contact me should they have any questions.
 
@@ -112,9 +112,9 @@ As an administrator for the site I want to be able to:
 
 ### __Appearance & Colour Scheme__
 
-My aim is to make the site feel urban / street as Drum and Bass (DnB) is raw music genre with it's roots firmly set in the poorer areas of UK cities.
+My aim is to make the site feel urban / street as Drum and Bass (DnB) is a raw music genre with its roots firmly set in the poorer areas of UK cities.
 I designed my own logo in Illustrator and used oranges against dark grey and black as my colours reflecting the bright energy the music brings and the dark
-and shady venues Dnb raves are held at. The 'DnB' is only used for the home page and I created a brigt electric blue styling for this to emulate the 
+and shady venues Dnb raves are held at. The 'DnB' is only used for the home page, and I created a bright electric blue styling for this to emulate the 
 light shows and lasers you get in a rave.
 
 ![Colour Scheme](documentation/images/colour-palette.png)
@@ -123,7 +123,7 @@ light shows and lasers you get in a rave.
 
 ### __Typography__
 
-To continue the urban theme I chose a graphiti style font called 'PhillySans' and for main written text and a strong and easy-to-read 
+To continue the urban theme, I chose a graffiti style font called 'PhillySans' and for main written text and a strong and easy-to-read 
 sans serif font from the Google Fonts Library called 'Merriweather Sans'.
 
 ![PhillySans](documentation/images/phillysans.png)
@@ -132,8 +132,8 @@ sans serif font from the Google Fonts Library called 'Merriweather Sans'.
 
 ### __Imagery__
 
-As the members of Rave Reviews are able and encouraged to upload their own images have kept the site free from too many images. 
-The times that images are used they are of pictures I taken from raves I've attended.
+As the members of Rave Reviews are able and encouraged to upload their own images I have kept the site free from too many images. 
+The times that images are used they are of pictures I have taken from raves I've attended.
 
 ### __Wireframes__
 
@@ -177,8 +177,8 @@ Wireframes have been designed for mobile, tablet and desktop.
 
 ## __Database__
 
-* The website is a data-centric one with html, css, javascript and the Materialize framework as a frontend.
-* The back end consists of Python and flask, jinja templates with a database of mongoDB open-source document-orientated database.
+* The website is a data-centric one with HTML, CSS, Javascript and the Materialize framework as a frontend.
+* The back end consists of Python and Flask, Jinja templates with a database of MongoDB open-source document-orientated database.
 
 #### __User Journey__
 
@@ -190,7 +190,7 @@ Wireframes have been designed for mobile, tablet and desktop.
 
 #### __Amazon Web Services S3 Bucket__
 
-While mongodb stores the majority of the users' data in the database, images are stored in an Amazon Web services(AWS) S3(storage) bucket. I made this choice for performance purposes and so I could learn how to integrate the site AWS, encouraging me to learn new skills while building the website.
+While Mongodb stores the majority of the users' data in the database, images are stored in an Amazon Web services(AWS) S3(storage) bucket. I made this choice for performance purposes and so I could learn how to integrate the site with AWS, encouraging me to learn new skills while building the website.
 
 ![S3 Bucket](documentation/images/rave_review_bucket.png)
 
@@ -200,15 +200,15 @@ While mongodb stores the majority of the users' data in the database, images are
 
 ### __Base Template Features__
 
-* __Favicon__ - I designed the favicon in Illustrator, the 2 'R's form the logo which is also used as the home link in the left of the Navbar.
+* __Favicon__ - I designed the favicon in Illustrator, the two 'R's form the logo which is also used as the home link in the left of the Navbar.
 
   ![Rave Reviews favicon](documentation/images/features/favicon.png)
 
-* __Navbar__ - The Navbar is displayed on all pages and changes depending on is the sur is logged in or out and if admin when Organisations is visible.
+* __Navbar__ - The Navbar is displayed on all pages and changes depending on whether the user is logged in or out or if admin when Organisations is then visible.
 
   Logged Out Navbar
   - Log In, Register & Home links
-  - User Stories covered: 1, 2 & 5
+  - User Stories covered: 1, 2 & 5, 14
 
   ![Logged Out Navbar](documentation/images/features/logged-out-navbar.png)
 
@@ -225,7 +225,7 @@ While mongodb stores the majority of the users' data in the database, images are
   ![Admin Logged In NavBar](documentation/images/features/admin-logged-in.png)
 
 * __Footer__ 
-- The footer is displayed on all pages and includes social links, my GitHub link to this repository, a link to the contact page, the copyright year and the logo.
+- The footer is displayed on all pages and includes social links, my GitHub link to this repository, a link to the contact page, the copyright year, and the logo.
 - User stories covered: 16
 
   ![Footer](documentation/images/features/footer.png)
@@ -276,15 +276,15 @@ There are 14 pages which extend from a base template;
 ![Register](documentation/images/features/register.png)
 
 ### Profile
-- Features the detials from the registration form
-- Buttons for edit or delete profile and user's reviews with defenisve modal or delete option
+- Features the details from the registration form
+- Buttons for edit or delete profile and user's reviews with defensive modal or delete option
 - User stories covered: 6, 7 & 12
 
 ![Profile](documentation/images/features/profile.png)
 
 ### Edit Profile
 - Same form as registration with selected fields populated with the profile information
-- Iser stories covered: 7
+- User stories covered: 7
 
 ![Edit Profile](documentation/images/features/edit-profile.png)
 
@@ -293,7 +293,7 @@ There are 14 pages which extend from a base template;
 - Button for user's reviews
 - Option to edit user's reviews
 - Leave comments on all reviews
-- Delete option if user's review with defenisve modal
+- Delete option if user's review with defensive modal
 - User stories covered: 6, 8, 9 & 12
 
 ![Rave Reviews](documentation/images/features/rave-reviews.png)
@@ -314,8 +314,8 @@ There are 14 pages which extend from a base template;
 
 ### Organisations
 - Only accessible as 'Admin' user, user redirected to home if not Admin
-- Edit or delete options for all organisations with defenisve modal for delete button
-- User stories covered: 10, 12 & 13
+- Edit or delete options for all organisations with defensive modal for delete button
+- User stories covered: 10, 12 & 13, 14
 
 ![Organisations](documentation/images/features/organisations.png)
 
@@ -338,14 +338,14 @@ There are 14 pages which extend from a base template;
 ![Contact](documentation/images/features/contact.png)
 
 ### Errors
-- Specific error page returned depening on the error
+- Specific error page returned depending on the error
 - User stories covered: 15
 
 ![Errors](documentation/images/features/errors.png)
 
 ### Delete Modals
-- Defenisve programming has been used to avoid accidental deletions
-- Anything with a delete option will have a modal pop up confirming the the delte is intended.
+- Defensive programming has been used to avoid accidental deletions
+- Anything with a delete option will have a modal pop up confirming the delete is intended.
 - User stories covered: 12
 
 ![Delete](documentation/images/features/delete.png)
@@ -361,12 +361,13 @@ There are 14 pages which extend from a base template;
 
 I am content with what was implemented but if I had more time there are a few bonus features I think could be added;
 
-* Add site users with different privelages to avoid using jinja templating and one 'Admin' log in that has superior roles.
+* Add site users with different privileges to avoid using jinja templating and one 'Admin' log in that has a superior role.
 * Add change and reset password functionality to the profile section.
 * Allow users to see other users profiles by clicking on their name under the review.
 * Email verification to enhance user protection when logging in.
-* Extend the css with an scss file allowing a cleaner css file and a more customisable Materialize-based site. I did attempt this and had it the files working on my site but ran out of time to troubleshoot why the Materialize secondary colours were not changing.
-* Delete images from the S3 bucket when profiles or reviews are deleted. Sadly I ha dno time to look in to this but as there is so much space in the bucket I don't see it as a problem. 
+* Extend the css with an scss file allowing a cleaner css file and a more customisable Materialize-based site. I did attempt this and had it the files working on my site but ran out of time to troubleshoot why the Materialize secondary colours were not changing, so I removed it.
+* Delete images from the S3 bucket when profiles or reviews are deleted. Sadly I had no time to look in to this but as there is so much space in the bucket I don't see it as a problem. 
+* On reflection I would not use Materialize, it is too restrictive and doesn't offer any where near as much styling or customisation as Bootstrap.
 
 _ _ _
 
@@ -405,6 +406,7 @@ _ _ _
 - [Tiny PNG](https://tinypng.com/) To compress images for use in the readme.
 - [Visual Studio Code](https://code.visualstudio.com/) - An integrated development environment from Microsoft.
 - [Adobe Suite (Illustrator, Photoshop & InDesign)](https://www.adobe.com/uk/) - Graphic design software.
+- [Giphy](https://giphy.com/) - Video to gif conversion website for user story testing section.
 - [Font Awesome](https://fontawesome.com/search) - The icons used on the site from font awesome.
 - [Diagrams.net](https://app.diagrams.net/) - Flow chart maker used for database models.
 - [W3C validator](https://validator.w3.org/) - HTML validation testing.
@@ -434,6 +436,7 @@ _ _ _
 _ _ _
 
 ## __Deployment__
+
 There are a number of applications that need to be configured to run this application locally or on a cloud based service, for example Heroku
 
 ### Amazon WebServices
@@ -507,7 +510,7 @@ _ _ _
 
 ## __Credits__
 
-* [Materialize](https://materializecss.com/) is used throughout for for CSS styling and some javascript / jquery
+* [Materialize](https://materializecss.com/) is used throughout for CSS styling and some javascript / jquery
 
 * For Help with using AWS S3 buckets and python these were all very useful;
 
@@ -535,7 +538,7 @@ _ _ _
 
 * For the send-email functionality I used some code from the code institute module from the 
 
-* I used this stack overflow page to better undertsand exception handling;
+* I used this stack overflow page to better understand exception handling;
 
   https://stackoverflow.com/questions/33239308/how-to-get-exception-message-in-python-properly
 
@@ -575,4 +578,4 @@ I would like to take the opportunity to thank;
 - Tutor support from Code Institute for their swift response.
 - The slack community of coders for immediate and helpful response.
 - WAES College and my Tutor Michael for their support and help throughout.
-- My friends and family who have created accounts and tested our the site and given valid feedbackl helping me fix bugs I was otherwise unaware of.
+- My friends and family who have created accounts and tested the site and given valid feedback helping me fix bugs I was otherwise unaware of.
