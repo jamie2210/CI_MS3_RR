@@ -102,7 +102,7 @@ As an administrator for the site I want to be able to:
 
 #### __Site Owner__
 
-14. Automatically return a logged-out user to the logged out home page, or anyone but Admin from restricted pages, like Organisations.
+14. Automatically return a logged-out user to the logged-out home page, or anyone but Admin from restricted pages to the logged-in Home page if logged-in.
 15. Relevant error page displayed should an invalid command or error occur.
 16. I want the user to be able to contact me should they have any questions.
 
