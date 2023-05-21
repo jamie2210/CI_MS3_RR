@@ -29,6 +29,10 @@ def register():
     their profile information to mongoDB then
     displays it on the profile page
     """
+    # If the user is logged in, redirect them to home/landing page
+    if 'user' in session:
+        return redirect(url_for("index.logged_in_home"))
+
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -92,6 +96,10 @@ def edit_profile(user_id):
     eidts to mongoDB then displays them on the profile
     page
     """
+    # If the user is not logged in, redirect them to home/landing page
+    if 'user' not in session:
+        return redirect(url_for("index.home"))
+
     if request.method == "POST":
 
         # Check if the file type is an allowed image file type

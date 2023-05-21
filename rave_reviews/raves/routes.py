@@ -252,6 +252,10 @@ def edit_rave(rave_id):
     This function edits a rave review and updates the
     information in mongoDB
     """
+    # If the user is not logged in, redirect them to home/landing page
+    if 'user' not in session:
+        return redirect(url_for("index.home"))
+
     if request.method == "POST":
         try:
             # Check if the file type is an allowed image file type
@@ -344,7 +348,7 @@ def add_comment(rave_id):
     This function adds a comment to the specific
     review (rave_id) it was commented on
     """
-    # check the user is logged in
+    # If the user is not logged in, redirect them to home/landing page
     if 'user' not in session:
         return redirect(url_for("index.home"))
 
