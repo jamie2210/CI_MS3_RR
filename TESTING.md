@@ -14,9 +14,9 @@
     * [Accessibility](#accessibility)
     * [Performance](#performance)
 2. [Manual Testing](#manuel-testing)
-    * [Device testing](#performing-tests-on-various-devices)
-    * [Browser compatibility](#browser-compatibility)
-    * [Testing user stories](#testing-user-stories)
+    * [Device Testing](#device-testing)
+    * [Browser Compatibility](#browser-compatibility)
+    * [Testing User Stories](#testing-user-stories)
 3. [Bugs](#bugs)
 
 I consistently tested throughout the build of the project with Chrome developer tools, utilising print statements in python and checking for device compatibility at each stage of the development.
