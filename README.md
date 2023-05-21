@@ -530,10 +530,12 @@ _ _ _
 *  For the pagination of the reviews these articles were of great help;
 
     https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
+    
     https://pythonhosted.org/Flask-paginate/
 
     and these tutorials;<br>
     https://www.youtube.com/watch?v=CnBYLXA9zXY
+
     https://www.youtube.com/watch?v=PSWf2TjTGNY&t=61s
 
 * For the send-email functionality I used some code from the code institute module from the 
