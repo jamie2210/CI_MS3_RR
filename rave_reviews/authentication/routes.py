@@ -211,6 +211,9 @@ def login():
     This function checks the user exists and successfully logs
     in the user and redirects them to their profile page.
     """
+    # If the user is logged in, redirect them to home/landing page
+    if 'user' in session:
+        return redirect(url_for("index.logged_in_home"))
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
