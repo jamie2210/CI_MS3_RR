@@ -521,9 +521,10 @@ _ _ _
     https://blog.filestack.com/tutorials/upload-files-amazon-s3-bucket-using-python/
 
     https://www.youtube.com/watch?v=QSvw50mMQaQ
+
     https://www.youtube.com/watch?v=7gqvV4tUxmY
 
-*   When adding a password confirmation javascript feature that only enables the register button once both password entries are the same, this tutorial was very helpful;
+*   When adding a password confirmation Javascript feature that only enables the register button once both password entries are the same, this tutorial was very helpful;
 
     https://www.youtube.com/watch?v=n5E_gxkLo6A
 
@@ -533,18 +534,19 @@ _ _ _
 
     https://pythonhosted.org/Flask-paginate/
 
-    and these tutorials;<br>
+    and these tutorials;
+
     https://www.youtube.com/watch?v=CnBYLXA9zXY
 
     https://www.youtube.com/watch?v=PSWf2TjTGNY&t=61s
 
-* For the send-email functionality I used some code from the code institute module from the 
+* For the send-email functionality I used some code from the code institute learning platform.
 
 * I used this stack overflow page to better understand exception handling;
 
   https://stackoverflow.com/questions/33239308/how-to-get-exception-message-in-python-properly
 
-* For a better understanding on how to check for youtube links in javascript I used this stack overflow thread;
+* For a better understanding on how to check for YouTube links in javascript I used this stack overflow thread;
 
   https://stackoverflow.com/questions/28735459/how-to-validate-youtube-url-in-client-side-in-text-box
 
