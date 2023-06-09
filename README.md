@@ -4,9 +4,7 @@
 
 [Live webpage](https://rave-reviews-app.herokuapp.com/)
 
-This is the website for Rave Reviews was created as my third milestone project for the Code Institute level 5 Diploma in Web Application Development,
-it has been designed with the focus of creating 'CRUD' functionality and it is designed to be responsive and accessible on all devices. Rave Reivews is a site accessed via
-registering an account and it is designed for like-minded Drum and Base enthusiasts to share their experiences and sets of thei favourite raves / club nights and online events.
+This is the website for Rave Reviews. It is my third milestone project for the Code Institute Level 5 Diploma in Web Application Development. It has been designed with the focus of creating 'CRUD' functionality and to be responsive and accessible on all devices. Rave Reviews is a site accessed via registering an account and it was created for like-minded Drum and Base enthusiasts to share their experiences and sets of their favourite raves / club nights and online events.
 
 ## __CONTENTS__
 
