@@ -4,7 +4,7 @@
 
 [Live webpage](https://rave-reviews-app.herokuapp.com/)
 
-This is the website for Rave Reviews. It is my third milestone project for the Code Institute Level 5 Diploma in Web Application Development. It has been designed with the focus of creating 'CRUD' functionality and to be responsive and accessible on all devices. Rave Reviews is a site accessed via registering an account and it was created for like-minded Drum and Bass enthusiasts to share their experiences and sets of their favourite raves / club nights and online events.
+This is the website for Rave Reviews. It is my third milestone project for the Code Institute Level 5 Diploma in Web Application Development. It has been designed with the focus of creating 'CRUD' functionality and to be responsive and accessible on all devices. Rave Reviews is a site accessed via registering an account and it was created for like-minded Drum and Bass enthusiasts to share their experiences and sets of their favourite raves / club nights and online events. The site utilises user authentication ensuring only those with accounts can access the content, leave reviews and comment on the reviews. The authentication also allows admin users to have privileges that access otherwise restricted areas as well as control over the content of the site and the users' reviews, comments, and uploads. Amazon S3 bucket has been used to allow the user to upload images to their profile page and when leaving a rave review.
 
 ## __CONTENTS__
 
