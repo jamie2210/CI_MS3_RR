@@ -65,7 +65,7 @@ comment on others and share their favourite sets.
 
 #### __Target Audience__
 
-Target audience is for anyone with an interest in Drum and Bass. While raves are for 18-year-olds and over, the age one can appreciate the music and experiences from fellow enthusiasts is any age, so it would be restrictive to set a specific target audience. That said, I would imagine it will appeal mostly to those aged 16 - 50 as those are the ages that will have experienced joys of Drum and Bass and the raves most since it's birth in the mid 90's.
+Target audience is for anyone with an interest in Drum and Bass. While raves are for 18-year-olds and over, the age one can appreciate the music and experiences from fellow enthusiasts is any age, so it would be restrictive to set a specific target audience. That said, I would imagine it will appeal mostly to those aged 16 - 50 as those are the ages that will have experienced joys of Drum and Bass and the raves most since its birth in the mid 90's.
 
 #### __First Time Visitor Goals__
 
