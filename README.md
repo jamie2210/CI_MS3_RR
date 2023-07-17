@@ -183,6 +183,56 @@ Wireframes have been designed for mobile, tablet and desktop.
 
 ![Database Schema](documentation/images/schema.png)
 
+#### Mongo DB
+- Mongo DB was used for the project as I knew project 4 would be using PostgreSQL and I am keen to understand both and their differences
+- As Mongo DB is a NoSQL database, it stores data in a flexible, schema-less format using JSON-like documents. This can be advantageous for projects with evolving data schemas or when dealing with unstructured data, like user-generated content and reviews
+- Upon review of both there's no reason why either couldn't be used but where users will have different information in their profiles and reviews Mongo DB's flexibility might also mean it's the more suitable option for this project
+
+- rave_reviews database was created to store site information; it contains four collections described below:
+  1. users - to store registered user information
+  2. organisations - to store rave organisation information added by an admin user
+  3. raves - to store the rave review information added by an admin/regular user
+  4. comments - to store comment information for a review added by an admin/regular user
+
+#### Users
+- The users collection is used to store user information when they register and display it on their profile page
+- The fields stored in the collection are user's username (String), password (String), first_name (String), last_name (String), fave_dj (String), fave_mc (String), fave_venue (String), fave_organisation (String), fave_set (String) with a unique identifier (primary key), "_id"(ObjectId)
+- The user's password is encrypted using a generate_password_hash from a werkzeug.security Python library
+- This allows users to return to the site, log in and access the sites content and features
+- User stories covered: 2, 3, 4, 5, 7
+
+  ![Users](documentation/images/users.png)
+
+#### Organisations
+- The organisations that reviews are added to are added by an admin user and displayed as selectable options when leaving a review
+- The fields stored in the collection are the organisation name (String) with a unique identifier (primary key), "_id"(ObjectId)
+- This allows admin to add, edit or remove organisations from the options panel when adding a review
+- User stories covered: 10
+
+  ![Organisations](documentation/images/organisations.png)
+
+#### Raves
+- Rave Reviews are added by regular and admin users
+- The fields stored in the collection are the organisation_name (String), rave_image (String), rave_name (String), date (String), venue (String), rave_description (String), rave_set (String), banger (String), created_by (String) with a unique identifier (primary key), "_id"(ObjectId)
+- When a user adds a review, it stores the organisation name (from the options in the organisations table) and a created_by (taken from the users table username field of the user who added the review) to create a link between the two collections
+- The rave_name and rave_description have search indexes set up for searching functionality.
+- Once the review is added it is stored in the reviews page allowing users access all review, to search for specific reviews or find their own reviews and edit or delete them
+- Admin can delete any review
+- User stories covered: 4, 6, 8, 11
+
+
+  ![Raves](documentation/images/raves.png)
+
+#### Comments 
+- Comments are added to a review by a regular or admin user
+- The fields stored in the collection are the comment_text (String), comment_created_by (String), commment_id (ObjectId) with a unique identifier (primary key), "_id"(ObjectId)
+- When a user adds a comment, it stores the comment_id as the primary key of the review (taken from the _id in the raves table) and the comment_created_by field as the username of the user (taken from the username in the users table) who added the comment. This creates a link between the two collections and displays the user's name and comment on the correct review
+- Once the comment is left it is displayed under the content of the review, for all users to read
+- Admin can delete any comment
+- User stories covered: 9, 11 
+
+  ![Comments](documentation/images/comments.png)
+
 #### __Amazon Web Services S3 Bucket__
 
 While Mongodb stores the majority of the users' data in the database, images are stored in an Amazon Web services (AWS) S3(storage) bucket. I made this choice for performance purposes and so I could learn how to integrate the site with AWS, encouraging me to learn new skills while building the website.
