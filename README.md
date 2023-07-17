@@ -4,7 +4,7 @@
 
 [Live webpage](https://rave-reviews-app.herokuapp.com/)
 
-This is the website for Rave Reviews. It is my third milestone project for the Code Institute Level 5 Diploma in Web Application Development. It has been designed with the focus of creating 'CRUD' functionality and to be responsive and accessible on all devices. Rave Reviews is a site accessed via registering an account and it was created for like-minded Drum and Base enthusiasts to share their experiences and sets of their favourite raves / club nights and online events.
+This is the website for Rave Reviews. It is my third milestone project for the Code Institute Level 5 Diploma in Web Application Development. It has been designed with the focus of creating 'CRUD' functionality and to be responsive and accessible on all devices. Rave Reviews is a site accessed via registering an account and it was created for like-minded Drum and Bass enthusiasts to share their experiences and sets of their favourite raves / club nights and online events.
 
 ## __CONTENTS__
 
@@ -56,19 +56,16 @@ _ _ _
 
 ### __Project Goals__
 
-The decided to create Rave Reviews based on my love for Drum and Bass as teenager and into my early 20's. My friends and I are 
-always discussing raves we've been to and the sets from them. Sharing our favourite tunes and sets so I thought it would be great to have a place 
-all these recordings and memories could be stored.
+I decided to create Rave Reviews based on my love for Drum and Bass as a teenager and into my early 20's. My friends and I are always discussing raves we've been to and the sets from them. Sharing our favourite tunes and sets so I thought it would be great to have a place all these recordings and memories could be stored.
 
-In a sense this would be like a Facebook page but specifally for Drum and Base enthusiasts where they can review raves, 
-comment on others and share their favourtie sets.
+In a sense this would be like a Facebook page but specifically for Drum and Bass enthusiasts where they can review raves, 
+comment on others and share their favourite sets.
 
 ### __User Stories__
 
 #### __Target Audience__
 
-Target audience is for anyone with in interest in Drum and Base, while raves are for 18-year-olds an over, the age one appreciate the music and experiences 
-from fellow enthusiasts is any age so it would be restrictive to set a specific target audience. That said, I would imagine it will appeal mostly to those aged 16 - 50 as those are the ages that will have experienced joys of Drum and Bass and the raves most since it's birth in the mid 90's.
+Target audience is for anyone with an interest in Drum and Bass. While raves are for 18-year-olds and over, the age one can appreciate the music and experiences from fellow enthusiasts is any age, so it would be restrictive to set a specific target audience. That said, I would imagine it will appeal mostly to those aged 16 - 50 as those are the ages that will have experienced joys of Drum and Bass and the raves most since it's birth in the mid 90's.
 
 #### __First Time Visitor Goals__
 
@@ -121,7 +118,7 @@ light shows and lasers you get in a rave.
 
 ### __Typography__
 
-To continue the urban theme, I chose a graffiti style font called 'PhillySans' and for main written text and a strong and easy-to-read 
+To continue the urban theme, I chose a graffiti style font called 'PhillySans' and for main written text and a strong and easy-to-read.
 sans serif font from the Google Fonts Library called 'Merriweather Sans'.
 
 ![PhillySans](documentation/images/phillysans.png)
@@ -130,7 +127,7 @@ sans serif font from the Google Fonts Library called 'Merriweather Sans'.
 
 ### __Imagery__
 
-As the members of Rave Reviews are able and encouraged to upload their own images I have kept the site free from too many images. 
+As the members of Rave Reviews are able and encouraged to upload their own images, I have kept the site free from too many images. 
 The times that images are used they are of pictures I have taken from raves I've attended.
 
 ### __Wireframes__
@@ -188,7 +185,7 @@ Wireframes have been designed for mobile, tablet and desktop.
 
 #### __Amazon Web Services S3 Bucket__
 
-While Mongodb stores the majority of the users' data in the database, images are stored in an Amazon Web services(AWS) S3(storage) bucket. I made this choice for performance purposes and so I could learn how to integrate the site with AWS, encouraging me to learn new skills while building the website.
+While Mongodb stores the majority of the users' data in the database, images are stored in an Amazon Web services (AWS) S3(storage) bucket. I made this choice for performance purposes and so I could learn how to integrate the site with AWS, encouraging me to learn new skills while building the website.
 
 ![S3 Bucket](documentation/images/rave_review_bucket.png)
 
@@ -364,8 +361,8 @@ I am content with what was implemented but if I had more time there are a few bo
 * Allow users to see other users profiles by clicking on their name under the review.
 * Email verification to enhance user protection when logging in.
 * Extend the css with an scss file allowing a cleaner css file and a more customisable Materialize-based site. I did attempt this and had it the files working on my site but ran out of time to troubleshoot why the Materialize secondary colours were not changing, so I removed it.
-* Delete images from the S3 bucket when profiles or reviews are deleted. Sadly I had no time to look in to this but as there is so much space in the bucket I don't see it as a problem. 
-* On reflection I would not use Materialize, it is too restrictive and doesn't offer any where near as much styling or customisation as Bootstrap.
+* Delete images from the S3 bucket when profiles or reviews are deleted. Sadly, I had no time to look in to this but as there is so much space in the bucket I don't see it as a problem. 
+* On reflection I would not use Materialize, it is too restrictive and doesn't offer anywhere near as much styling or customisation as Bootstrap.
 
 _ _ _
 
@@ -437,7 +434,7 @@ _ _ _
 
 There are a number of applications that need to be configured to run this application locally or on a cloud based service, for example Heroku
 
-### Amazon WebServices
+### Amazon Web Services
 1. Create an account at https://aws.amazon.com
 2. Open the IAM application and create a new user
 3. Set the AmazonS3FullAccess for the user and note the users AWS ACCESS and SECRET keys
